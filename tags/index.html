@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>tags | 小倖的窝</title>
+        <title>标签 | 小倖的窝</title>
         <meta name="author" content="十条倖" />
         <meta name="description" content="欢迎来到小倖的世界" />
         <meta name="keywords" content="" />
@@ -25,6 +25,11 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
 
@@ -40,7 +45,7 @@
             <transition name="fade">
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
-                    <h2>LOADING</h2>
+                    <h2>加载中…</h2>
                     <p>请稍等一下&ensp;小倖马上就来噢。</p>
                     <img src="/images/loading.gif" />
                 </div>
@@ -145,17 +150,6 @@
         
         
         <span>
-            <a href="/tags/post/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                post
-            </a>
-        </span>
-        
-        
-        
-        <span>
             <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="background: #ffa2c4">
                 <span class="icon">
                     <i class="fa-solid fa-tags fa-fw"></i>
@@ -167,7 +161,7 @@
         
         
         <span>
-            <a href="/tags/hexo/" style="background: #00bcd4">
+            <a href="/tags/hexo/" style="background: #03a9f4">
                 <span class="icon">
                     <i class="fa-solid fa-tags fa-fw"></i>
                 </span>
@@ -178,7 +172,7 @@
         
         
         <span>
-            <a href="/tags/github/" style="background: #ff7d73">
+            <a href="/tags/github/" style="background: #00bcd4">
                 <span class="icon">
                     <i class="fa-solid fa-tags fa-fw"></i>
                 </span>

@@ -25,6 +25,11 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
 
@@ -40,7 +45,7 @@
             <transition name="fade">
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
-                    <h2>LOADING</h2>
+                    <h2>加载中…</h2>
                     <p>请稍等一下&ensp;小倖马上就来噢。</p>
                     <img src="/images/loading.gif" />
                 </div>
@@ -145,18 +150,7 @@
         
         
         <span>
-            <a href="/tags/post/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                post
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="background: #00bcd4">
+            <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="background: #00a596">
                 <span class="icon">
                     <i class="fa-solid fa-tags fa-fw"></i>
                 </span>
@@ -167,7 +161,7 @@
         
         
         <span>
-            <a href="/tags/hexo/" style="background: #03a9f4">
+            <a href="/tags/hexo/" style="background: #ff7d73">
                 <span class="icon">
                     <i class="fa-solid fa-tags fa-fw"></i>
                 </span>
@@ -222,7 +216,7 @@
                     
                     <span class="tag">
                         
-                        <a href="/tags/hexo/" style="color: #03a9f4">hexo</a>
+                        <a href="/tags/hexo/" style="color: #ffa2c4">hexo</a>
                     </span>
                     
                     <span class="tag">

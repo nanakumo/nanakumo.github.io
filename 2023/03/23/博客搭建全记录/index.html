@@ -25,6 +25,11 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
 
@@ -44,7 +49,7 @@
             <transition name="fade">
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
-                    <h2>LOADING</h2>
+                    <h2>加载中…</h2>
                     <p>请稍等一下&ensp;小倖马上就来噢。</p>
                     <img src="/images/loading.gif" />
                 </div>
@@ -172,17 +177,17 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="color: #ff7d73">博客</a>
+                <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="color: #ffa2c4">博客</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/hexo/" style="color: #00bcd4">hexo</a>
+                <a href="/tags/hexo/" style="color: #ff7d73">hexo</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/github/" style="color: #03a9f4">github</a>
+                <a href="/tags/github/" style="color: #00a596">github</a>
             </span>
             
         </span>
@@ -204,7 +209,7 @@
 <p><strong>补充：</strong>在网络上，通过GitHub Pages部署Hexo站点的办法大致分成两种。一种是将本地代码Push到远程仓后，在相应Repo的Settings中找到Pages，部署是在那里完成的；另一种是通过<code>hexo d</code>命令来部署。前者小倖一直失败，后者倒是几乎毫无障碍地建成了，遂推荐。  </p>
 <p><del>（为什么小倖一定要一个Hexo的博客呢？还不是因为Hexo Themes有很多很好看的主题嘛。）</del>  </p>
 <p>总之，小倖现在终于能够拥有一个可爱的博客啦，很开心☆*: .｡. o(≧▽≦)o .｡.:*☆☆*: .｡  </p>
-<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="1-初识Hexo"><a href="#1-初识Hexo" class="headerlink" title="1.初识Hexo"></a>1.初识Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>是友邻推荐给小倖的，小倖也经常在各个地方看到，当然最主要是主题很好看啦，遂采用。Hexo对于小倖来说有如下几个优点：</p>
+<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="1-初识Hexo"><a href="#1-初识Hexo" class="headerlink" title="1. 初识Hexo"></a>1. 初识Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>是友邻推荐给小倖的，小倖也经常在各个地方看到，当然最主要是主题很好看啦，遂采用。Hexo对于小倖来说有如下几个优点：</p>
 <ul>
 <li>发布方便<ul>
 <li>只需要在Git Bash中敲几行代码即可部署到Github Pages等平台上。</li>
@@ -220,7 +225,7 @@
 </li>
 </ul>
 <p>总之，Hexo最高！</p>
-<h3 id="2-准备工作：环境布置"><a href="#2-准备工作：环境布置" class="headerlink" title="2.准备工作：环境布置"></a>2.准备工作：环境布置</h3><p>想要将通过Hexo布置站点，首先需要布置<code>Node.js</code>和<code>Git</code>环境。</p>
+<h3 id="2-准备工作：环境布置"><a href="#2-准备工作：环境布置" class="headerlink" title="2. 准备工作：环境布置"></a>2. 准备工作：环境布置</h3><p>想要将通过Hexo布置站点，首先需要布置<code>Node.js</code>和<code>Git</code>环境。</p>
 <p>这一步不难，只要进入各自的官网中下载就可以了。</p>
 <p>Node.js下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download">https://nodejs.org/en/download</a><br>Git下载：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 <p>如何检验自己是否成功安装呢？可在Git Bash中输入如下命令：</p>
@@ -229,7 +234,7 @@ node -v
 npm -v
 </code></pre>
 <p>如果能够出现对应的版本号，则说明安装完成。接下来就可以进入Hexo的安装阶段啦。  </p>
-<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h3><p>这一步也很简单，只需要敲入如下命令：</p>
+<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>这一步也很简单，只需要敲入如下命令：</p>
 <pre><code class="bash">npm install -g hexo-cli        #安装Hexo
 hexo init &lt;文件夹名&gt;            #创建文件夹并初始化
 cd  &lt;文件夹名&gt;                  #进入该文件夹
@@ -243,7 +248,7 @@ hexo g                         #产生静态档案
 hexo s                         #启动服务器
 </code></pre>
 <p>运行完之后，就可以通过<code>http://localhost:4000</code>来查看自己的站点啦。不过这时候只是在本地查看，还没有布置在网络上哦。因此接下来就是——</p>
-<h3 id="4-将Hexo博客部署到Github-Pages上"><a href="#4-将Hexo博客部署到Github-Pages上" class="headerlink" title="4.将Hexo博客部署到Github Pages上"></a>4.将Hexo博客部署到Github Pages上</h3><p>在这一步中，你首先需要拥有一个GitHub账号，然后建一个repo。这一步十分简单，就不多赘述了。建好repo之后，建议设置一个<code>SSH密钥</code>，以便通过SSH<strong>连接</strong>GitHub，而不必总是输入你的用户名和密码。</p>
+<h3 id="4-将Hexo博客部署到Github-Pages上"><a href="#4-将Hexo博客部署到Github-Pages上" class="headerlink" title="4. 将Hexo博客部署到Github Pages上"></a>4. 将Hexo博客部署到Github Pages上</h3><p>在这一步中，你首先需要拥有一个GitHub账号，然后建一个repo。这一步十分简单，就不多赘述了。建好repo之后，建议设置一个<code>SSH密钥</code>，以便通过SSH<strong>连接</strong>GitHub，而不必总是输入你的用户名和密码。</p>
 <p>那么，接下来就试着运行以下代码吧：</p>
 <pre><code class="bash">#首先，让你的笔记本电脑知道你将使用哪个GitHub账户
 git config --global user.name &quot;GitHub账户名&quot;
@@ -266,10 +271,10 @@ ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;
 <p>不过，如果要使用GitHub Pages，仓库名必须与账户名一致，详情见<a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">官方文档</a>。</p>
 </blockquote>
 <p>接下来，就是通过<code>hexo d</code>命令来将Hexo站点部署到GitHub Pages上啦，不过在此之前，需要下载一个<code>deploy tool</code>。请在你的Git Bash输入<code>npm install hexo-deployer-git --save</code>。安装完之后，再键入<code>hexo d</code>。恭喜你，你的站点能被大家访问了。</p>
-<h3 id="5-博客装修"><a href="#5-博客装修" class="headerlink" title="5.博客装修"></a>5.博客装修</h3><h4 id="5-1安装主题文件"><a href="#5-1安装主题文件" class="headerlink" title="5.1安装主题文件"></a>5.1安装主题文件</h4><p>如前文所说，目前这个站点还很简陋，因此就到了最<del>激动人心</del>的时刻——网站装修！请尽情在<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo Themes</a>中寻找一款自己心水的主题吧。</p>
+<h3 id="5-博客装修"><a href="#5-博客装修" class="headerlink" title="5. 博客装修"></a>5. 博客装修</h3><h4 id="5-1-安装主题文件"><a href="#5-1-安装主题文件" class="headerlink" title="5.1 安装主题文件"></a>5.1 安装主题文件</h4><p>如前文所说，目前这个站点还很简陋，因此就到了最<del>激动人心</del>的时刻——网站装修！请尽情在<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo Themes</a>中寻找一款自己心水的主题吧。</p>
 <p>具体的安装方法请详见各自主题文件夹中的<code>README.md</code>文件，一般步骤为：先将主题文件夹克隆至本地仓，然后修改网站配置文件<code>_config.yml</code>中的<code>theme</code>行:<code>theme: your_theme</code>。</p>
-<h4 id="5-2修改具体配置"><a href="#5-2修改具体配置" class="headerlink" title="5.2修改具体配置"></a>5.2修改具体配置</h4><p>如果你想个性化你的网站，请在主题文件中的<code>_config.yml</code>里修改吧。比如为你的网站增添<code>social link</code>，还可以为你的网站添加头像和背景图。</p>
-<h4 id="5-3增加标签、目录等页面"><a href="#5-3增加标签、目录等页面" class="headerlink" title="5.3增加标签、目录等页面"></a>5.3增加标签、目录等页面</h4><p>如果你希望你的文章能够自动归档在对应的页面之下，大多数情况下是需要进行一些设置的。</p>
+<h4 id="5-2-修改具体配置"><a href="#5-2-修改具体配置" class="headerlink" title="5.2 修改具体配置"></a>5.2 修改具体配置</h4><p>如果你想个性化你的网站，请在主题文件中的<code>_config.yml</code>里修改吧。比如为你的网站增添<code>social link</code>，还可以为你的网站添加头像和背景图。</p>
+<h4 id="5-3-增加标签、目录等页面"><a href="#5-3-增加标签、目录等页面" class="headerlink" title="5.3 增加标签、目录等页面"></a>5.3 增加标签、目录等页面</h4><p>如果你希望你的文章能够自动归档在对应的页面之下，大多数情况下是需要进行一些设置的。</p>
 <p>一般而言，你的主题配置文件中应当是包含以下行的：</p>
 <pre><code class="yml">menu:
     Home:
@@ -313,8 +318,53 @@ categories: 今天敲点什么代码呢
 tags: [博客,hexo,github]
 ---
 </code></pre>
-<h4 id="5-4使用-–-more-–来使你的网站更简洁吧"><a href="#5-4使用-–-more-–来使你的网站更简洁吧" class="headerlink" title="5.4使用!– more –来使你的网站更简洁吧"></a>5.4使用!– more –来使你的网站更简洁吧</h4><p>由于很多主题的网页浏览都是直接全文显示的，这种时候会让你的网站显得笨重。那么<code>!-- more --</code>就会将其变得简洁!可以参照这篇博文：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/78c218f9d1e7">https://www.jianshu.com/p/78c218f9d1e7</a></p>
-<blockquote>
+<h4 id="5-4-使用-–-more-–让博客页面更简洁"><a href="#5-4-使用-–-more-–让博客页面更简洁" class="headerlink" title="5.4 使用!– more –让博客页面更简洁"></a>5.4 使用!– more –让博客页面更简洁</h4><p>由于很多主题的网页浏览都是直接全文显示的，这种时候会让你的网站显得笨重。那么<code>!-- more --</code>就会将其变得简洁!可以参照这篇博文：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/78c218f9d1e7">https://www.jianshu.com/p/78c218f9d1e7</a></p>
+<h4 id="5-5-为你的博客开启评论功能吧"><a href="#5-5-为你的博客开启评论功能吧" class="headerlink" title="5.5 为你的博客开启评论功能吧"></a>5.5 为你的博客开启评论功能吧</h4><p>目前的评论的系统有很多，大概有：</p>
+<ul>
+<li>Gitalk</li>
+<li>Giscus</li>
+<li>Waline</li>
+<li>Twikoo</li>
+</ul>
+<p>小倖使用的是<a target="_blank" rel="noopener" href="https://giscus.app/">Giscus</a>。可以直接在官方文档上面设置，不过有一些前提条件和准备工作：</p>
+<ol>
+<li>repo必须是公开的。</li>
+<li>安装<a target="_blank" rel="noopener" href="https://github.com/apps/giscus">giscus app</a>。</li>
+<li>为你的repo<a target="_blank" rel="noopener" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository">启用Discussions功能</a>。</li>
+</ol>
+<p>一步一步跟着<a target="_blank" rel="noopener" href="https://giscus.app/">官方文档</a>来，最后就会到达<code>启用giscus</code>这一步。你将会得到如下字段：</p>
+<pre><code class="yml">src=&quot;https://giscus.app/client.js&quot;
+        data-repo=&quot;[ENTER REPO HERE]&quot;
+        data-repo-id=&quot;[ENTER REPO ID HERE]&quot;
+        data-category=&quot;[ENTER CATEGORY NAME HERE]&quot;
+        data-category-id=&quot;[ENTER CATEGORY ID HERE]&quot;
+        data-mapping=&quot;pathname&quot;
+        data-strict=&quot;0&quot;
+        data-reactions-enabled=&quot;1&quot;
+        data-emit-metadata=&quot;0&quot;
+        data-input-position=&quot;bottom&quot;
+        data-theme=&quot;light&quot;
+        data-lang=&quot;en&quot;
+        crossorigin=&quot;anonymous&quot;
+        async&gt;
+</code></pre>
+<p>然后将其写入你的主题配置文件<code>_config.yml</code>中即可！小倖是这样写的：</p>
+<pre><code class="yml">giscus:
+    enable: true
+    src: https://giscus.app/client.js
+    repo: nanakumo/nanakumo.github.io
+    repoID: 
+    category: 
+    categoryID: 
+    mapping: pathname
+    strict: 0
+    reactionsEnabled: 1
+    emitMetadata: 0
+    inputPosition: bottom
+    theme: cobalt
+    lang: zh-CN    
+</code></pre>
+<h2 id="写在最后的话"><a href="#写在最后的话" class="headerlink" title="写在最后的话"></a>写在最后的话</h2><blockquote>
 <p>至此，你就可以享受你的博客之旅啦。请记住，每次在本地修改完之后，请一定要<code>hexo g &amp;&amp; hexo d</code>噢！</p>
 </blockquote>
 
@@ -322,6 +372,10 @@ tags: [博客,hexo,github]
     
     
     
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
     
     
     
@@ -359,6 +413,23 @@ tags: [博客,hexo,github]
         <script src="/js/main.js"></script>
         
         
+
+<script
+    src="https://giscus.app/client.js"
+    data-repo="nanakumo/nanakumo.github.io"
+    data-repo-id="R_kgDOJNKo9g"
+    data-category="General"
+    data-category-id="DIC_kwDOJNKo9s4CVF1H"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
 
 
 
