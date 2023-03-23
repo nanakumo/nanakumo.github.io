@@ -172,17 +172,17 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="color: #ffa2c4">博客</a>
+                <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="color: #00bcd4">博客</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/hexo/" style="color: #00a596">hexo</a>
+                <a href="/tags/hexo/" style="color: #03a9f4">hexo</a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/github/" style="color: #ff7d73">github</a>
+                <a href="/tags/github/" style="color: #00a596">github</a>
             </span>
             
         </span>
@@ -190,7 +190,7 @@
     </div>
     
     <div class="content" v-pre>
-        <p>2023年3月23日，小倖第一次成功通过GitHub搭好了第一个Hexo博客。兴奋之余，小倖想要将这场历时两天的艰辛记录下来。如您所见，小倖是小白，故这篇**不是技术帖!!!**。<del>（其实是小倖的碎碎念啦）</del></p>
+        <p>2023年3月23日，小倖第一次成功通过GitHub搭好了Hexo的博客。兴奋之余，也想要将这场历时两天的艰辛记录下来。如您所见，小倖是小白，故这篇<strong>不是技术帖!!!。</strong><del>（其实是小倖的碎碎念啦）</del>  </p>
 <p>(叹气.jpg)小倖真是踩了好多坑。因为Vercel（一个开箱即用的网站托管平台）已经没有了Hexo的框架，因此没有办法懒人建站法一键通过Vercel建站了。小倖在网上也找了很多博客搭建方法，尝试过的有：</p>
 <ul>
 <li>Cloudflare Pages</li>
@@ -198,8 +198,42 @@
 <li>Wordpress</li>
 <li>Vercel</li>
 </ul>
-<p>前两个是一直卡在网站发布上（即在本地查看没有问题，但无法在网页中显示）。Wordpress是因为太笨重了遂放弃。小倖倒是通过Vercel建好了<a target="_blank" rel="noopener" href="https://hugo-nanakumo.vercel.app/">一个Hugo的博客</a>，但如前言所说，Vercel现在已经没有Hexo的框架了，因而在搭建Hexo博客上一直失败。<br><del>（为什么小倖一定要一个Hexo的博客呢？还不是因为Hexo Themes很多很好看嘛。）</del></p>
-<p>总之，小倖现在终于能够拥有一个可爱的博客啦，很开心，总之先把搭建博客的过程记录下来吧。</p>
+<p>前两个是一直卡在网站发布上（即在本地查看没有问题，但无法在网页中显示）。Wordpress是因为太笨重了遂放弃。小倖倒是通过Vercel建好了一个<a target="_blank" rel="noopener" href="https://hugo-nanakumo.vercel.app/">Hugo的博客</a>，但如前言所说，Vercel现在已经没有Hexo的框架了，因而在搭建Hexo博客上一直失败。  </p>
+<p><strong>补充：</strong>在网络上，通过GitHub Pages部署Hexo站点大致分成两种。一种是将本地代码Push到远程仓后，在相应Repo的Settings中找到Pages，部署是在那里完成的；另一种是通过<code>hexo d</code>命令来部署。前者小倖一直失败，后者几乎毫无障碍地建成了，遂推荐。  </p>
+<p><del>（为什么小倖一定要一个Hexo的博客呢？还不是因为Hexo Themes有很多很好看的主题嘛。）</del>  </p>
+<p>总之，小倖现在终于能够拥有一个可爱的博客啦，很开心☆*: .｡. o(≧▽≦)o .｡.:*☆☆*: .｡  </p>
+<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="初识Hexo"><a href="#初识Hexo" class="headerlink" title="初识Hexo"></a>初识Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>是友邻推荐给小倖的，小倖也经常在各个地方看到，最主要是主题很好看啦，遂采用。Hexo对于小倖来说有如下几个优点：</p>
+<ul>
+<li>发布方便<ul>
+<li>只需要在Git Bash中敲几行代码即可部署到Github Pages等平台上。</li>
+</ul>
+</li>
+<li>支持 Markdown<ul>
+<li>虽然几乎现在所有的网站平台都支持啦。</li>
+</ul>
+</li>
+<li>海量主题任君挑选<ul>
+<li>这才是最重要的嘛！</li>
+</ul>
+</li>
+</ul>
+<p>总之，Hexo最高！</p>
+<h3 id="环境布置"><a href="#环境布置" class="headerlink" title="环境布置"></a>环境布置</h3><p>想要将通过Hexo布置站点，首先需要布置<code>Node.js</code>和<code>Git</code>环境。</p>
+<p>这一步不难，只要进入各自的官网中下载就可以了。</p>
+<p>Node.js下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download">https://nodejs.org/en/download</a><br>Git下载：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>如何检验自己是否成功安装，可在Git Bash中输入如下命令：</p>
+<pre><code class="bash">git version
+node -v
+npm -v
+</code></pre>
+<p>如果能够出现对应的版本号，则说明安装完成。接下来就可以进入Hexo的安装阶段啦。  </p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>这一步也很简单，只需要在Git Bash中敲入如下命令：</p>
+<pre><code class="bash">npm install -g hexo-cli \#安装Hexo
+hexo init &lt;文件夹名&gt; \#创建文件夹并初始化
+cd  &lt;文件夹名&gt; \#进入该文件夹
+npm install \#导入文件
+</code></pre>
+<p>这样就会得到包含配置文件<code>_config.yml</code>的文件夹啦。</p>
 
     </div>
     
