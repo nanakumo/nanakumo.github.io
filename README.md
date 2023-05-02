@@ -13,7 +13,7 @@
   - 计算机入门
   - 学经济的。研究方向：开发经济学、经济政策
 - `联系方式`：
-  - Matrix：https://matrix.to/#/@nanakumo:sakura.ci
+  - Matrix：https://matrix.to/#/@frrr:nya.one
   - Mail：mailto:frrrsdsuud@duck.com
 
 ### 这里会写些什么
