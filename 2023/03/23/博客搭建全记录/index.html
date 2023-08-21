@@ -17,7 +17,7 @@
 <meta property="og:description" content="2023年3月23日，小倖第一次成功通过GitHub搭好了Hexo的博客。兴奋之余，也想要将这场历时两天的艰辛记录下来。如您所见，小倖是小白，故这篇不是技术帖!!!（其实更像是小倖的碎碎念啦）">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-23T10:11:37.739Z">
-<meta property="article:modified_time" content="2023-03-23T20:08:42.128Z">
+<meta property="article:modified_time" content="2023-08-21T10:49:55.528Z">
 <meta property="article:author" content="十条倖">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="hexo">
@@ -193,7 +193,7 @@
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/%E4%BB%8A%E5%A4%A9%E6%95%B2%E7%82%B9%E4%BB%80%E4%B9%88%E4%BB%A3%E7%A0%81%E5%91%A2/">今天敲点什么代码呢</a>
+	<a class="article-category-link" href="/categories/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%9A%84%E6%B2%A1%E7%9A%84/">一些有的没的</a>
 	</div>
 
 
@@ -238,44 +238,42 @@
 <p>这一步不难，只要进入各自的官网中下载就可以了。</p>
 <p>Node.js下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download">https://nodejs.org/en/download</a><br>Git下载：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 <p>如何检验自己是否成功安装呢？可在Git Bash中输入如下命令：</p>
-<pre><code class="bash">git version
-node -v
-npm -v
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> version
+<span class="token function">node</span> <span class="token parameter variable">-v</span>
+<span class="token function">npm</span> <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>如果能够出现对应的版本号，则说明安装完成。接下来就可以进入Hexo的安装阶段啦。  </p>
 <h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>这一步也很简单，只需要敲入如下命令：</p>
-<pre><code class="bash">npm install -g hexo-cli        #安装Hexo
-hexo init &lt;文件夹名&gt;            #创建文件夹并初始化
-cd  &lt;文件夹名&gt;                  #进入该文件夹
-npm install                    #导入文件
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli        <span class="token comment">#安装Hexo</span>
+hexo init <span class="token operator">&lt;</span>文件夹名<span class="token operator">></span>            <span class="token comment">#创建文件夹并初始化</span>
+<span class="token builtin class-name">cd</span>  <span class="token operator">&lt;</span>文件夹名<span class="token operator">></span>                  <span class="token comment">#进入该文件夹</span>
+<span class="token function">npm</span> <span class="token function">install</span>                    <span class="token comment">#导入文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这样就会得到包含配置文件<code>_config.yml</code>的文件夹啦。你可以在该文件里个性化自己的网站。</p>
 <p>其实这样就算建好了一个很简陋的站，如何查看自己的站到底长什么样子呢？可通过运行以下命令：</p>
-<pre><code class="bash">#注意：都要在根目录下进行
-hexo cl                        #清理缓存
-hexo g                         #产生静态档案
-hexo s                         #启动服务器
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#注意：都要在根目录下进行</span>
+hexo cl                        <span class="token comment">#清理缓存</span>
+hexo g                         <span class="token comment">#产生静态档案</span>
+hexo s                         <span class="token comment">#启动服务器</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>运行完之后，就可以通过<code>http://localhost:4000</code>来查看自己的站点啦。不过这时候只是在本地查看，还没有布置在网络上哦。因此接下来就是——</p>
 <h3 id="4-将Hexo博客部署到Github-Pages上"><a href="#4-将Hexo博客部署到Github-Pages上" class="headerlink" title="4. 将Hexo博客部署到Github Pages上"></a>4. 将Hexo博客部署到Github Pages上</h3><p>在这一步中，你首先需要拥有一个GitHub账号，然后建一个repo。这一步十分简单，就不多赘述了。建好repo之后，建议设置一个<code>SSH密钥</code>，以便通过SSH<strong>连接</strong>GitHub，而不必总是输入你的用户名和密码。</p>
 <p>那么，接下来就试着运行以下代码吧：</p>
-<pre><code class="bash">#首先，让你的笔记本电脑知道你将使用哪个GitHub账户
-git config --global user.name &quot;GitHub账户名&quot;
-git config --global user.email &quot;GitHub注册邮箱&quot;
-#产生一个SSH密钥对
-ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;
-</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#首先，让你的笔记本电脑知道你将使用哪个GitHub账户</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"GitHub账户名"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"GitHub注册邮箱"</span>
+<span class="token comment">#产生一个SSH密钥对</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"GitHub注册邮箱"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>运行过程中，电脑会问你要将SSH密钥保存在哪个文件夹里，紧接着，你就可以在那个文件夹里看到<code>id_rsa.pub</code>这个文件啦。打开它，将内容复制到你的GitHub中。  </p>
 <blockquote>
 <p>具体方法：在GitHub的<code>settings</code>中找到<code>SSH and GPG keys</code>，打开它，然后新建一个SSH Key，将剪切板的内容粘贴进去，就大功告成啦！</p>
 </blockquote>
 <p>在<code>让你的笔记本知道你将使用哪个GitHub账户</code>之后，还需要<code>让你的Hexo站点知道你使用的是哪一个repo</code>。操作方法就是打开网站的配置文件<code>_config.yml</code>，找到<code>deploy</code>行（一般是在最末），将其修改成以下内容：</p>
-<pre><code class="bash">deploy:
-  type: git
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deploy:
+  type: <span class="token function">git</span>
   repo: 你的仓库链接，通常的格式为https://github.com/账户名/仓库名.github.io.git
   branch: master
-  message: &quot;&#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;&quot;
-</code></pre>
+  message: <span class="token string">"&#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>不过，如果要使用GitHub Pages，仓库名必须与账户名一致，详情见<a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">官方文档</a>。</p>
 </blockquote>
@@ -285,48 +283,46 @@ ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;
 <h4 id="5-2-修改具体配置"><a href="#5-2-修改具体配置" class="headerlink" title="5.2 修改具体配置"></a>5.2 修改具体配置</h4><p>如果你想个性化你的网站，请在主题文件中的<code>_config.yml</code>里修改吧。比如为你的网站增添<code>social link</code>，还可以为你的网站添加头像和背景图。</p>
 <h4 id="5-3-增加标签、目录等页面"><a href="#5-3-增加标签、目录等页面" class="headerlink" title="5.3 增加标签、目录等页面"></a>5.3 增加标签、目录等页面</h4><p>如果你希望你的文章能够自动归档在对应的页面之下，大多数情况下是需要进行一些设置的。</p>
 <p>一般而言，你的主题配置文件中应当是包含以下行的：</p>
-<pre><code class="yml">menu:
-    Home:
-        name: house
-        theme: solid
-        link: /
-    About:
-        name: id-card
-        theme: solid
-        link: /about
-    Archives:
-        name: box-archive
-        theme: solid
-        link: /archives
-    Categories:
-        name: bookmark
-        theme: solid
-        link: /categories
-    Tags:
-        name: tags
-        theme: solid
-        link: /tags
-</code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Home</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> house
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /
+    <span class="token key atrule">About</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> id<span class="token punctuation">-</span>card
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /about
+    <span class="token key atrule">Archives</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> box<span class="token punctuation">-</span>archive
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /archives
+    <span class="token key atrule">Categories</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> bookmark
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /categories
+    <span class="token key atrule">Tags</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> tags
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如果有的话，那就没有关系，没有的话，还需要自己添加。</p>
 <p>接下来，就是替你的网站创建对应的页面，具体操作是在Git Bash中敲下：</p>
-<pre><code class="bash">hexo new page tags
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page tags
 hexo new page categories
-hexo new page about
-</code></pre>
+hexo new page about<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>接下来，你就会惊奇地发现，在<code>source</code>文件夹之下，不仅有了对应的文件夹，里面还各自都有<code>index.md</code>文件！请挨个打开它，然后在文件的最后一行填上<code>type: &#39;&#39;</code>。例如，在tags的<code>index.md</code>中应当填入以下内容：</p>
-<pre><code class="bash">---
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">---
 title: tags
-date: 2023-03-23 18:50:30
-type: &#39;tags&#39;
----
-</code></pre>
+date: <span class="token number">2023</span>-03-23 <span class="token number">18</span>:50:30
+type: <span class="token string">'tags'</span>
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>设置好之后，只需要在你的文章中使用<a target="_blank" rel="noopener" href="https://hexo.io/docs/front-matter">Front-matter</a>就好啦。例如：</p>
-<pre><code>---
+<pre class="line-numbers language-none"><code class="language-none">---
 title: 零基础小白的博客搭建全记录（GitHub+Hexo）
 categories: 今天敲点什么代码呢
 tags: [博客,hexo,github]
----
-</code></pre>
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="5-4-使用-–-more-–让博客页面更简洁"><a href="#5-4-使用-–-more-–让博客页面更简洁" class="headerlink" title="5.4 使用!– more –让博客页面更简洁"></a>5.4 使用!– more –让博客页面更简洁</h4><p>由于很多主题的网页浏览都是直接全文显示的，这种时候会让你的网站显得笨重。那么<code>!-- more --</code>就会将其变得简洁!可以参照这篇博文：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/78c218f9d1e7">https://www.jianshu.com/p/78c218f9d1e7</a></p>
 <h4 id="5-5-为你的博客开启评论功能吧"><a href="#5-5-为你的博客开启评论功能吧" class="headerlink" title="5.5 为你的博客开启评论功能吧"></a>5.5 为你的博客开启评论功能吧</h4><p>目前的评论的系统有很多，大概有：</p>
 <ul>
@@ -342,37 +338,37 @@ tags: [博客,hexo,github]
 <li>为你的repo<a target="_blank" rel="noopener" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository">启用Discussions功能</a>。</li>
 </ol>
 <p>一步一步跟着<a target="_blank" rel="noopener" href="https://giscus.app/">官方文档</a>来，最后就会到达<code>启用giscus</code>这一步。你将会得到如下字段：</p>
-<pre><code class="yml">src=&quot;https://giscus.app/client.js&quot;
-        data-repo=&quot;[ENTER REPO HERE]&quot;
-        data-repo-id=&quot;[ENTER REPO ID HERE]&quot;
-        data-category=&quot;[ENTER CATEGORY NAME HERE]&quot;
-        data-category-id=&quot;[ENTER CATEGORY ID HERE]&quot;
-        data-mapping=&quot;pathname&quot;
-        data-strict=&quot;0&quot;
-        data-reactions-enabled=&quot;1&quot;
-        data-emit-metadata=&quot;0&quot;
-        data-input-position=&quot;bottom&quot;
-        data-theme=&quot;light&quot;
-        data-lang=&quot;en&quot;
-        crossorigin=&quot;anonymous&quot;
-        async&gt;
-</code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">src="https<span class="token punctuation">:</span>//giscus.app/client.js"
+        data<span class="token punctuation">-</span>repo="<span class="token punctuation">[</span>ENTER REPO HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>repo<span class="token punctuation">-</span>id="<span class="token punctuation">[</span>ENTER REPO ID HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>category="<span class="token punctuation">[</span>ENTER CATEGORY NAME HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>category<span class="token punctuation">-</span>id="<span class="token punctuation">[</span>ENTER CATEGORY ID HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>mapping="pathname"
+        data<span class="token punctuation">-</span>strict="0"
+        data<span class="token punctuation">-</span>reactions<span class="token punctuation">-</span>enabled="1"
+        data<span class="token punctuation">-</span>emit<span class="token punctuation">-</span>metadata="0"
+        data<span class="token punctuation">-</span>input<span class="token punctuation">-</span>position="bottom"
+        data<span class="token punctuation">-</span>theme="light"
+        data<span class="token punctuation">-</span>lang="en"
+        crossorigin="anonymous"
+        async<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>然后将其写入你的主题配置文件<code>_config.yml</code>中即可！小倖是这样写的：</p>
-<pre><code class="yml">giscus:
-    enable: true
-    src: https://giscus.app/client.js
-    repo: nanakumo/nanakumo.github.io
-    repoID: 
-    category: 
-    categoryID: 
-    mapping: pathname
-    strict: 0
-    reactionsEnabled: 1
-    emitMetadata: 0
-    inputPosition: bottom
-    theme: cobalt
-    lang: zh-CN    
-</code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">giscus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">src</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//giscus.app/client.js
+    <span class="token key atrule">repo</span><span class="token punctuation">:</span> nanakumo/nanakumo.github.io
+    <span class="token key atrule">repoID</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">category</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">categoryID</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">mapping</span><span class="token punctuation">:</span> pathname
+    <span class="token key atrule">strict</span><span class="token punctuation">:</span> <span class="token number">0</span>
+    <span class="token key atrule">reactionsEnabled</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">emitMetadata</span><span class="token punctuation">:</span> <span class="token number">0</span>
+    <span class="token key atrule">inputPosition</span><span class="token punctuation">:</span> bottom
+    <span class="token key atrule">theme</span><span class="token punctuation">:</span> cobalt
+    <span class="token key atrule">lang</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="写在最后的话"><a href="#写在最后的话" class="headerlink" title="写在最后的话"></a>写在最后的话</h2><blockquote>
 <p>至此，你就可以享受你的博客之旅啦。请记住，每次在本地修改完之后，请一定要<code>hexo g &amp;&amp; hexo d</code>噢！</p>
 </blockquote>
