@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>零基础小白的博客搭建全记录（GitHub+Hexo）</title>
+    <url>/2023/03/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>2023年3月23日，小倖第一次成功<a href="https://nanakumo.github.io/">通过GitHub搭好了Hexo的博客</a>。兴奋之余，也想要将这场历时两天的艰辛记录下来。如您所见，小倖是小白，故这篇<strong>不是技术帖!!!</strong><del>（其实更像是小倖的碎碎念啦）</del></p>
+<span id="more"></span>
+
+<p>小倖真是踩了好多坑。因为Vercel（一个开箱即用的网站托管平台）已经没有了Hexo的框架，因此没有办法懒人建站法——一键通过Vercel建站了。小倖在网上也找了很多博客搭建方法，尝试过的有：</p>
+<ul>
+<li>Cloudflare Pages</li>
+<li>Github Pages</li>
+<li>Wordpress</li>
+<li>Vercel</li>
+</ul>
+<p>前两个是一直卡在网站发布上（即在本地查看没有问题，但无法在网页中显示）。Wordpress是因为太笨重了遂放弃。小倖倒是通过Vercel建好了一个<a href="https://hugo-nanakumo.vercel.app/">Hugo的博客</a>，但如前言所说，Vercel现在已经没有Hexo的框架了，因而在搭建Hexo博客上一直失败。</p>
+<p><strong>补充：</strong>在网络上，通过GitHub Pages部署Hexo站点的办法大致分成两种。一种是将本地代码Push到远程仓后，在相应Repo的Settings中找到Pages，部署是在那里完成的；另一种是通过<code>hexo d</code>命令来部署。前者小倖一直失败，后者倒是几乎毫无障碍地建成了，遂推荐。  </p>
+<p><del>（为什么小倖一定要一个Hexo的博客呢？还不是因为Hexo Themes有很多很好看的主题嘛。）</del>  </p>
+<p>总之，小倖现在终于能够拥有一个可爱的博客啦，很开心☆*: .｡. o(≧▽≦)o .｡.:*☆☆*: .｡  </p>
+<h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h3 id="1-初识Hexo"><a href="#1-初识Hexo" class="headerlink" title="1. 初识Hexo"></a>1. 初识Hexo</h3><p><a href="https://hexo.io/">Hexo</a>是友邻推荐给小倖的，小倖也经常在各个地方看到，当然最主要是主题很好看啦，遂采用。Hexo对于小倖来说有如下几个优点：</p>
+<ul>
+<li>发布方便<ul>
+<li>只需要在Git Bash中敲几行代码即可部署到Github Pages等平台上。</li>
+</ul>
+</li>
+<li>支持 Markdown<ul>
+<li>虽然几乎现在所有的平台都支持啦。</li>
+</ul>
+</li>
+<li>海量主题任君挑选<ul>
+<li>这才是最重要的嘛！</li>
+</ul>
+</li>
+</ul>
+<p>总之，Hexo最高！</p>
+<h3 id="2-准备工作：环境布置"><a href="#2-准备工作：环境布置" class="headerlink" title="2. 准备工作：环境布置"></a>2. 准备工作：环境布置</h3><p>想要将通过Hexo布置站点，首先需要布置<code>Node.js</code>和<code>Git</code>环境。</p>
+<p>这一步不难，只要进入各自的官网中下载就可以了。</p>
+<p>Node.js下载：<a href="https://nodejs.org/en/download">https://nodejs.org/en/download</a><br>Git下载：<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>如何检验自己是否成功安装呢？可在Git Bash中输入如下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> version
+<span class="token function">node</span> <span class="token parameter variable">-v</span>
+<span class="token function">npm</span> <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>如果能够出现对应的版本号，则说明安装完成。接下来就可以进入Hexo的安装阶段啦。  </p>
+<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>这一步也很简单，只需要敲入如下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli        <span class="token comment">#安装Hexo</span>
+hexo init <span class="token operator">&lt;</span>文件夹名<span class="token operator">></span>            <span class="token comment">#创建文件夹并初始化</span>
+<span class="token builtin class-name">cd</span>  <span class="token operator">&lt;</span>文件夹名<span class="token operator">></span>                  <span class="token comment">#进入该文件夹</span>
+<span class="token function">npm</span> <span class="token function">install</span>                    <span class="token comment">#导入文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这样就会得到包含配置文件<code>_config.yml</code>的文件夹啦。你可以在该文件里个性化自己的网站。</p>
+<p>其实这样就算建好了一个很简陋的站，如何查看自己的站到底长什么样子呢？可通过运行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#注意：都要在根目录下进行</span>
+hexo cl                        <span class="token comment">#清理缓存</span>
+hexo g                         <span class="token comment">#产生静态档案</span>
+hexo s                         <span class="token comment">#启动服务器</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行完之后，就可以通过<code>http://localhost:4000</code>来查看自己的站点啦。不过这时候只是在本地查看，还没有布置在网络上哦。因此接下来就是——</p>
+<h3 id="4-将Hexo博客部署到Github-Pages上"><a href="#4-将Hexo博客部署到Github-Pages上" class="headerlink" title="4. 将Hexo博客部署到Github Pages上"></a>4. 将Hexo博客部署到Github Pages上</h3><p>在这一步中，你首先需要拥有一个GitHub账号，然后建一个repo。这一步十分简单，就不多赘述了。建好repo之后，建议设置一个<code>SSH密钥</code>，以便通过SSH<strong>连接</strong>GitHub，而不必总是输入你的用户名和密码。</p>
+<p>那么，接下来就试着运行以下代码吧：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#首先，让你的笔记本电脑知道你将使用哪个GitHub账户</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"GitHub账户名"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"GitHub注册邮箱"</span>
+<span class="token comment">#产生一个SSH密钥对</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"GitHub注册邮箱"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行过程中，电脑会问你要将SSH密钥保存在哪个文件夹里，紧接着，你就可以在那个文件夹里看到<code>id_rsa.pub</code>这个文件啦。打开它，将内容复制到你的GitHub中。  </p>
+<blockquote>
+<p>具体方法：在GitHub的<code>settings</code>中找到<code>SSH and GPG keys</code>，打开它，然后新建一个SSH Key，将剪切板的内容粘贴进去，就大功告成啦！</p>
+</blockquote>
+<p>在<code>让你的笔记本知道你将使用哪个GitHub账户</code>之后，还需要<code>让你的Hexo站点知道你使用的是哪一个repo</code>。操作方法就是打开网站的配置文件<code>_config.yml</code>，找到<code>deploy</code>行（一般是在最末），将其修改成以下内容：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deploy:
+  type: <span class="token function">git</span>
+  repo: 你的仓库链接，通常的格式为https://github.com/账户名/仓库名.github.io.git
+  branch: master
+  message: <span class="token string">"&#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>不过，如果要使用GitHub Pages，仓库名必须与账户名一致，详情见<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">官方文档</a>。</p>
+</blockquote>
+<p>接下来，就是通过<code>hexo d</code>命令来将Hexo站点部署到GitHub Pages上啦，不过在此之前，需要下载一个<code>deploy tool</code>。请在你的Git Bash输入<code>npm install hexo-deployer-git --save</code>。安装完之后，再键入<code>hexo d</code>。恭喜你，你的站点能被大家访问了。</p>
+<h3 id="5-博客装修"><a href="#5-博客装修" class="headerlink" title="5. 博客装修"></a>5. 博客装修</h3><h4 id="5-1-安装主题文件"><a href="#5-1-安装主题文件" class="headerlink" title="5.1 安装主题文件"></a>5.1 安装主题文件</h4><p>如前文所说，目前这个站点还很简陋，因此就到了最<del>激动人心</del>的时刻——网站装修！请尽情在<a href="https://hexo.io/themes/">Hexo Themes</a>中寻找一款自己心水的主题吧。</p>
+<p>具体的安装方法请详见各自主题文件夹中的<code>README.md</code>文件，一般步骤为：先将主题文件夹克隆至本地仓，然后修改网站配置文件<code>_config.yml</code>中的<code>theme</code>行:<code>theme: your_theme</code>。</p>
+<h4 id="5-2-修改具体配置"><a href="#5-2-修改具体配置" class="headerlink" title="5.2 修改具体配置"></a>5.2 修改具体配置</h4><p>如果你想个性化你的网站，请在主题文件中的<code>_config.yml</code>里修改吧。比如为你的网站增添<code>social link</code>，还可以为你的网站添加头像和背景图。</p>
+<h4 id="5-3-增加标签、目录等页面"><a href="#5-3-增加标签、目录等页面" class="headerlink" title="5.3 增加标签、目录等页面"></a>5.3 增加标签、目录等页面</h4><p>如果你希望你的文章能够自动归档在对应的页面之下，大多数情况下是需要进行一些设置的。</p>
+<p>一般而言，你的主题配置文件中应当是包含以下行的：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Home</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> house
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /
+    <span class="token key atrule">About</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> id<span class="token punctuation">-</span>card
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /about
+    <span class="token key atrule">Archives</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> box<span class="token punctuation">-</span>archive
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /archives
+    <span class="token key atrule">Categories</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> bookmark
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /categories
+    <span class="token key atrule">Tags</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> tags
+        <span class="token key atrule">theme</span><span class="token punctuation">:</span> solid
+        <span class="token key atrule">link</span><span class="token punctuation">:</span> /tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果有的话，那就没有关系，没有的话，还需要自己添加。</p>
+<p>接下来，就是替你的网站创建对应的页面，具体操作是在Git Bash中敲下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page tags
+hexo new page categories
+hexo new page about<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来，你就会惊奇地发现，在<code>source</code>文件夹之下，不仅有了对应的文件夹，里面还各自都有<code>index.md</code>文件！请挨个打开它，然后在文件的最后一行填上<code>type: &#39;&#39;</code>。例如，在tags的<code>index.md</code>中应当填入以下内容：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">---
+title: tags
+date: <span class="token number">2023</span>-03-23 <span class="token number">18</span>:50:30
+type: <span class="token string">'tags'</span>
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>设置好之后，只需要在你的文章中使用<a href="https://hexo.io/docs/front-matter">Front-matter</a>就好啦。例如：</p>
+<pre class="line-numbers language-none"><code class="language-none">---
+title: 零基础小白的博客搭建全记录（GitHub+Hexo）
+categories: 今天敲点什么代码呢
+tags: [博客,hexo,github]
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-4-使用-–-more-–让博客页面更简洁"><a href="#5-4-使用-–-more-–让博客页面更简洁" class="headerlink" title="5.4 使用!– more –让博客页面更简洁"></a>5.4 使用!– more –让博客页面更简洁</h4><p>由于很多主题的网页浏览都是直接全文显示的，这种时候会让你的网站显得笨重。那么<code>!-- more --</code>就会将其变得简洁!可以参照这篇博文：<a href="https://www.jianshu.com/p/78c218f9d1e7">https://www.jianshu.com/p/78c218f9d1e7</a></p>
+<h4 id="5-5-为你的博客开启评论功能吧"><a href="#5-5-为你的博客开启评论功能吧" class="headerlink" title="5.5 为你的博客开启评论功能吧"></a>5.5 为你的博客开启评论功能吧</h4><p>目前的评论的系统有很多，大概有：</p>
+<ul>
+<li>Gitalk</li>
+<li>Giscus</li>
+<li>Waline</li>
+<li>Twikoo</li>
+</ul>
+<p>小倖使用的是<a href="https://giscus.app/">Giscus</a>。可以直接在官方文档上面设置，不过有一些前提条件和准备工作：</p>
+<ol>
+<li>repo必须是公开的。</li>
+<li>安装<a href="https://github.com/apps/giscus">giscus app</a>。</li>
+<li>为你的repo<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository">启用Discussions功能</a>。</li>
+</ol>
+<p>一步一步跟着<a href="https://giscus.app/">官方文档</a>来，最后就会到达<code>启用giscus</code>这一步。你将会得到如下字段：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">src="https<span class="token punctuation">:</span>//giscus.app/client.js"
+        data<span class="token punctuation">-</span>repo="<span class="token punctuation">[</span>ENTER REPO HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>repo<span class="token punctuation">-</span>id="<span class="token punctuation">[</span>ENTER REPO ID HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>category="<span class="token punctuation">[</span>ENTER CATEGORY NAME HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>category<span class="token punctuation">-</span>id="<span class="token punctuation">[</span>ENTER CATEGORY ID HERE<span class="token punctuation">]</span>"
+        data<span class="token punctuation">-</span>mapping="pathname"
+        data<span class="token punctuation">-</span>strict="0"
+        data<span class="token punctuation">-</span>reactions<span class="token punctuation">-</span>enabled="1"
+        data<span class="token punctuation">-</span>emit<span class="token punctuation">-</span>metadata="0"
+        data<span class="token punctuation">-</span>input<span class="token punctuation">-</span>position="bottom"
+        data<span class="token punctuation">-</span>theme="light"
+        data<span class="token punctuation">-</span>lang="en"
+        crossorigin="anonymous"
+        async<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后将其写入你的主题配置文件<code>_config.yml</code>中即可！小倖是这样写的：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">giscus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">src</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//giscus.app/client.js
+    <span class="token key atrule">repo</span><span class="token punctuation">:</span> nanakumo/nanakumo.github.io
+    <span class="token key atrule">repoID</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">category</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">categoryID</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">mapping</span><span class="token punctuation">:</span> pathname
+    <span class="token key atrule">strict</span><span class="token punctuation">:</span> <span class="token number">0</span>
+    <span class="token key atrule">reactionsEnabled</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token key atrule">emitMetadata</span><span class="token punctuation">:</span> <span class="token number">0</span>
+    <span class="token key atrule">inputPosition</span><span class="token punctuation">:</span> bottom
+    <span class="token key atrule">theme</span><span class="token punctuation">:</span> cobalt
+    <span class="token key atrule">lang</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="写在最后的话"><a href="#写在最后的话" class="headerlink" title="写在最后的话"></a>写在最后的话</h2><blockquote>
+<p>至此，你就可以享受你的博客之旅啦。请记住，每次在本地修改完之后，请一定要<code>hexo g &amp;&amp; hexo d</code>噢！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>一些有的没的</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何用统计软件进行简单的回归分析</title>
+    <url>/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="Python篇"><a href="#Python篇" class="headerlink" title="Python篇"></a>Python篇</h1><h2 id="package的准备"><a href="#package的准备" class="headerlink" title="package的准备"></a>package的准备</h2><ol>
+<li>pandas</li>
+<li>statsmodels</li>
+<li>openpyxl</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><ol>
+<li>要指定好文件的路径</li>
+<li>最好使用<code>names=[&#39;x&#39;,&#39;y&#39;]</code>来指定<strong>说明变量</strong>和<strong>目标变量</strong>。</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+file_pass <span class="token operator">=</span> <span class="token string">r"D:\python\data.xlsx"</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>file_pass<span class="token punctuation">,</span> header<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'cost'</span><span class="token punctuation">,</span> <span class="token string">'sales'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">import</span> statsmodels<span class="token punctuation">.</span>formula<span class="token punctuation">.</span>api <span class="token keyword">as</span> smf
+
+model <span class="token operator">=</span> smf<span class="token punctuation">.</span>ols<span class="token punctuation">(</span><span class="token string">'sales ~ cost'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">)</span>
+result <span class="token operator">=</span> model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>输出结果为：</strong></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">                            OLS Regression Results                            
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+Dep<span class="token punctuation">.</span> Variable<span class="token punctuation">:</span>                  sales   R<span class="token operator">-</span>squared<span class="token punctuation">:</span>                       <span class="token number">1.000</span>
+Model<span class="token punctuation">:</span>                            OLS   Adj<span class="token punctuation">.</span> R<span class="token operator">-</span>squared<span class="token punctuation">:</span>                  <span class="token number">1.000</span>
+Method<span class="token punctuation">:</span>                 Least Squares   F<span class="token operator">-</span>statistic<span class="token punctuation">:</span>                 <span class="token number">1.981e+31</span>
+Date<span class="token punctuation">:</span>                Tue<span class="token punctuation">,</span> <span class="token number">02</span> May <span class="token number">2023</span>   Prob <span class="token punctuation">(</span>F<span class="token operator">-</span>statistic<span class="token punctuation">)</span><span class="token punctuation">:</span>           <span class="token number">2.50e-47</span>
+Time<span class="token punctuation">:</span>                        <span class="token number">14</span><span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">:</span><span class="token number">47</span>   Log<span class="token operator">-</span>Likelihood<span class="token punctuation">:</span>                 <span class="token number">153.61</span>
+No<span class="token punctuation">.</span> Observations<span class="token punctuation">:</span>                   <span class="token number">5</span>   AIC<span class="token punctuation">:</span>                            <span class="token operator">-</span><span class="token number">303.2</span>
+Df Residuals<span class="token punctuation">:</span>                       <span class="token number">3</span>   BIC<span class="token punctuation">:</span>                            <span class="token operator">-</span><span class="token number">304.0</span>
+Df Model<span class="token punctuation">:</span>                           <span class="token number">1</span>                                         
+Covariance Type<span class="token punctuation">:</span>            nonrobust                                         
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+                 coef    std err          t      P<span class="token operator">></span><span class="token operator">|</span>t<span class="token operator">|</span>      <span class="token punctuation">[</span><span class="token number">0.025</span>      <span class="token number">0.975</span><span class="token punctuation">]</span>
+<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>
+Intercept     <span class="token number">10.0000</span>   <span class="token number">1.49e-14</span>   <span class="token number">6.71e+14</span>      <span class="token number">0.000</span>      <span class="token number">10.000</span>      <span class="token number">10.000</span>
+cost           <span class="token number">2.0000</span>   <span class="token number">4.49e-16</span>   <span class="token number">4.45e+15</span>      <span class="token number">0.000</span>       <span class="token number">2.000</span>       <span class="token number">2.000</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+Omnibus<span class="token punctuation">:</span>                          nan   Durbin<span class="token operator">-</span>Watson<span class="token punctuation">:</span>                   <span class="token number">0.667</span>
+Prob<span class="token punctuation">(</span>Omnibus<span class="token punctuation">)</span><span class="token punctuation">:</span>                    nan   Jarque<span class="token operator">-</span>Bera <span class="token punctuation">(</span>JB<span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token number">0.375</span>
+Skew<span class="token punctuation">:</span>                          <span class="token operator">-</span><span class="token number">0.344</span>   Prob<span class="token punctuation">(</span>JB<span class="token punctuation">)</span><span class="token punctuation">:</span>                        <span class="token number">0.829</span>
+Kurtosis<span class="token punctuation">:</span>                       <span class="token number">1.847</span>   Cond<span class="token punctuation">.</span> No<span class="token punctuation">.</span>                         <span class="token number">77.8</span>
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="Stata篇"><a href="#Stata篇" class="headerlink" title="Stata篇"></a>Stata篇</h1><h2 id="简单使用Stata"><a href="#简单使用Stata" class="headerlink" title="简单使用Stata"></a>简单使用Stata</h2><ol>
+<li>Log in</li>
+<li>import data</li>
+<li>save as</li>
+<li>use data</li>
+</ol>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata"><span class="token command keyword">use</span> D<span class="token punctuation">:</span>\python\data_回归分析.dta
+<span class="token command keyword">regress</span> 売上高万円 広告費<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong>使用的数据文件一定是.dta格式，<u>而这个必须要先导入数据后保存再得到。</u></p>
+<p><strong>输出：</strong></p>
+<pre class="line-numbers language-Source" data-language="Source"><div class="caption"><span>|       SS           df       MS      Number of obs   </span></div><code class="language-Source">-------------+----------------------------------   F(1, 3)         &#x3D;         .
+       Model |        4000         1        4000   Prob &gt; F        &#x3D;         .
+    Residual |           0         3           0   R-squared       &#x3D;    1.0000
+-------------+----------------------------------   Adj R-squared   &#x3D;    1.0000
+       Total |        4000         4        1000   Root MSE        &#x3D;         0
+
+------------------------------------------------------------------------------
+  売上高万円 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      広告費 |          2          .        .       .            .           .
+       _cons |         10          .        .       .            .           .
+------------------------------------------------------------------------------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><table>
+<thead>
+<tr>
+<th align="left">cost</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">10</td>
+<td>30</td>
+</tr>
+<tr>
+<td align="left">20</td>
+<td>50</td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td>70</td>
+</tr>
+<tr>
+<td align="left">40</td>
+<td>90</td>
+</tr>
+<tr>
+<td align="left">50</td>
+<td>110</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>经济统计</tag>
+        <tag>Python</tag>
+        <tag>Stata</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Firefish | 菜鸟级别利用docker-compose搭建Fedi实例</title>
+    <url>/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/</url>
+    <content><![CDATA[<ul>
+<li><a href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AF%9D">写在前面的话</a></li>
+<li><a href="#%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B">搭建过程</a></li>
+<li><a href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86nginx">反向代理：Nginx</a></li>
+<li><a href="#%E7%97%9B%E8%8B%A6%E7%9A%84%E6%8E%92%E9%94%99%E4%B9%8B%E8%B7%AF">痛苦的排错之路</a></li>
+</ul>
+<h1 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>2023年，随着X社媒（原Twitter）的全面塌陷，越来越多的网友逃向了Fediverse开源社交平台，其中著名的有Mastodon、Misskey和Pleroma。前阵子，随着<a href="https://joinfirefish.org/">Firefish</a>的<del>横空问世</del>（Misskey的一个fork），博主便也想着搭一个玩玩。博主是计算机零基础的小白<del>（超级白的那种）</del>，靠着广大热心网友先后搭起了一个Misskey实例和一个Pleroma实例，这一次，也多亏了大家的帮忙，磕磕绊绊地终于搭好了Firefish实例。趁着记忆还鲜明，赶紧记录一下搭建过程。</p>
+<span id="more"></span>
+
+<h1 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h1><p>因为是用<a href="https://git.joinfirefish.org/firefish/firefish/-/blob/develop/docs/docker.md">Docker-compose搭建实例</a>，所以默认机器上是有Docker容器的。在此基础上，先在任意目录下新建<code>docker-compose.yml</code>文件。比如:</p>
+<pre class="line-numbers language-none"><code class="language-none">mkdir &#x2F;firefish &amp;&amp; cd &#x2F;firefish
+nano docker-compose.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>然后<a href="https://git.joinfirefish.org/firefish/firefish/-/blob/develop/docker-compose.yml">写入以下</a>：</p>
+<pre class="line-numbers language-version:" data-language="version:"><div class="caption"><span>"3"</span></div><code class="language-version:">
+services:
+  web:
+    image: registry.joinfirefish.org&#x2F;firefish&#x2F;firefish
+    container_name: firefish_web
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+### Uncomment one of the following to use a search engine
+#     - meilisearch
+#     - sonic
+    ports:
+      - &quot;3000:3000&quot;
+    networks:
+      - calcnet
+#     - web
+    environment:
+      NODE_ENV: production
+    volumes:
+      - .&#x2F;files:&#x2F;firefish&#x2F;files
+      - .&#x2F;.config:&#x2F;firefish&#x2F;.config:ro
+
+  redis:
+    restart: unless-stopped
+    image: docker.io&#x2F;redis:7.0-alpine
+    container_name: firefish_redis
+    networks:
+      - calcnet
+    volumes:
+      - .&#x2F;redis:&#x2F;data
+
+  db:
+    restart: unless-stopped
+    image: docker.io&#x2F;postgres:12.2-alpine
+    container_name: firefish_db
+    networks:
+      - calcnet
+    env_file:
+      - .config&#x2F;docker.env
+    volumes:
+      - .&#x2F;db:&#x2F;var&#x2F;lib&#x2F;postgresql&#x2F;data
+
+### Only one of the below should be used.
+### Meilisearch is better overall, but resource-intensive. Sonic is a very light full text search engine.
+
+#  meilisearch:
+#    container_name: meilisearch
+#    image: getmeili&#x2F;meilisearch:v1.1.1
+#    environment:
+#      - MEILI_ENV&#x3D;$&#123;MEILI_ENV:-development&#125;
+#    ports:
+#      - &quot;7700:7700&quot;
+#    networks:
+#      - calcnet
+#    volumes:
+#      - .&#x2F;meili_data:&#x2F;meili_data
+#    restart: unless-stopped
+
+#  sonic:
+#    restart: unless-stopped
+#    image: docker.io&#x2F;valeriansaliou&#x2F;sonic:v1.4.0
+#    networks:
+#      - calcnet
+#    volumes:
+#      - .&#x2F;sonic:&#x2F;var&#x2F;lib&#x2F;sonic&#x2F;store
+#      - .&#x2F;sonic&#x2F;config.cfg:&#x2F;etc&#x2F;sonic.cfg
+
+networks:
+  calcnet:
+  #  web:
+  #    external:
+  #      name: web<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意：<br>如果此前搭建过Misskey的话，那么端口号3000应当是冲突的，这时候需要把<code>web</code>下面的<code>ports</code>改成其他端口，比如<code>4000:4000</code>。</p>
+</blockquote>
+<p>写完<code>docker-compose.yml</code>文件之后，需要在firefish的根目录下新建<code>.config</code>文件夹，在里头装入<a href="https://git.joinfirefish.org/firefish/firefish/-/blob/develop/.config/example.yml">default.yml</a>和<a href="https://git.joinfirefish.org/firefish/firefish/-/blob/develop/.config/docker_example.env">docker.env</a>这两个文件。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>需要重命名：example.yml -&gt; default.yml &amp;&amp; docker_example.env -&gt; docker.env</li>
+<li>修改default.yml的内容：url -&gt; 自己的域名 &amp;&amp; db localhost -&gt; firefish_db &amp;&amp; redis localhost -&gt; redis <del>（备注：localhost一定要修改，博主就是在这里卡了好久QAQ）</del></li>
+<li>（可选）修改default.yml中的port，如果端口有冲突的话。修改db的user和pass，且两个文件一定要match。</li>
+</ol>
+<p>待文件写入完毕之后，便可使容器上线：<code>docker-compose up -d</code></p>
+<h1 id="反向代理：Nginx"><a href="#反向代理：Nginx" class="headerlink" title="反向代理：Nginx"></a>反向代理：Nginx</h1><p>这一部分的话，大概有很多种操作方法，我只写了我使用的一种：利用Certbot获取证书然后用Nginx反向代理。</p>
+<p><u>首先去DNS服务商添加一条指向服务器IP的A记录。</u>然后回到服务器，先切换root用户：<code>sudo -i</code>。因为要使用Certbot和Nginx，所以默认服务器上有这两个东西。</p>
+<p>先<strong>获取证书</strong>，使用指令<code>sudo certbot --nginx</code>来获取证书，然后配置Nginx。博主刚开始使用的是<a href="https://git.joinfirefish.org/firefish/firefish/-/blob/develop/firefish.nginx.conf">firefish的Nginx配置文件</a>，但是没有成功，后来经热心网友建议，使用<a href="https://misskey-hub.net/en/docs/admin/nginx.html">Misskey的配置文件</a>试试，结果就成功了。</p>
+<p>我的配置文件如下：</p>
+<pre class="line-numbers language-none"><code class="language-none"># For WebSocket
+
+map $http_upgrade $connection_upgrade &#123;
+
+    default upgrade;
+
+    &#39;&#39;      close;
+
+&#125;
+
+  
+
+proxy_cache_path &#x2F;tmp&#x2F;nginx_cache_firefish levels&#x3D;1:2 keys_zone&#x3D;cache2:16m max_size&#x3D;1g inactive&#x3D;720m use_temp_path&#x3D;off;
+
+  
+
+server &#123;
+
+    listen 80;
+
+    listen [::]:80;
+
+    server_name 你的域名;
+
+  
+
+    # For SSL domain validation
+
+    root &#x2F;var&#x2F;www&#x2F;html;
+
+    location &#x2F;.well-known&#x2F;acme-challenge&#x2F; &#123; allow all; &#125;
+
+    location &#x2F;.well-known&#x2F;pki-validation&#x2F; &#123; allow all; &#125;
+
+    location &#x2F; &#123; return 301 https:&#x2F;&#x2F;$server_name$request_uri; &#125;
+
+&#125;
+
+  
+
+server &#123;
+
+    listen 443 ssl http2;
+
+    listen [::]:443 ssl http2;
+
+    server_name 你的域名;
+
+  
+
+    ssl_session_timeout 1d;
+
+    ssl_session_cache shared:ssl_session_cache:10m;
+
+    ssl_session_tickets off;
+
+  
+
+    # To use Let&#39;s Encrypt certificate
+
+    ssl_certificate &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;你的域名&#x2F;fullchain.pem; # managed by Certbot
+
+    ssl_certificate_key &#x2F;etc&#x2F;letsencrypt&#x2F;live&#x2F;你的域名&#x2F;privkey.pem; # managed by Certbot
+
+  
+
+    # To use Debian&#x2F;Ubuntu&#39;s self-signed certificate (For testing or before issuing a certificate)
+
+    #ssl_certificate     &#x2F;etc&#x2F;ssl&#x2F;certs&#x2F;ssl-cert-snakeoil.pem;
+
+    #ssl_certificate_key &#x2F;etc&#x2F;ssl&#x2F;private&#x2F;ssl-cert-snakeoil.key;
+
+  
+
+    # SSL protocol settings
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+
+    ssl_prefer_server_ciphers off;
+
+    ssl_stapling on;
+
+    ssl_stapling_verify on;
+
+  
+
+    # Change to your upload limit
+
+    client_max_body_size 80m;
+
+  
+
+    # Proxy to Node
+
+    location &#x2F; &#123;
+
+        proxy_pass http:&#x2F;&#x2F;127.0.0.1:6110;
+
+        proxy_set_header Host $host;
+
+        proxy_http_version 1.1;
+
+        proxy_redirect off;
+
+  
+  
+
+        # For WebSocket
+
+        proxy_set_header Upgrade $http_upgrade;
+
+        proxy_set_header Connection $connection_upgrade;
+
+  
+
+        # Cache settings
+
+        proxy_cache cache2;
+
+        proxy_cache_lock on;
+
+        proxy_cache_use_stale updating;
+
+        proxy_force_ranges on;
+
+        add_header X-Cache $upstream_cache_status;
+
+  
+
+    &#125;
+
+#1location &#x3D;&#x2F;robots.txt &#123;
+
+#2    default_type text&#x2F;html;
+
+#3    add_header Content-Type &quot;text&#x2F;plain; charset&#x3D;UTF-8&quot;;
+
+#4    return 200 &quot;User-agent: *\nDisallow: &#x2F;\n&quot;;
+
+#5&#125;
+
+  
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>注意：</strong></p>
+<ol>
+<li>我修改了缓存地址，否则会和原来Misskey的缓存地址冲突：proxy_cache_path &#x2F;tmp&#x2F;nginx_cache_firefish</li>
+<li>将cache1改为了cache2，共2处。</li>
+<li>端口号要和docker-compose.yml和default.yml的一致。</li>
+<li>需要修改<code>你的域名</code>，共4处。</li>
+</ol>
+<p>获取完证书和配置好Nginx文件之后，试着测试一下：<code>nginx -t</code>,没有问题的话便是重载和重启Nginx：</p>
+<pre class="line-numbers language-none"><code class="language-none">nginx -s reload
+systemctl restart nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>（如果是第一次使用Nginx的话，不是restart而是start）</p>
+<h1 id="痛苦的排错之路"><a href="#痛苦的排错之路" class="headerlink" title="痛苦的排错之路"></a>痛苦的排错之路</h1><p>作为一个小白搭建实例免不了一路红灯<del>（说的就是error呜呜）</del>，总结了一下，出错原因要么是容器里的服务没有跑起来要么就是Nginx搞错了。</p>
+<ul>
+<li>Docker容器</li>
+</ul>
+<ol>
+<li>首先restart一下容器：<code>docker-compose restart</code>，这是解决<code>502 error</code>最好的办法<del>（大佬说的）</del> 。</li>
+<li>然后看看<code>docker ps</code>里面的服务是不是都up了。没有的话可能就是配置错了，回去改改配置，最后<code>docker-compose up -d</code>来更新容器。</li>
+<li>实在不行，就通过<code>docker compose logs web -f --tail 100</code>来查看日志。</li>
+</ol>
+<ul>
+<li>Nginx反代</li>
+</ul>
+<ol>
+<li>如果是<code>502 error</code>的话，如上所说先试试<code>docker-compose restart</code>。</li>
+<li>如果不行或是其他错误，先用<code>nginx -t</code>看看是否成功，没有成功的话可能就是配置文件写错了，注意<strong>端口号</strong>等等。</li>
+<li>test没有问题的话，再看看nginx的status：<code>sudo systemctl status nginx</code>。</li>
+<li>清理缓存，再用<code>service nginx reload</code>重载，然后<code>systemctl restart nginx</code>重启。</li>
+</ol>
+<ul>
+<li>其他<br>可以用<code>curl -v http://localhost:端口号</code>看能不能拉取到信息。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Fediverse</tag>
+        <tag>Firefish</tag>
+        <tag>Dokcer</tag>
+      </tags>
+  </entry>
+</search>
