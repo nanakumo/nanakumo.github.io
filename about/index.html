@@ -1,169 +1,198 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>About | 小倖的窝🍦</title>
-        <meta name="author" content="十条倖" />
-        <meta name="description" content="欢迎来到小倖的世界" />
-        <meta name="keywords" content="" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
-        <link rel="icon" href="https://i.ibb.co/xqFGwhY/8328377-0-final-1.png" />
-        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>About | 小倖的窝🍦</title>
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <!-- keywords -->
+  
 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="欢迎来到十条倖的小窝🍦 姓名：十条倖 年龄： 实际年龄：6000万年 人类年龄：24周岁   经历：原本是一颗名叫β Aquarii的超巨星，因为爱上了恒星Regulus而失去自己的心脏，于是坠入540光年之外的地球。所以小倖现在正在地球上扮演一名正常人类。 时区：UTC+09:00 喜欢的：甜品和猫 在做的： 写小说 计算机入门 学经济的。研究方向：开发经济学、经济政策   联系方式： Mat">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About">
+<meta property="og:url" content="https://nanakumo.github.io/about/index.html">
+<meta property="og:site_name" content="小倖的窝🍦">
+<meta property="og:description" content="欢迎来到十条倖的小窝🍦 姓名：十条倖 年龄： 实际年龄：6000万年 人类年龄：24周岁   经历：原本是一颗名叫β Aquarii的超巨星，因为爱上了恒星Regulus而失去自己的心脏，于是坠入540光年之外的地球。所以小倖现在正在地球上扮演一名正常人类。 时区：UTC+09:00 喜欢的：甜品和猫 在做的： 写小说 计算机入门 学经济的。研究方向：开发经济学、经济政策   联系方式： Mat">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-23T09:51:22.000Z">
+<meta property="article:modified_time" content="2023-03-23T20:20:21.415Z">
+<meta property="article:author" content="十条倖">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="https://i.ibb.co/xqFGwhY/8328377-0-final-1.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+  
+  
 
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
 
-<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
-<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
-<script src="/js/lib/math.js"></script>
-
-
-<script src="/js/lib/preview.js"></script>
-
-
-
-
-
-
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
 
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://i.ibb.co/xqFGwhY/8328377-0-final-1.png" class="js-avatar">
+			
+		</a>
 
-<link rel="stylesheet" href="/css/main.css" />
+		<hgroup>
+			<h1 class="header-author"><a href="/">十条倖</a></h1>
+		</hgroup>
 
-    <meta name="generator" content="Hexo 6.3.0"></head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>加载中…</h2>
-                    <p>请稍等一下&ensp;小倖马上就来噢。</p>
-                    <img src="/images/loading.gif" />
-                </div>
-            </div>
-            </transition>
-            <transition name="into">
-            <div id="main" v-show="!loading">
-                <nav id="menu" ref="menu">
-    <div class="desktop-menu">
-        <a class="title" href="/">
-            <span>小倖的窝🍦</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
+		
+			<p class="header-subtitle"></p>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Dokcer/" style="font-size: 10px;">Dokcer</a> <a href="/tags/Fediverse/" style="font-size: 10px;">Fediverse</a> <a href="/tags/Firefish/" style="font-size: 10px;">Firefish</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Stata/" style="font-size: 10px;">Stata</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E7%BB%8F%E6%B5%8E%E7%BB%9F%E8%AE%A1/" style="font-size: 10px;">经济统计</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.rinkko.moe/">Rinkko</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tusooa.xyz">风儿姐姐</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://shion.me/">诗音</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://byte.otter.homes">Horace Young</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.rikki.moe">Rikki</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">甜品和猫，缺一不可。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
     </div>
-    <div id="mobile-menu">
-        <div class="curtain" v-show="showMenu" @click="showMenu = !showMenu"></div>
-        <div class="title" @click="showMenu = !showMenu">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;小倖的窝🍦</span>
-        </div>
-        <transition name="slide">
-        <div class="items" v-show="showMenu">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-house fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-id-card fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-box-archive fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                </div>
-            </a>
-            
-            <a href="/categories">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-bookmark fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                </div>
-            </a>
-            
-        </div>
-        </transition>
-    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://i.ibb.co/xqFGwhY/8328377-0-final-1.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
 </nav>
-
-                <div class="article">
-    <div>
-        <h1>About</h1>
+      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/about/index.html" class="article-date">
+  	<time datetime="2023-03-23T09:51:22.000Z" itemprop="datePublished">2023-03-23</time>
+</a>
     </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/3/23
-        </span>
-        
-        
-    </div>
+  
+  <div class="article-inner">
     
-    <div class="content" v-pre>
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      About
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h3 id="欢迎来到十条倖的小窝🍦"><a href="#欢迎来到十条倖的小窝🍦" class="headerlink" title="欢迎来到十条倖的小窝🍦"></a>欢迎来到十条倖的小窝🍦</h3><ul>
 <li>姓名：十条倖</li>
 <li>年龄：<ul>
@@ -193,72 +222,79 @@
 </ul>
 <h3 id="最后的话"><a href="#最后的话" class="headerlink" title="最后的话"></a>最后的话</h3><p>感谢你点进来——！ここまでご覧いただき誠にありがとうございます。</p>
 
+      
     </div>
     
+  </div>
+  
     
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
-    </div>
-    
-    
-    
-    
+  
+</article>
+
+
+
+
+
+
 </div>
-
-                <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2023 - 2023 小倖的窝🍦
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;十条倖
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2023 十条倖
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
         </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
     </div>
+  </div>
 </footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
-            </div>
-            </transition>
-            
-            <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-            </transition>
-            
-        </div>
-        <script src="/js/main.js"></script>
-        
-        
 
-<script
-    src="https://giscus.app/client.js"
-    data-repo="nanakumo/nanakumo.github.io"
-    data-repo-id="R_kgDOJNKo9g"
-    data-category="General"
-    data-category-id="DIC_kwDOJNKo9s4CVF1H"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin
-    async
-></script>
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
 
 
 
 
-        
-    </body>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
 </html>
