@@ -3,20 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>小倖的窝🍦</title>
+  <title>Firefish | 菜鸟级别利用docker-compose搭建Fedi实例 | 小倖的窝🍦</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎来到小倖的世界">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小倖的窝🍦">
-<meta property="og:url" content="https://nanakumo.github.io/index.html">
+  <meta name="description" content="写在前面的话 搭建过程 反向代理：Nginx 痛苦的排错之路  写在前面的话2023年，随着X社媒（原Twitter）的全面塌陷，越来越多的网友逃向了Fediverse开源社交平台，其中著名的有Mastodon、Misskey和Pleroma。前阵子，随着Firefish的横空问世（Misskey的一个fork），博主便也想着搭一个玩玩。博主是计算机零基础的小白（超级白的那种），靠着广大热心网友">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Firefish | 菜鸟级别利用docker-compose搭建Fedi实例">
+<meta property="og:url" content="https://nanakumo.github.io/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/index.html">
 <meta property="og:site_name" content="小倖的窝🍦">
-<meta property="og:description" content="欢迎来到小倖的世界">
+<meta property="og:description" content="写在前面的话 搭建过程 反向代理：Nginx 痛苦的排错之路  写在前面的话2023年，随着X社媒（原Twitter）的全面塌陷，越来越多的网友逃向了Fediverse开源社交平台，其中著名的有Mastodon、Misskey和Pleroma。前阵子，随着Firefish的横空问世（Misskey的一个fork），博主便也想着搭一个玩玩。博主是计算机零基础的小白（超级白的那种），靠着广大热心网友">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-24T12:49:19.316Z">
+<meta property="article:modified_time" content="2023-08-24T13:02:26.256Z">
 <meta property="article:author" content="十条倖">
+<meta property="article:tag" content="Fediverse">
+<meta property="article:tag" content="Firefish">
+<meta property="article:tag" content="Dokcer">
 <meta name="twitter:card" content="summary">
   
   
@@ -156,9 +161,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-菜鸟级别利用docker-compose搭建Firefish实例" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-菜鸟级别利用docker-compose搭建Firefish实例" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/" class="article-date">
@@ -174,15 +177,29 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/">
-        Firefish | 菜鸟级别利用docker-compose搭建Fedi实例
-        
-      </a>
+    <h1 class="article-title" itemprop="name">
+      Firefish | 菜鸟级别利用docker-compose搭建Fedi实例
+      
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dokcer/" rel="tag">Dokcer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fediverse/" rel="tag">Fediverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Firefish/" rel="tag">Firefish</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -472,25 +489,19 @@ systemctl restart nginx<span aria-hidden="true" class="line-numbers-rows"><span>
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dokcer/" rel="tag">Dokcer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fediverse/" rel="tag">Fediverse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Firefish/" rel="tag">Firefish</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何用统计软件进行简单的回归分析</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -499,145 +510,6 @@ systemctl restart nginx<span aria-hidden="true" class="line-numbers-rows"><span>
 
 
 
-
-  
-    <article id="post-如何用统计软件进行回归分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="article-date">
-  	<time datetime="2023-05-02T06:38:26.496Z" itemprop="datePublished">2023-05-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
-        如何用统计软件进行简单的回归分析
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Python篇"><a href="#Python篇" class="headerlink" title="Python篇"></a>Python篇</h1><h2 id="package的准备"><a href="#package的准备" class="headerlink" title="package的准备"></a>package的准备</h2><ol>
-<li>pandas</li>
-<li>statsmodels</li>
-<li>openpyxl</li>
-</ol>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stata/" rel="tag">Stata</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%8F%E6%B5%8E%E7%BB%9F%E8%AE%A1/" rel="tag">经济统计</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-        <p class="article-more-link">
-          <a  href="/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/#more">learn more >></a>
-        </p>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-博客搭建全记录" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/03/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/" class="article-date">
-  	<time datetime="2023-03-23T10:11:37.739Z" itemprop="datePublished">2023-03-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/03/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/">
-        零基础小白的博客搭建全记录（GitHub+Hexo）
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2023年3月23日，小倖第一次成功<a href="https://nanakumo.github.io/">通过GitHub搭好了Hexo的博客</a>。兴奋之余，也想要将这场历时两天的艰辛记录下来。如您所见，小倖是小白，故这篇<strong>不是技术帖!!!</strong><del>（其实更像是小倖的碎碎念啦）</del></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%9A%84%E6%B2%A1%E7%9A%84/">一些有的没的</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-        <p class="article-more-link">
-          <a  href="/2023/03/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/#more">learn more >></a>
-        </p>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -663,8 +535,8 @@ systemctl restart nginx<span aria-hidden="true" class="line-numbers-rows"><span>
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
