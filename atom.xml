@@ -2,13 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nanakumo.github.io</id>
     <title>この夏に🎇</title>
-    <subtitle>甜品和猫，夏天和你。</subtitle>
-    <icon>https://nanakumo.github.io/images/favicon.ico</icon>
     <link href="https://nanakumo.github.io" />
-    <author>
-      <name>十条倖</name>
-    </author>
     <updated>2023-08-24T12:49:19.316Z</updated>
+    <category term="博客" />
+    <category term="hexo" />
+    <category term="github" />
+    <category term="经济统计" />
+    <category term="Python" />
+    <category term="Stata" />
+    <category term="Fediverse" />
+    <category term="Firefish" />
+    <category term="Dokcer" />
     <entry>
         <id>https://nanakumo.github.io/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/</id>
         <title>Firefish | 菜鸟级别利用docker-compose搭建Fedi实例</title>
@@ -68,10 +72,9 @@
 可以用 &lt;code&gt;curl -v http://localhost:端口号&lt;/code&gt; 看能不能拉取到信息。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-        <category term="学习笔记" scheme="https://nanakumo.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="Fediverse" scheme="https://nanakumo.github.io/tags/Fediverse/" />
-        <category term="Firefish" scheme="https://nanakumo.github.io/tags/Firefish/" />
-        <category term="Dokcer" scheme="https://nanakumo.github.io/tags/Dokcer/" />
+        <category term="Fediverse" />
+        <category term="Firefish" />
+        <category term="Dokcer" />
         <updated>2023-08-24T12:49:19.316Z</updated>
     </entry>
     <entry>
@@ -148,10 +151,9 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 </content>
-        <category term="学习笔记" scheme="https://nanakumo.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-        <category term="经济统计" scheme="https://nanakumo.github.io/tags/%E7%BB%8F%E6%B5%8E%E7%BB%9F%E8%AE%A1/" />
-        <category term="Python" scheme="https://nanakumo.github.io/tags/Python/" />
-        <category term="Stata" scheme="https://nanakumo.github.io/tags/Stata/" />
+        <category term="经济统计" />
+        <category term="Python" />
+        <category term="Stata" />
         <updated>2023-05-02T06:38:26.496Z</updated>
     </entry>
     <entry>
@@ -258,10 +260,9 @@ tags: [博客,hexo,github]
 &lt;p&gt;至此，你就可以享受你的博客之旅啦。请记住，每次在本地修改完之后，请一定要 &lt;code&gt;hexo g &amp;amp;&amp;amp; hexo d&lt;/code&gt;  噢！&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
-        <category term="一些有的没的" scheme="https://nanakumo.github.io/categories/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%9A%84%E6%B2%A1%E7%9A%84/" />
-        <category term="博客" scheme="https://nanakumo.github.io/tags/%E5%8D%9A%E5%AE%A2/" />
-        <category term="hexo" scheme="https://nanakumo.github.io/tags/hexo/" />
-        <category term="github" scheme="https://nanakumo.github.io/tags/github/" />
+        <category term="博客" />
+        <category term="hexo" />
+        <category term="github" />
         <updated>2023-03-23T10:11:37.739Z</updated>
     </entry>
 </feed>
