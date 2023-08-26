@@ -86,7 +86,7 @@
     <title>Firefish | 菜鸟级别利用docker-compose搭建Fedi实例</title>
     <url>/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/</url>
     <content><![CDATA[<p>2023 年，随着 X 社媒（原 Twitter）的全面塌陷，越来越多的网友逃向了 Fediverse 开源社交平台，其中著名的有 Mastodon、Misskey 和 Pleroma。前阵子，随着<span class="exturl" data-url="aHR0cHM6Ly9qb2luZmlyZWZpc2gub3Jn"> Firefish</span> 的 <s>横空问世</s> （Misskey 的一个 fork），博主便也想着搭一个玩玩。博主是计算机零基础的小白 <s>（超级白的那种）</s> ，靠着广大热心网友先后搭起了一个 Misskey 实例和一个 Pleroma 实例，这一次，也多亏了大家的帮忙，磕磕绊绊地终于搭好了 Firefish 实例。趁着记忆还鲜明，赶紧记录一下搭建过程。</p>
-<span id="more"></span>
+<p><span id="more"></span></p>
 <h1 id="搭建过程"><a class="anchor" href="#搭建过程">#</a> 搭建过程</h1>
 <p>因为是用<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NzL2RvY2tlci5tZA=="> Docker-compose 搭建实例</span>，所以默认机器上是有 Docker 容器的。在此基础上，先在任意目录下新建 <code>docker-compose.yml</code>  文件。比如:</p>
 <figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">mkdir</span> /firefish <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> /firefish</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">nano</span> docker-compose.yml</pre></td></tr></table></figure><p>然后<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NrZXItY29tcG9zZS55bWw=">写入以下</span>：</p>
