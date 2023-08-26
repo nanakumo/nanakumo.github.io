@@ -2,27 +2,24 @@
 <rss version="2.0">
     <channel>
         <title>この夏に🎇</title>
+        <subtitle>猫和甜品，夏天和你。</subtitle>
+        <icon>https://nanakumo.github.io/images/favicon.ico</icon>
         <link>https://nanakumo.github.io</link>
+        <author>
+          <name>十条倖</name>
+        </author>
         <description>欢迎来到小倖的世界</description>
         <language>zh-CN</language>
         <pubDate>Thu, 24 Aug 2023 21:49:19 +0900</pubDate>
         <lastBuildDate>Thu, 24 Aug 2023 21:49:19 +0900</lastBuildDate>
-        <category>博客</category>
-        <category>hexo</category>
-        <category>github</category>
-        <category>经济统计</category>
-        <category>Python</category>
-        <category>Stata</category>
-        <category>Fediverse</category>
-        <category>Firefish</category>
-        <category>Dokcer</category>
         <item>
             <guid isPermalink="true">https://nanakumo.github.io/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/</guid>
             <title>Firefish | 菜鸟级别利用docker-compose搭建Fedi实例</title>
             <link>https://nanakumo.github.io/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/</link>
-            <category>Fediverse</category>
-            <category>Firefish</category>
-            <category>Dokcer</category>
+            <category term="学习笔记" scheme="https://nanakumo.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+            <category term="Fediverse" scheme="https://nanakumo.github.io/tags/Fediverse/" />
+            <category term="Firefish" scheme="https://nanakumo.github.io/tags/Firefish/" />
+            <category term="Dokcer" scheme="https://nanakumo.github.io/tags/Dokcer/" />
             <pubDate>Thu, 24 Aug 2023 21:49:19 +0900</pubDate>
             <description><![CDATA[ &lt;p&gt;2023 年，随着 X 社媒（原 Twitter）的全面塌陷，越来越多的网友逃向了 Fediverse 开源社交平台，其中著名的有 Mastodon、Misskey 和 Pleroma。前阵子，随着&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qb2luZmlyZWZpc2gub3Jn&#34;&gt; Firefish&lt;/span&gt; 的 &lt;s&gt;横空问世&lt;/s&gt; （Misskey 的一个 fork），博主便也想着搭一个玩玩。博主是计算机零基础的小白 &lt;s&gt;（超级白的那种）&lt;/s&gt; ，靠着广大热心网友先后搭起了一个 Misskey 实例和一个 Pleroma 实例，这一次，也多亏了大家的帮忙，磕磕绊绊地终于搭好了 Firefish 实例。趁着记忆还鲜明，赶紧记录一下搭建过程。&lt;/p&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
@@ -84,9 +81,10 @@
             <guid isPermalink="true">https://nanakumo.github.io/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</guid>
             <title>如何用统计软件进行简单的回归分析</title>
             <link>https://nanakumo.github.io/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</link>
-            <category>经济统计</category>
-            <category>Python</category>
-            <category>Stata</category>
+            <category term="学习笔记" scheme="https://nanakumo.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+            <category term="经济统计" scheme="https://nanakumo.github.io/tags/%E7%BB%8F%E6%B5%8E%E7%BB%9F%E8%AE%A1/" />
+            <category term="Python" scheme="https://nanakumo.github.io/tags/Python/" />
+            <category term="Stata" scheme="https://nanakumo.github.io/tags/Stata/" />
             <pubDate>Tue, 02 May 2023 15:38:26 +0900</pubDate>
             <description><![CDATA[ &lt;p&gt;是极其潦草的学习笔记 w&lt;/p&gt;
 &lt;p&gt;&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
@@ -163,9 +161,10 @@
             <guid isPermalink="true">https://nanakumo.github.io/2023/03/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/</guid>
             <title>零基础小白的博客搭建全记录（GitHub+Hexo）</title>
             <link>https://nanakumo.github.io/2023/03/23/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%AE%B0%E5%BD%95/</link>
-            <category>博客</category>
-            <category>hexo</category>
-            <category>github</category>
+            <category term="一些有的没的" scheme="https://nanakumo.github.io/categories/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%9A%84%E6%B2%A1%E7%9A%84/" />
+            <category term="博客" scheme="https://nanakumo.github.io/tags/%E5%8D%9A%E5%AE%A2/" />
+            <category term="hexo" scheme="https://nanakumo.github.io/tags/hexo/" />
+            <category term="github" scheme="https://nanakumo.github.io/tags/github/" />
             <pubDate>Thu, 23 Mar 2023 19:11:37 +0900</pubDate>
             <description><![CDATA[ &lt;p&gt;2023 年 3 月 23 日，小倖第一次成功&lt;a href=&#34;https://nanakumo.github.io/&#34;&gt;通过 GitHub 搭好了 Hexo 的博客&lt;/a&gt;。兴奋之余，也想要将这场历时两天的艰辛记录下来。如您所见，小倖是小白，故这篇&lt;strong&gt;不是技术帖！！！&lt;/strong&gt;&lt;s&gt;（其实更像是小倖的碎碎念啦）&lt;/s&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;&lt;/p&gt;
