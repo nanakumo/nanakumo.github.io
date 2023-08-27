@@ -195,7 +195,7 @@ tags: [博客,hexo,github]
       </tags>
   </entry>
   <entry>
-    <title>数据分析 | 因果推论 / 効果検証入門</title>
+    <title>数据分析 | 因果推论 / 効果検証入門（更新于2023/8/27）</title>
     <url>/2023/08/26/%E6%95%88%E6%9E%9C%E6%A3%80%E6%B5%8B%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<p>这是我的阅读笔记喵 (。・ω・。) 因为还没有读完，所以会随时更新噢 ww<br />
 <s>（少量日文出没，有些实在不知道中文的讲法 QAQ）</s></p>
@@ -210,7 +210,9 @@ tags: [博客,hexo,github]
 <h2 id="什么是selection-bias"><a class="anchor" href="#什么是selection-bias">#</a> 什么是 selection bias</h2>
 <h3 id="效果"><a class="anchor" href="#效果">#</a> 效果</h3>
 <p>假定一个场景：</p>
-<p><span class="label primary">某便利店为了一个新商品进行了广告宣传，于是这个新商品的销量比以往的新商品销量都要好。</span></p>
+<blockquote>
+<p>某便利店为了一个新商品进行了广告宣传，于是这个新商品的销量比以往的新商品销量都要好。</p>
+</blockquote>
 <p>在我们分析之前，首先对一些名词作出解释：</p>
 <ol>
 <li><span class="red">效果：</span><br />
@@ -228,7 +230,9 @@ tags: [博客,hexo,github]
 <p>如果忽视了其他因素而单单得出<ins class="dot">因为有了广告宣传而使得销量提升了</ins>这样简单的结论的话，很有可能会导致<ins class="wavy">下一次进行同样的广告宣传但却根本没有达到预期</ins>这样的后果，也就是所谓的失算了（专业点来说就是<ins>决策失误</ins>）。</p>
 <h3 id="潜在购买量的差"><a class="anchor" href="#潜在购买量的差">#</a> 潜在购买量的差</h3>
 <p>为了说明什么是潜在购买量，我们重新假定一个场景：</p>
-<p><span class="label primary">某购物网站想要通过发送邮件（邮件内部有优惠券的附件）来增加商品销量。</span></p>
+<blockquote>
+<p>某购物网站想要通过发送邮件（邮件内部有优惠券的附件）来增加商品销量。</p>
+</blockquote>
 <p>在这个场景下，假设用户 A 是该购物网站的常客。于是我们能拿到两个数据，一个是<strong>用户 A 在邮件发送之前在一定时期之内的购买量</strong>，一个便是<strong>邮件发布之后在一定时间之内的购买量。</strong> 在这个案例里面，第一个数据就是<ins>潜在购买量。</ins></p>
 <p><img data-src="https://s2.loli.net/2023/08/26/H7a5teTgEyKpW1Z.jpg" alt="潜在购买量" title="图1：潜在购买量" /></p>
 <p>在大多数的商业决策中，我们常常依赖这样的数据分析。<span class="red">但是值得警惕的是，单纯这样分析是非常不妥的。</span></p>
@@ -250,14 +254,132 @@ tags: [博客,hexo,github]
 <p>其实最理想的检验方法是，比较两个<ins class="wavy">完全相同</ins>的样本。就拿刚刚的例子来说，首先对用户 A 发送邮件拿到用户 A 的购买量之后，再坐<em>时光机器</em>回去在同一个时间节点上不再发送邮件，拿到<strong>没有发送邮件</strong>的数据。</p>
 <p>但是利用目前的科学技术显然是不可能的，因此这就成为了<ins class="dot">因果推论的根本问题。</ins></p>
 <div class="note info">
-<p>因果推论的根本问题就是，比较同一对象在「被介入」与「没有被介入」时的状态是否相同。</p>
+<p>因果推论的根本问题是，在比较同一对象在「被介入」与「没有被介入」后的状态是否相同时，因为同个时间点没办法既是「介入」又是「未介入」，所以这个是没办法实现的。</p>
 </div>
 <h3 id="rct检验"><a class="anchor" href="#rct检验">#</a> RCT 检验</h3>
-<p>既然没办法达到最理想的效果，那么我们只能退而求其次，选择一个相对而言最能信赖的方法，即将介入随机化。也就是<ins>随机选择介入对象</ins>。</p>
+<p>既然没办法达到最理想的效果，那么我们只能退而求其次，选择一个相对而言最能信赖的方法，即<ins class="dot">将介入随机化，</ins> 也就是<ins>随机选择介入对象</ins>。</p>
 <p><img data-src="https://s2.loli.net/2023/08/26/YDXzK4WmSEgoNRx.jpg" alt="無作為化.jpg" /></p>
 <p>我们可以认为，<ins>从平均水平来看</ins>，「被介入对象」和「未被介入对象」除了有无配信邮件以外其他方面都是一样的。我们可以通过这样来排除掉其他因素的影响。这样的数据分析的方法便叫作<strong> RCT (Randomized Controlled Trail)</strong>. 另外，在一些高度数据科学（data science）的公司或机构又将 RCT 叫做<strong> AB test</strong>.</p>
 <p><img data-src="https://s2.loli.net/2023/08/26/QqIrBnNW8EzjafT.png" alt="RCT.png" /></p>
-<p>(未完待续)</p>
+<h2 id="检验效果的理想方法"><a class="anchor" href="#检验效果的理想方法">#</a> 检验效果的理想方法</h2>
+<p>到此为止，我们说明了什么是<ins>效果</ins>和<ins> RCT</ins>，接下来我们会使用数学公式对此进行整理。</p>
+<h3 id="母集団和推定"><a class="anchor" href="#母集団和推定">#</a> 母集団和推定</h3>
+<p>观测数据的背后潜在的所有能观测到的数据成为<ins class="wavy">母集団</ins><s>（不太清楚中文的讲法）</s>。但是我们没有办法收集到所有的数据，所以只能分析手里头有的数据，这个过程叫做<ins class="wavy">推定</ins>。但是值得注意的是，我们想要通过推定来知道母集団的<ins>某个一特征</ins>，<ins class="dot">而其他特征作为干扰项是需要被我们排除在外的。</ins></p>
+<h3 id="potential-outcome-framwork"><a class="anchor" href="#potential-outcome-framwork">#</a> Potential outcome framwork</h3>
+<p>我们首先考虑母集团的效果。假定有某个样本（按照上面的例子的话就是<span class="red">用户 A</span>）i，设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Z_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为是否配信邮件，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">Z_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为配信邮件，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">Z_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为不配信邮件，如下：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>Z</mi><mi>i</mi></msub><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.24999999999999992em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mn>0</mn></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex"> Z_i=\left\{
+\begin{aligned}
+1  \\ 
+0  
+\end{aligned}
+\right.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.00003em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.7500000000000002em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2500000000000002em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>接下来，我们有假定 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Y_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为介入（或没有介入）之后的购买量，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 表示没有邮件配信时的购买量，而 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 则表示邮件配信之后的购买量。如下：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.24999999999999992em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup><mtext>——</mtext><msub><mi>Z</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup><mtext>——</mtext><msub><mi>Z</mi><mi>i</mi></msub><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex"> Y_i=\left\{
+\begin{aligned}
+Y_i^1 —— Z_i = 1\\
+Y_i^0 —— Z_i = 0
+\end{aligned}
+\right.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.048216em;vertical-align:-1.274108em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.774108em;"><span style="top:-3.91em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord">—</span><span class="mord">—</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span></span></span><span style="top:-2.385892em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord">—</span><span class="mord">—</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.274108em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>因此，整体的效果可以通过以下算式来表现：</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>Z</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup><msub><mi>Z</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Y_i = Y_i^0(1-Z_i) + Y_i^1Z_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>像这样，我们认为对于每个样本（用户 A）来说，介入和没有被介入的差值（即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span>）便是 <span class="red">potential Outcome Framwork</span>.</p>
+<h3 id="基于-potential-outcome-framwork-的介入效果的推定"><a class="anchor" href="#基于-potential-outcome-framwork-的介入效果的推定">#</a> 基于 potential outcome framwork 的介入效果的推定</h3>
+<p>现在假定一组数据，如下表：</p>
+<ul>
+<li>第 i 行就是用户 i</li>
+<li>用户 i 的购买量是 Y</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 指不配信邮件时的购买量， <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 指配信邮件时的购买量</li>
+<li>是否配信邮件用 Z 来表示</li>
+</ul>
+<p>表 1.1 用户的购买量（拟定数据）</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>Y</th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span></th>
+<th><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span></th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>300</td>
+<td>300</td>
+<td>400</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>600</td>
+<td>500</td>
+<td>600</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>600</td>
+<td>500</td>
+<td>600</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>300</td>
+<td>300</td>
+<td>400</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>300</td>
+<td>300</td>
+<td>400</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>600</td>
+<td>500</td>
+<td>600</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>600</td>
+<td>500</td>
+<td>600</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8</td>
+<td>300</td>
+<td>300</td>
+<td>400</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>600</td>
+<td>500</td>
+<td>600</td>
+<td>1</td>
+</tr>
+<tr>
+<td>10</td>
+<td>300</td>
+<td>300</td>
+<td>400</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>由前述所说得知，效果便是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 之间的差值，因此上表的所有用户的效果都为 100，即配信了邮件之后，购买量会比没有配信邮件时多出 100. 因此，<span class="red">介入效果</span>（τ，读作たう）可以通过以下算式来表示：</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><msup><mi>Y</mi><mi>i</mi></msup><mo>−</mo><msup><mi>Y</mi><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">τ = Y^i - Y^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.907994em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>但是值得我们注意的是，我们能够得观测到的数据只有 Y 和 Z ，因此我们无法算出想要的 τ 值。所以，我们不是着眼于<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>1</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> 与<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mn>0</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_i^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.072772em;vertical-align:-0.258664em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.441336em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span> ，而是去比较<ins class="dot">配信的群体</ins>和<ins class="dot">没有被配信的群体</ins>，然后去考虑<ins>平均效果</ins>。</p>
+<p>(未完待续，更新于 2023/8/27)</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -275,7 +397,7 @@ tags: [博客,hexo,github]
     <content><![CDATA[<p>这是博主时隔一年多第一次翻译日语，稍稍有点手生，但是因为以前翻译过漫画，所以一下子又能找到感觉 <s>(大概)</s> 然后因为这是自己翻译着玩的，所以不保证质量 orz 再加上博主是意译派，还时不时加入自己的感情，所以 ——</p>
 <p><span id="more"></span></p>
 <h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
-<p><ins>『語るなら未来を･･･』</ins> 是 <span class="purple">欅坂 46</span> 在 2016.8.10 发行的第二张单曲里的歌，而我是今年在玩音游<ins>ユニゾンエアー</ins>时才第一次听到。朗朗上口的曲调瞬间抓耳，标题也很喜欢，再加之我是一个比起过去更看重当下和未来的人，所以立刻就与歌词所传达出来的想法产生了共鸣。然后歌词里有一句是「把那些带到坟墓里去吧」，作为坟墓爱好者（咦？）就更喜欢这首歌了啊 wwwww（喂你在说什么啊 ——</p>
+<p><ins>『語るなら未来を･･･』</ins> 是 <span class="purple">欅坂 46</span> 在 2016.8.10 发行的第二张单曲里的歌，而我是今年在玩音游<ins class="wavy">ユニゾンエアー</ins>时才第一次听到。朗朗上口的曲调瞬间抓耳，标题也很喜欢，再加之我是一个比起过去更看重当下和未来的人，所以立刻就与歌词所传达出来的想法产生了共鸣。然后歌词里有一句是「把那些带到坟墓里去吧」，作为坟墓爱好者（咦？）就更喜欢这首歌了啊 wwwww（喂你在说什么啊 ——</p>
 <h1 id="视频"><a class="anchor" href="#视频">#</a> 视频</h1>
 <p><div class="media-container"><div class="player" data-type="video" data-src='[{"name":"語るなら未来を･･･","url":"https://yewtu.be/latest_version?id=E2lpSx9hBmc&itag=22&hmac_key=ac5a3f2152d849bb02aa266eed7cdd47c76ca085&local=true"}]'></div></div></p>
 <h1 id="歌词翻译"><a class="anchor" href="#歌词翻译">#</a> 歌词翻译</h1>
@@ -475,6 +597,86 @@ tags: [博客,hexo,github]
         <tag>Fediverse</tag>
         <tag>Firefish</tag>
         <tag>Dokcer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>晴ときどき曇</title>
+    <url>/2023/08/27/%E6%99%B4%E3%81%A8%E3%81%8D%E3%81%A9%E3%81%8D%E6%9B%87/</url>
+    <content><![CDATA[<p>歌词翻译 2 回目喵！依旧是带着自我感情的意译喵喵喵！</p>
+<h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
+<p>这是我两年前 loop 过的一首歌，曾经无数次治愈了迷茫又疲惫的我。 <ins>「做不到而逃走也能被获救的话，那样的未来我才不需要」，</ins> 这句歌词直击了我的心扉久久不止。 <ins>「哭泣着笑着后悔着，恋爱着失落着生活着」，</ins> 听着这样的歌词，就会想，是啊，生活就是这样的啊，有眼泪也有欢笑，这么想着，就会觉得所有困难的时候都能跨越过去了。大概每一首歌里，都会有一段无法忘怀的记忆吧，偶尔会想起 loop 这首歌的日子：有朋友，有爱好，有汗水，有生活。这是我人生旅途中再宝贵不过的时光了。 <span class="spoiler bulr" title="你知道得太多了">那样美好的时光，还能复刻吗？</span></p>
+<h1 id="视频"><a class="anchor" href="#视频">#</a> 视频</h1>
+<p><s>以前翻译过的歌也放在了列表里喵</s></p>
+<p><div class="media-container"><div class="player" data-type="video" data-src='[{"name":"晴ときどき曇","url":"https://yewtu.be/latest_version?id=IuAODcEqYSM&itag=22&hmac_key=1ed9417c31249913716447bded9366af91870790&local=true"},{"name":"語るなら未来を･･･","url":"https://yewtu.be/latest_version?id=E2lpSx9hBmc&itag=22&hmac_key=ac5a3f2152d849bb02aa266eed7cdd47c76ca085&local=true"}]'></div></div></p>
+<h1 id="歌词翻译"><a class="anchor" href="#歌词翻译">#</a> 歌词翻译</h1>
+<p>『晴ときどき曇』<br />
+晴朗，时而多云</p>
+<hr />
+<p>「いい天気だね」<br />
+<span class="red">你说，今天天气真好呢</span><br />
+君が言うから「本当だね」と答える<br />
+<span class="red">我笑道，确实是这样呢</span><br />
+今日の空のこと話題にしたなら心がふっと近くなる<br />
+<span class="red">一边谈论着这样的话题 心也一下子靠在了一起</span></p>
+<hr />
+<p>歩道を歩く　所々で水たまりが邪魔する<br />
+<span class="red">走在人行道上 到处都有碍事的水洼</span><br />
+君と手を繋いで飛び越えてみる　太陽の光が舞う<br />
+<span class="red">我牵着你的手跳了过去 阳光在起舞</span><br />
+次の季節が香り始める<br />
+<span class="red">下个季节即将开始绽放</span><br />
+その変化に抗うように<br />
+<span class="red">（太阳）为了违逆那样的变化</span><br />
+ “暑かった日々を忘れないで” と最後の力　振り絞って照らす<br />
+<span class="red">竭尽全力大声呼喊着 “不要忘记炎炎夏日噢”，然后照耀着</span></p>
+<hr />
+<p>空は見上げるたびそっと　色や模様うつり変わって<br />
+<span class="red">每当仰望天空 颜色和模样都在风云变幻</span><br />
+それはもう僕らの毎日のようだね<br />
+<span class="red">那简直就像是我们的每一天呢</span><br />
+繰り返さないからもっと　この日この時この瞬間<br />
+<span class="red">因为那样的时刻没有办法复制 所以当下的此时此刻</span><br />
+思い上がらずに刻みつけていたいよ<br />
+<span class="red">都想小心翼翼地刻在心底呢</span></p>
+<hr />
+<p>宇宙まですぐ届く高さで泳いでいる魚たち<br />
+<span class="red">鱼儿们在能够得着宇宙的高度遨游着</span><br />
+そういえば昨日は鈍色の空　どこに潜っていたんだろう？<br />
+<span class="red"> 说起来 昨日的它们又潜藏在哪里的钝色天空之下呢？</span></p>
+<hr />
+<p>激しい雨にも耐えぬいた木の葉<br />
+<span class="red">无法忍受大雨的树叶们</span><br />
+へっちゃらな顔で伝えている<br />
+<span class="red">不屈地想表达些什么</span><br />
+やりきれないと逃げ出すことで救われるくらいなら<br />
+<span class="red">做不到而逃走也能被获救的话</span><br />
+そんな未来は必要 (いら) ない<br />
+<span class="red">那样的未来我才不需要</span></p>
+<hr />
+<p>今日も誰かが空の下　泣いて笑って悔しがって<br />
+<span class="red">今天也有人在天空之下 哭泣着笑着后悔着</span><br />
+恋したり落ち込んだりして暮らしている<br />
+<span class="red">恋爱着失落着生活着</span><br />
+満たされない何かがあって得られる喜びがあると思う<br />
+<span class="red">无法得到满足 但是一定有什么能得到的喜悦</span><br />
+少なくとも、今の僕はそうだよ<br />
+<span class="red">至少 如今的我是那样坚信的噢</span></p>
+<hr />
+<p>君が僕の方を振り返って　その思草 (しぐさ) がたまらなくて<br />
+<span class="red">你回头看向了我 那样的动作印在了我的脑海里</span><br />
+幸せはいつもそうやって傍にいる<br />
+<span class="red">幸福就像这样一直在我的身边</span><br />
+移り変わっていく空の下　僕らいつまでもこの瞬間<br />
+<span class="red">在风云变幻的天空之下 我们要永远像此刻这般</span><br />
+抱きしめながら　ふたり歩いていこう<br />
+<span class="red">两个人拥抱着 一起迈向未来吧</span></p>
+]]></content>
+      <categories>
+        <category>歌词翻译</category>
+      </categories>
+      <tags>
+        <tag>日语</tag>
+        <tag>歌词</tag>
       </tags>
   </entry>
 </search>
