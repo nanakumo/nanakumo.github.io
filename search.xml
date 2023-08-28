@@ -264,7 +264,7 @@ tags: [博客,hexo,github]
 <h2 id="检验效果的理想方法"><a class="anchor" href="#检验效果的理想方法">#</a> 检验效果的理想方法</h2>
 <p>到此为止，我们说明了什么是<ins>效果</ins>和<ins> RCT</ins>，接下来我们会使用数学公式对此进行整理。</p>
 <h3 id="母集団和推定"><a class="anchor" href="#母集団和推定">#</a> 母集団和推定</h3>
-<p>观测数据的背后潜在的所有能观测到的数据称为<ins class="wavy">母集団</ins><s>（不太清楚中文的讲法）</s>。但是我们没有办法收集到所有的数据，所以只能分析手里头有的数据，这个过程叫做<ins class="wavy">推定</ins>。但是值得注意的是，我们想要通过推定来知道母集団的<ins>某个一特征</ins>，<ins class="dot">而其他特征作为干扰项是需要被我们排除在外的。</ins></p>
+<p>观测数据的背后潜在的所有能观测到的数据称为<ins class="wavy">母集団</ins><s>（不太清楚中文的讲法）</s>。但是我们没有办法收集到所有的数据，所以只能分析手里头有的数据，这个过程叫做<ins class="wavy">推定</ins>。但是值得注意的是，我们想要通过推定来知道母集団的<ins>某一个特征</ins>，<ins class="dot">而其他特征作为干扰项是需要被我们排除在外的。</ins></p>
 <h3 id="potential-outcome-framwork"><a class="anchor" href="#potential-outcome-framwork">#</a> Potential outcome framwork</h3>
 <p>我们首先考虑母集团的效果。假定有某个样本（按照上面的例子的话就是<span class="red">用户 A</span>）i，设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Z_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为是否配信邮件，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">Z_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为配信邮件，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">Z_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 为不配信邮件，如下：</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>Z</mi><mi>i</mi></msub><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.24999999999999992em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mn>1</mn></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mn>0</mn></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex"> Z_i=\left\{
@@ -670,6 +670,130 @@ Y_i^0 —— Z_i = 0
 <span class="red">在风云变幻的天空之下 我们要永远像此刻这般</span><br />
 抱きしめながら　ふたり歩いていこう<br />
 <span class="red">两个人拥抱着 一起迈向未来吧</span></p>
+]]></content>
+      <categories>
+        <category>歌词翻译</category>
+      </categories>
+      <tags>
+        <tag>日语</tag>
+        <tag>歌词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WASTED LOVE</title>
+    <url>/2023/08/28/WASTED%20LOVE/</url>
+    <content><![CDATA[<p>喵喵喵！歌词翻译 3 回目！这次挑战一下小黄歌喵～<br />
+ 依旧随心所欲的意译预警喵喵喵！</p>
+<p><span id="more"></span></p>
+<h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
+<h1 id="视频"><a class="anchor" href="#视频">#</a> 视频</h1>
+<p><s>以前翻译过的歌也放在了列表里喵</s></p>
+<p><div class="media-container"><div class="player" data-type="video" data-src='[{"name":"WASTED LOVE","url":"https://yewtu.be/latest_version?id=k6D5vOUKNkE&itag=22&hmac_key=bde4976e597dad77a45eca0bff7766485342943a"},{"name":"晴ときどき曇","url":"https://yewtu.be/latest_version?id=IuAODcEqYSM&itag=22&hmac_key=1ed9417c31249913716447bded9366af91870790&local=true"},{"name":"語るなら未来を･･･","url":"https://yewtu.be/latest_version?id=E2lpSx9hBmc&itag=22&hmac_key=ac5a3f2152d849bb02aa266eed7cdd47c76ca085&local=true"}]'></div></div></p>
+<h1 id="歌词翻译"><a class="anchor" href="#歌词翻译">#</a> 歌词翻译</h1>
+<p>『WASTED LOVE』<br />
+废弃之爱</p>
+<hr />
+<p>Talking like that… We're gonna fall<br />
+<span class="red"> 我们耳鬓厮磨… 我们会一起坠落</span><br />
+ Talking like that, talking like that…<br />
+<span class="red"> 我们耳鬓厮磨 我们诉说爱意…</span></p>
+<hr />
+<p>I don't know when it all started<br />
+<span class="red"> 我不知道我们时候开始的</span><br />
+いつの間にかこうして<br />
+<span class="red">不知不觉就变成了这样</span><br />
+ Guided by my own beating heart<br />
+<span class="red"> 由我自己的心跳引导的</span><br />
+鼓動の赴くまま<br />
+<span class="red">跟随着心脏跳动</span></p>
+<hr />
+<p>何度も you said you loved me<br />
+<span class="red"> 无数次 你说你爱我</span><br />
+このまま have the time of my life<br />
+<span class="red"> 像这样 度过了我人生中最好的时光</span><br />
+二人でいる時間は<br />
+<span class="red">两个人在一起的时间</span><br />
+ I've never felt this way in my life oh<br />
+<span class="red"> 是独一无二的日子</span></p>
+<hr />
+<p>ふと目が合ったあの時から<br />
+<span class="red">从我们视线交汇的那一刻起</span><br />
+物語は始まっていた<br />
+<span class="red">我们的故事就拉开了序幕</span><br />
+ I could be free (yeah) I want to stay<br />
+<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
+<hr />
+<p>Talking like that<br />
+<span class="red"> 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
+ 'Cuz we are like that uuh uh uh<br />
+<span class="red"> 因为我们就是像那样</span><br />
+ Talking like that<br />
+<span class="red"> 耳鬓厮磨的</span></p>
+<hr />
+<p>I would do it over again<br />
+<span class="red"> 我会再来一次</span><br />
+もし君さえ良かったら<br />
+<span class="red">如果你愿意的话</span><br />
+ No matter what happens to us<br />
+<span class="red"> 不管发生什么</span><br />
+心に感じるまま<br />
+<span class="red">都跟随心的感受</span></p>
+<hr />
+<p>何度も Made love together<br />
+<span class="red"> 无次数 我们在床上缠绵</span><br />
+解ってる staring into your eyes<br />
+<span class="red"> 我明白 当我望向了你的眼睛</span><br />
+この気持ちを知ったら<br />
+<span class="red">如果你知道这样的感觉</span><br />
+ There is no way I am turning back oh<br />
+<span class="red"> 我没有后退之路</span></p>
+<hr />
+<p>その手に触れたあの時から<br />
+<span class="red">从触碰你手的那一刻起</span><br />
+言葉もなく夢中になった<br />
+<span class="red">语言变得苍白 我爱上了你</span><br />
+ I could be free (yeah), I want to stay<br />
+<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
+<hr />
+<p>Talking like that<br />
+<span class="red"> 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
+ 'Cuz we are like that uuh uh uh<br />
+<span class="red"> 因为我们就是像那样</span><br />
+ Talking like that<br />
+<span class="red"> 耳鬓厮磨的</span></p>
+<hr />
+<p>Ah　ゆっくり激しく抱きしめ全て忘れ<br />
+<span class="red">啊 慢慢地激烈相拥 然后忘掉一切</span><br />
+夜に溶けていく I can't get enough<br />
+<span class="red"> 融入夜色 但我不能满足</span><br />
+ yea yea yea このままずっと fallen<br />
+<span class="red"> 耶 耶 耶 像这样一直堕落</span></p>
+<hr />
+<p>ふと目が合ったあの時から<br />
+<span class="red">从我们视线交汇的那一刻起</span><br />
+物語は始まっていた<br />
+<span class="red">我们的故事就拉开了序幕</span><br />
+ I could be free (yeah) I want to stay<br />
+<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
+<hr />
+<p>Talking like that<br />
+<span class="red"> 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
+ 'Cuz we are like that uuh uh uh<br />
+<span class="red"> 因为我们就是像那样</span><br />
+ Talking like that<br />
+<span class="red"> 耳鬓厮磨的</span></p>
 ]]></content>
       <categories>
         <category>歌词翻译</category>
