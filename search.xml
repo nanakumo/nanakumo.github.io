@@ -1,85 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>回归分析 | Python 和 Stata</title>
-    <url>/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<p>是极其潦草的学习笔记 w</p>
+    <title>WASTED LOVE｜登坂広臣</title>
+    <url>/2023/08/28/WASTED%20LOVE/</url>
+    <content><![CDATA[<p>喵喵喵！歌词翻译 3 回目！这次挑战一下小黄歌喵～<br />
+ 依旧随心所欲的意译预警喵喵喵！</p>
 <p><span id="more"></span></p>
-<h1 id="python篇"><a class="anchor" href="#python篇">#</a> Python 篇</h1>
-<h2 id="package的准备"><a class="anchor" href="#package的准备">#</a> package 的准备</h2>
-<ol>
-<li>pandas</li>
-<li>statsmodels</li>
-<li>openpyxl</li>
-</ol>
-<h2 id="读取文件"><a class="anchor" href="#读取文件">#</a> 读取文件</h2>
-<ol>
-<li>要指定好文件的路径</li>
-<li>最好使用 <code>names=['x','y']</code>  来指定<strong>说明变量</strong>和<strong>目标变量</strong>。</li>
-</ol>
-<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>file_pass <span class="token operator">=</span> <span class="token string">r"D:\python\data.xlsx"</span></pre></td></tr><tr><td data-num="4"></td><td><pre>df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>file_pass<span class="token punctuation">,</span> header<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'cost'</span><span class="token punctuation">,</span> <span class="token string">'sales'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> statsmodels<span class="token punctuation">.</span>formula<span class="token punctuation">.</span>api <span class="token keyword">as</span> smf</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>model <span class="token operator">=</span> smf<span class="token punctuation">.</span>ols<span class="token punctuation">(</span><span class="token string">'sales ~ cost'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>result <span class="token operator">=</span> model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong>输出结果为：</strong></p>
-<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>OLS Regression Results                            </pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Dep<span class="token punctuation">.</span> Variable<span class="token punctuation">:</span>                  sales   R<span class="token operator">-</span>squared<span class="token punctuation">:</span>                       <span class="token number">1.000</span></pre></td></tr><tr><td data-num="4"></td><td><pre>Model<span class="token punctuation">:</span>                            OLS   Adj<span class="token punctuation">.</span> R<span class="token operator">-</span>squared<span class="token punctuation">:</span>                  <span class="token number">1.000</span></pre></td></tr><tr><td data-num="5"></td><td><pre>Method<span class="token punctuation">:</span>                 Least Squares   F<span class="token operator">-</span>statistic<span class="token punctuation">:</span>                 <span class="token number">1.981e+31</span></pre></td></tr><tr><td data-num="6"></td><td><pre>Date<span class="token punctuation">:</span>                Tue<span class="token punctuation">,</span> <span class="token number">02</span> May <span class="token number">2023</span>   Prob <span class="token punctuation">(</span>F<span class="token operator">-</span>statistic<span class="token punctuation">)</span><span class="token punctuation">:</span>           <span class="token number">2.50e-47</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Time<span class="token punctuation">:</span>                        <span class="token number">14</span><span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">:</span><span class="token number">47</span>   Log<span class="token operator">-</span>Likelihood<span class="token punctuation">:</span>                 <span class="token number">153.61</span></pre></td></tr><tr><td data-num="8"></td><td><pre>No<span class="token punctuation">.</span> Observations<span class="token punctuation">:</span>                   <span class="token number">5</span>   AIC<span class="token punctuation">:</span>                            <span class="token operator">-</span><span class="token number">303.2</span></pre></td></tr><tr><td data-num="9"></td><td><pre>Df Residuals<span class="token punctuation">:</span>                       <span class="token number">3</span>   BIC<span class="token punctuation">:</span>                            <span class="token operator">-</span><span class="token number">304.0</span></pre></td></tr><tr><td data-num="10"></td><td><pre>Df Model<span class="token punctuation">:</span>                           <span class="token number">1</span>                                         </pre></td></tr><tr><td data-num="11"></td><td><pre>Covariance Type<span class="token punctuation">:</span>            nonrobust                                         </pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr><tr><td data-num="13"></td><td><pre>                 coef    std err          t      P<span class="token operator">></span><span class="token operator">|</span>t<span class="token operator">|</span>      <span class="token punctuation">[</span><span class="token number">0.025</span>      <span class="token number">0.975</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span></pre></td></tr><tr><td data-num="15"></td><td><pre>Intercept     <span class="token number">10.0000</span>   <span class="token number">1.49e-14</span>   <span class="token number">6.71e+14</span>      <span class="token number">0.000</span>      <span class="token number">10.000</span>      <span class="token number">10.000</span></pre></td></tr><tr><td data-num="16"></td><td><pre>cost           <span class="token number">2.0000</span>   <span class="token number">4.49e-16</span>   <span class="token number">4.45e+15</span>      <span class="token number">0.000</span>       <span class="token number">2.000</span>       <span class="token number">2.000</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr><tr><td data-num="18"></td><td><pre>Omnibus<span class="token punctuation">:</span>                          nan   Durbin<span class="token operator">-</span>Watson<span class="token punctuation">:</span>                   <span class="token number">0.667</span></pre></td></tr><tr><td data-num="19"></td><td><pre>Prob<span class="token punctuation">(</span>Omnibus<span class="token punctuation">)</span><span class="token punctuation">:</span>                    nan   Jarque<span class="token operator">-</span>Bera <span class="token punctuation">(</span>JB<span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token number">0.375</span></pre></td></tr><tr><td data-num="20"></td><td><pre>Skew<span class="token punctuation">:</span>                          <span class="token operator">-</span><span class="token number">0.344</span>   Prob<span class="token punctuation">(</span>JB<span class="token punctuation">)</span><span class="token punctuation">:</span>                        <span class="token number">0.829</span></pre></td></tr><tr><td data-num="21"></td><td><pre>Kurtosis<span class="token punctuation">:</span>                       <span class="token number">1.847</span>   Cond<span class="token punctuation">.</span> No<span class="token punctuation">.</span>                         <span class="token number">77.8</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr></table></figure><h1 id="stata篇"><a class="anchor" href="#stata篇">#</a> Stata 篇</h1>
-<h2 id="简单使用stata"><a class="anchor" href="#简单使用stata">#</a> 简单使用 Stata</h2>
-<ol>
-<li>Log in</li>
-<li>import data</li>
-<li>save as</li>
-<li>use data</li>
-</ol>
-<figure class="highlight stata"><figcaption data-lang="stata"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token command keyword">use</span> D<span class="token punctuation">:</span>\python\data_回归分析.dta</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token command keyword">regress</span> 売上高万円 広告費</pre></td></tr></table></figure><p>** 注意：** 使用的数据文件一定是.dta 格式，&lt;u&gt; 而这个必须要先导入数据后保存再得到。&lt;/u&gt;</p>
-<p><strong>输出：</strong></p>
-<pre><code class="language-Source">-------------+----------------------------------   F(1, 3)         =         .
-       Model |        4000         1        4000   Prob &gt; F        =         .
-    Residual |           0         3           0   R-squared       =    1.0000
--------------+----------------------------------   Adj R-squared   =    1.0000
-       Total |        4000         4        1000   Root MSE        =         0
-
-------------------------------------------------------------------------------
-  売上高万円 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
--------------+----------------------------------------------------------------
-      広告費 |          2          .        .       .            .           .
-       _cons |         10          .        .       .            .           .
-------------------------------------------------------------------------------
-</code></pre>
-<h3 id="附录"><a class="anchor" href="#附录">#</a> 附录</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">cost</th>
-<th>sales</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">10</td>
-<td>30</td>
-</tr>
-<tr>
-<td style="text-align:left">20</td>
-<td>50</td>
-</tr>
-<tr>
-<td style="text-align:left">30</td>
-<td>70</td>
-</tr>
-<tr>
-<td style="text-align:left">40</td>
-<td>90</td>
-</tr>
-<tr>
-<td style="text-align:left">50</td>
-<td>110</td>
-</tr>
-</tbody>
-</table>
+<h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
+<p>是饭<span class="red">民工系</span>时听过的歌。<s>别说了，我现在网盘里都还有登坂広臣的高清果照喵喵喵！</s></p>
+<h1 id="视频"><a class="anchor" href="#视频">#</a> 视频</h1>
+<p><s>以前翻译过的歌也放在了列表里</s></p>
+<p><div class="media-container"><div class="player" data-type="video" data-src='[{"name":"WASTED LOVE","url":"https://yewtu.be/latest_version?id=k6D5vOUKNkE&itag=22&hmac_key=bde4976e597dad77a45eca0bff7766485342943a"},{"name":"晴ときどき曇","url":"https://yewtu.be/latest_version?id=IuAODcEqYSM&itag=22&hmac_key=1ed9417c31249913716447bded9366af91870790&local=true"},{"name":"語るなら未来を･･･","url":"https://yewtu.be/latest_version?id=E2lpSx9hBmc&itag=22&hmac_key=ac5a3f2152d849bb02aa266eed7cdd47c76ca085&local=true"}]'></div></div></p>
+<h1 id="歌词翻译"><a class="anchor" href="#歌词翻译">#</a> 歌词翻译</h1>
+<p>『WASTED LOVE』登坂広臣<br />
+废弃之爱</p>
+<hr />
+<p>Talking like that… We're gonna fall<br />
+<span class="red"> 我们耳鬓厮磨… 我们会一起坠落</span><br />
+ Talking like that, talking like that…<br />
+<span class="red"> 我们耳鬓厮磨 我们诉说爱意…</span></p>
+<hr />
+<p>I don't know when it all started<br />
+<span class="red"> 我不知道我们时候开始的</span><br />
+いつの間にかこうして<br />
+<span class="red">不知不觉就变成了这样</span><br />
+ Guided by my own beating heart<br />
+<span class="red"> 由我自己的心跳引导的</span><br />
+鼓動の赴くまま<br />
+<span class="red">跟随着心脏跳动</span></p>
+<hr />
+<p>何度も you said you loved me<br />
+<span class="red"> 无数次 你说你爱我</span><br />
+このまま have the time of my life<br />
+<span class="red"> 像这样 度过了我人生中最好的时光</span><br />
+二人でいる時間は<br />
+<span class="red">两个人在一起的时间</span><br />
+ I've never felt this way in my life oh<br />
+<span class="red"> 是独一无二的日子</span></p>
+<hr />
+<p>ふと目が合ったあの時から<br />
+<span class="red">从我们视线交汇的那一刻起</span><br />
+物語は始まっていた<br />
+<span class="red">我们的故事就拉开了序幕</span><br />
+ I could be free (yeah) I want to stay<br />
+<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
+<hr />
+<p>Talking like that<br />
+<span class="red"> 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
+ 'Cuz we are like that uuh uh uh<br />
+<span class="red"> 因为我们就是像那样</span><br />
+ Talking like that<br />
+<span class="red"> 耳鬓厮磨的</span></p>
+<hr />
+<p>I would do it over again<br />
+<span class="red"> 我会再来一次</span><br />
+もし君さえ良かったら<br />
+<span class="red">如果你愿意的话</span><br />
+ No matter what happens to us<br />
+<span class="red"> 不管发生什么</span><br />
+心に感じるまま<br />
+<span class="red">都跟随心的感受</span></p>
+<hr />
+<p>何度も Made love together<br />
+<span class="red"> 无次数 我们在床上缠绵</span><br />
+解ってる staring into your eyes<br />
+<span class="red"> 我明白 当我望向了你的眼睛</span><br />
+この気持ちを知ったら<br />
+<span class="red">当我知道了这样的感觉之后</span><br />
+ There is no way I am turning back oh<br />
+<span class="red"> 就再无退路</span></p>
+<hr />
+<p>その手に触れたあの時から<br />
+<span class="red">从触碰你手的那一刻起</span><br />
+言葉もなく夢中になった<br />
+<span class="red">语言变得苍白 我爱上了你</span><br />
+ I could be free (yeah), I want to stay<br />
+<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
+<hr />
+<p>Talking like that<br />
+<span class="red"> 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
+ 'Cuz we are like that uuh uh uh<br />
+<span class="red"> 因为我们就是像那样</span><br />
+ Talking like that<br />
+<span class="red"> 耳鬓厮磨的</span></p>
+<hr />
+<p>Ah　ゆっくり激しく抱きしめ全て忘れ<br />
+<span class="red">啊 慢慢地激烈相拥 然后忘掉一切</span><br />
+夜に溶けていく I can't get enough<br />
+<span class="red"> 融入夜色 但我不能满足</span><br />
+ yea yea yea このままずっと fallen<br />
+<span class="red"> 耶 耶 耶 像这样一直堕落</span></p>
+<hr />
+<p>ふと目が合ったあの時から<br />
+<span class="red">从我们视线交汇的那一刻起</span><br />
+物語は始まっていた<br />
+<span class="red">我们的故事就拉开了序幕</span><br />
+ I could be free (yeah) I want to stay<br />
+<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
+<hr />
+<p>Talking like that<br />
+<span class="red"> 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
+ We got it fallin', talking like that<br />
+<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
+ 'Cuz we are like that uuh uh uh<br />
+<span class="red"> 因为我们就是像那样</span><br />
+ Talking like that<br />
+<span class="red"> 耳鬓厮磨的</span></p>
 ]]></content>
       <categories>
-        <category>学习笔记</category>
+        <category>歌词翻译</category>
       </categories>
       <tags>
-        <tag>经济统计</tag>
-        <tag>Python</tag>
-        <tag>Stata</tag>
+        <tag>日语</tag>
+        <tag>歌词，民工系</tag>
       </tags>
   </entry>
   <entry>
@@ -192,6 +235,88 @@ tags: [博客,hexo,github]
         <tag>博客</tag>
         <tag>hexo</tag>
         <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回归分析 | Python 和 Stata</title>
+    <url>/2023/05/02/%E5%A6%82%E4%BD%95%E7%94%A8%E7%BB%9F%E8%AE%A1%E8%BD%AF%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p>是极其潦草的学习笔记 w</p>
+<p><span id="more"></span></p>
+<h1 id="python篇"><a class="anchor" href="#python篇">#</a> Python 篇</h1>
+<h2 id="package的准备"><a class="anchor" href="#package的准备">#</a> package 的准备</h2>
+<ol>
+<li>pandas</li>
+<li>statsmodels</li>
+<li>openpyxl</li>
+</ol>
+<h2 id="读取文件"><a class="anchor" href="#读取文件">#</a> 读取文件</h2>
+<ol>
+<li>要指定好文件的路径</li>
+<li>最好使用 <code>names=['x','y']</code>  来指定<strong>说明变量</strong>和<strong>目标变量</strong>。</li>
+</ol>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>file_pass <span class="token operator">=</span> <span class="token string">r"D:\python\data.xlsx"</span></pre></td></tr><tr><td data-num="4"></td><td><pre>df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>file_pass<span class="token punctuation">,</span> header<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'cost'</span><span class="token punctuation">,</span> <span class="token string">'sales'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> statsmodels<span class="token punctuation">.</span>formula<span class="token punctuation">.</span>api <span class="token keyword">as</span> smf</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>model <span class="token operator">=</span> smf<span class="token punctuation">.</span>ols<span class="token punctuation">(</span><span class="token string">'sales ~ cost'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>result <span class="token operator">=</span> model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong>输出结果为：</strong></p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>OLS Regression Results                            </pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Dep<span class="token punctuation">.</span> Variable<span class="token punctuation">:</span>                  sales   R<span class="token operator">-</span>squared<span class="token punctuation">:</span>                       <span class="token number">1.000</span></pre></td></tr><tr><td data-num="4"></td><td><pre>Model<span class="token punctuation">:</span>                            OLS   Adj<span class="token punctuation">.</span> R<span class="token operator">-</span>squared<span class="token punctuation">:</span>                  <span class="token number">1.000</span></pre></td></tr><tr><td data-num="5"></td><td><pre>Method<span class="token punctuation">:</span>                 Least Squares   F<span class="token operator">-</span>statistic<span class="token punctuation">:</span>                 <span class="token number">1.981e+31</span></pre></td></tr><tr><td data-num="6"></td><td><pre>Date<span class="token punctuation">:</span>                Tue<span class="token punctuation">,</span> <span class="token number">02</span> May <span class="token number">2023</span>   Prob <span class="token punctuation">(</span>F<span class="token operator">-</span>statistic<span class="token punctuation">)</span><span class="token punctuation">:</span>           <span class="token number">2.50e-47</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Time<span class="token punctuation">:</span>                        <span class="token number">14</span><span class="token punctuation">:</span><span class="token number">12</span><span class="token punctuation">:</span><span class="token number">47</span>   Log<span class="token operator">-</span>Likelihood<span class="token punctuation">:</span>                 <span class="token number">153.61</span></pre></td></tr><tr><td data-num="8"></td><td><pre>No<span class="token punctuation">.</span> Observations<span class="token punctuation">:</span>                   <span class="token number">5</span>   AIC<span class="token punctuation">:</span>                            <span class="token operator">-</span><span class="token number">303.2</span></pre></td></tr><tr><td data-num="9"></td><td><pre>Df Residuals<span class="token punctuation">:</span>                       <span class="token number">3</span>   BIC<span class="token punctuation">:</span>                            <span class="token operator">-</span><span class="token number">304.0</span></pre></td></tr><tr><td data-num="10"></td><td><pre>Df Model<span class="token punctuation">:</span>                           <span class="token number">1</span>                                         </pre></td></tr><tr><td data-num="11"></td><td><pre>Covariance Type<span class="token punctuation">:</span>            nonrobust                                         </pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr><tr><td data-num="13"></td><td><pre>                 coef    std err          t      P<span class="token operator">></span><span class="token operator">|</span>t<span class="token operator">|</span>      <span class="token punctuation">[</span><span class="token number">0.025</span>      <span class="token number">0.975</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span></pre></td></tr><tr><td data-num="15"></td><td><pre>Intercept     <span class="token number">10.0000</span>   <span class="token number">1.49e-14</span>   <span class="token number">6.71e+14</span>      <span class="token number">0.000</span>      <span class="token number">10.000</span>      <span class="token number">10.000</span></pre></td></tr><tr><td data-num="16"></td><td><pre>cost           <span class="token number">2.0000</span>   <span class="token number">4.49e-16</span>   <span class="token number">4.45e+15</span>      <span class="token number">0.000</span>       <span class="token number">2.000</span>       <span class="token number">2.000</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr><tr><td data-num="18"></td><td><pre>Omnibus<span class="token punctuation">:</span>                          nan   Durbin<span class="token operator">-</span>Watson<span class="token punctuation">:</span>                   <span class="token number">0.667</span></pre></td></tr><tr><td data-num="19"></td><td><pre>Prob<span class="token punctuation">(</span>Omnibus<span class="token punctuation">)</span><span class="token punctuation">:</span>                    nan   Jarque<span class="token operator">-</span>Bera <span class="token punctuation">(</span>JB<span class="token punctuation">)</span><span class="token punctuation">:</span>                <span class="token number">0.375</span></pre></td></tr><tr><td data-num="20"></td><td><pre>Skew<span class="token punctuation">:</span>                          <span class="token operator">-</span><span class="token number">0.344</span>   Prob<span class="token punctuation">(</span>JB<span class="token punctuation">)</span><span class="token punctuation">:</span>                        <span class="token number">0.829</span></pre></td></tr><tr><td data-num="21"></td><td><pre>Kurtosis<span class="token punctuation">:</span>                       <span class="token number">1.847</span>   Cond<span class="token punctuation">.</span> No<span class="token punctuation">.</span>                         <span class="token number">77.8</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span></pre></td></tr></table></figure><h1 id="stata篇"><a class="anchor" href="#stata篇">#</a> Stata 篇</h1>
+<h2 id="简单使用stata"><a class="anchor" href="#简单使用stata">#</a> 简单使用 Stata</h2>
+<ol>
+<li>Log in</li>
+<li>import data</li>
+<li>save as</li>
+<li>use data</li>
+</ol>
+<figure class="highlight stata"><figcaption data-lang="stata"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token command keyword">use</span> D<span class="token punctuation">:</span>\python\data_回归分析.dta</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token command keyword">regress</span> 売上高万円 広告費</pre></td></tr></table></figure><p>** 注意：** 使用的数据文件一定是.dta 格式，&lt;u&gt; 而这个必须要先导入数据后保存再得到。&lt;/u&gt;</p>
+<p><strong>输出：</strong></p>
+<pre><code class="language-Source">-------------+----------------------------------   F(1, 3)         =         .
+       Model |        4000         1        4000   Prob &gt; F        =         .
+    Residual |           0         3           0   R-squared       =    1.0000
+-------------+----------------------------------   Adj R-squared   =    1.0000
+       Total |        4000         4        1000   Root MSE        =         0
+
+------------------------------------------------------------------------------
+  売上高万円 | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      広告費 |          2          .        .       .            .           .
+       _cons |         10          .        .       .            .           .
+------------------------------------------------------------------------------
+</code></pre>
+<h3 id="附录"><a class="anchor" href="#附录">#</a> 附录</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">cost</th>
+<th>sales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">10</td>
+<td>30</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td>50</td>
+</tr>
+<tr>
+<td style="text-align:left">30</td>
+<td>70</td>
+</tr>
+<tr>
+<td style="text-align:left">40</td>
+<td>90</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td>110</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>经济统计</tag>
+        <tag>Python</tag>
+        <tag>Stata</tag>
       </tags>
   </entry>
   <entry>
@@ -392,6 +517,260 @@ Y_i^0 —— Z_i = 0
       </tags>
   </entry>
   <entry>
+    <title>晴ときどき曇｜スキマスイッチ</title>
+    <url>/2023/08/27/%E6%99%B4%E3%81%A8%E3%81%8D%E3%81%A9%E3%81%8D%E6%9B%87/</url>
+    <content><![CDATA[<p>歌词翻译 2 回目喵！依旧是带着自我感情的意译喵喵喵！</p>
+<h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
+<p>这是我两年前 loop 过的一首歌，曾经无数次治愈了迷茫又疲惫的我。 <ins>「做不到而逃走也能被获救的话，那样的未来我才不需要」，</ins> 这句歌词直击了我的心扉久久不止。 <ins>「哭泣着笑着后悔着，恋爱着失落着生活着」，</ins> 听着这样的歌词，就会想，是啊，生活就是这样的啊，有眼泪也有欢笑，这么想着，就会觉得所有困难的时候都能跨越过去了。大概每一首歌里，都会有一段无法忘怀的记忆吧，偶尔会想起 loop 这首歌的日子：有朋友，有爱好，有汗水，有生活。这是我人生旅途中再宝贵不过的时光了。 <span class="spoiler bulr" title="你知道得太多了">那样美好的时光，还能复刻吗？</span></p>
+<h1 id="视频"><a class="anchor" href="#视频">#</a> 视频</h1>
+<p><s>以前翻译过的歌也放在了列表里喵</s></p>
+<p><div class="media-container"><div class="player" data-type="video" data-src='[{"name":"晴ときどき曇","url":"https://yewtu.be/latest_version?id=IuAODcEqYSM&itag=22&hmac_key=1ed9417c31249913716447bded9366af91870790&local=true"},{"name":"語るなら未来を･･･","url":"https://yewtu.be/latest_version?id=E2lpSx9hBmc&itag=22&hmac_key=ac5a3f2152d849bb02aa266eed7cdd47c76ca085&local=true"}]'></div></div></p>
+<h1 id="歌词翻译"><a class="anchor" href="#歌词翻译">#</a> 歌词翻译</h1>
+<p>『晴ときどき曇』<br />
+晴朗，时而多云</p>
+<hr />
+<p>「いい天気だね」<br />
+<span class="red">你说，今天天气真好呢</span><br />
+君が言うから「本当だね」と答える<br />
+<span class="red">我笑道，确实是这样呢</span><br />
+今日の空のこと話題にしたなら心がふっと近くなる<br />
+<span class="red">一边谈论着这样的话题 心也一下子靠在了一起</span></p>
+<hr />
+<p>歩道を歩く　所々で水たまりが邪魔する<br />
+<span class="red">走在人行道上 到处都有碍事的水洼</span><br />
+君と手を繋いで飛び越えてみる　太陽の光が舞う<br />
+<span class="red">我牵着你的手跳了过去 阳光在起舞</span><br />
+次の季節が香り始める<br />
+<span class="red">下个季节即将开始绽放</span><br />
+その変化に抗うように<br />
+<span class="red">（太阳）为了违逆那样的变化</span><br />
+ “暑かった日々を忘れないで” と最後の力　振り絞って照らす<br />
+<span class="red">竭尽全力大声呼喊着 “不要忘记炎炎夏日噢”，然后照耀着</span></p>
+<hr />
+<p>空は見上げるたびそっと　色や模様うつり変わって<br />
+<span class="red">每当仰望天空 颜色和模样都在风云变幻</span><br />
+それはもう僕らの毎日のようだね<br />
+<span class="red">那简直就像是我们的每一天呢</span><br />
+繰り返さないからもっと　この日この時この瞬間<br />
+<span class="red">因为那样的时刻没有办法复制 所以当下的此时此刻</span><br />
+思い上がらずに刻みつけていたいよ<br />
+<span class="red">都想小心翼翼地刻在心底呢</span></p>
+<hr />
+<p>宇宙まですぐ届く高さで泳いでいる魚たち<br />
+<span class="red">鱼儿们在能够得着宇宙的高度遨游着</span><br />
+そういえば昨日は鈍色の空　どこに潜っていたんだろう？<br />
+<span class="red"> 说起来 昨日的它们又潜藏在哪里的钝色天空之下呢？</span></p>
+<hr />
+<p>激しい雨にも耐えぬいた木の葉<br />
+<span class="red">无法忍受大雨的树叶们</span><br />
+へっちゃらな顔で伝えている<br />
+<span class="red">不屈地想表达些什么</span><br />
+やりきれないと逃げ出すことで救われるくらいなら<br />
+<span class="red">做不到而逃走也能被获救的话</span><br />
+そんな未来は必要 (いら) ない<br />
+<span class="red">那样的未来我才不需要</span></p>
+<hr />
+<p>今日も誰かが空の下　泣いて笑って悔しがって<br />
+<span class="red">今天也有人在天空之下 哭泣着笑着后悔着</span><br />
+恋したり落ち込んだりして暮らしている<br />
+<span class="red">恋爱着失落着生活着</span><br />
+満たされない何かがあって得られる喜びがあると思う<br />
+<span class="red">无法得到满足 但是一定有什么能得到的喜悦</span><br />
+少なくとも、今の僕はそうだよ<br />
+<span class="red">至少 如今的我是那样坚信的噢</span></p>
+<hr />
+<p>君が僕の方を振り返って　その思草 (しぐさ) がたまらなくて<br />
+<span class="red">你回头看向了我 那样的动作印在了我的脑海里</span><br />
+幸せはいつもそうやって傍にいる<br />
+<span class="red">幸福就像这样一直在我的身边</span><br />
+移り変わっていく空の下　僕らいつまでもこの瞬間<br />
+<span class="red">在风云变幻的天空之下 我们要永远像此刻这般</span><br />
+抱きしめながら　ふたり歩いていこう<br />
+<span class="red">两个人拥抱着 一起迈向未来吧</span></p>
+]]></content>
+      <categories>
+        <category>歌词翻译</category>
+      </categories>
+      <tags>
+        <tag>日语</tag>
+        <tag>歌词</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>杂想 | 一些有的没的</title>
+    <url>/2023/08/30/%E6%9D%82%E6%83%B31/</url>
+    <content><![CDATA[<p>有一些想法，若是不及时记录下来的话，很快就会忘记。</p>
+<p><span id="more"></span></p>
+<h1 id="正义-程序正义的背后我在坚持着什么"><a class="anchor" href="#正义-程序正义的背后我在坚持着什么">#</a> 正义 | 程序正义的背后，我在坚持着什么</h1>
+<div class="note info">
+<p>因为是杂想，随笔，那么自然也就不会有严密无缝的逻辑推导和理论支撑喵</p>
+</div>
+<p>2021 年之前，我还是一个会在网络上（主新浪微博）高度冲浪的女大学生。那时候我的朋友在网上，我的爱好也在网上，最快乐的事情，就是和朋友一起追星搞 CP。可以说，<strong>这些成为了我赖以活下去的能量来源。</strong> 因此，当之后的一系列事情摧毁了我亲手为自己铸就的安全堡垒的时候，如潮水般汹涌而来的无力感和绝望感几近将我压垮淹没。</p>
+<h2 id="当我所对抗的恶讨伐了我的敌人时我并不会因此而有多欣喜"><a class="anchor" href="#当我所对抗的恶讨伐了我的敌人时我并不会因此而有多欣喜">#</a> 当我所对抗的 “恶” 讨伐了我的敌人时，我并不会因此而有多欣喜</h2>
+<p>因为那样的 “恶”，一定会挥刀向我所爱的人。</p>
+<h3 id="227事件是一切变故的开端"><a class="anchor" href="#227事件是一切变故的开端">#</a> 「227 事件」，是一切变故的开端。</h3>
+<p>著名的「227 事件」，简而言之便是某男星的粉丝凭己之力让中国政府墙掉了同人女的精神粮仓<span class="red"> AO3</span>。一时间，<ins>创作自由</ins>成为了口诛笔伐的对象，我所坚持的东西被公众踩得一文不值。</p>
+<p>而我是一个格外容易<span class="red">唇亡齿寒</span>的人，我做不到若无其事，即便我仍旧可以阅览 AO3。因为我能看得见未来，那样的未来里于我而言重要的东西会一点一点被剥夺，我说不上来被剥夺的是什么，<ins>或许是自由。</ins></p>
+<p>总之后来，由于种种事情的发生，我和朋友们心有灵犀地去抵制<strong>某男星背后的资本</strong>，因为我们认定那是一切祸的源头。或许对抗都将是徒劳，但是做了总比不做好，我们这么想着。</p>
+<p>直到事情持续发酵，就连<span class="red">官媒</span>也出面了。</p>
+<h3 id="公权力帮我手刃仇人我真的会开心吗"><a class="anchor" href="#公权力帮我手刃仇人我真的会开心吗">#</a> 公权力帮我手刃仇人，我真的会开心吗</h3>
+<p>官媒，是政府的喉舌，这一点似乎毋庸置疑。那样的官媒，竟然在某一天发表了文章评判<span class="red"> 227 事件</span>，并将某男星点评为<ins>失格艺人</ins>。一时间，网络沸腾。</p>
+<p><ins class="wavy">227 大团结</ins>取得了暂时的胜利，尽管男星背后的资本没有被打倒，但是官媒的出面，让大家都为之一振。我第一时间也很高兴，那种高兴类似于一种爽感，就像劣质的酒精给予了大脑临时的高潮和兴奋。但是，一时的爽感终究会褪去，因为那本身就是假象的快乐，当假象破碎，尽头便是赤裸的现实。</p>
+<p>我终于意识到了哪里不对。</p>
+<p>公权力帮我手刃仇人，难道它就不会挥刀向我所爱的人吗？还有那些我的信仰，我所坚信的东西，甚至，我所崇尚的自由。</p>
+<p>正义千千万，它在每个人心中都是不同模样。但是<ins>公权力的滥用</ins>，在我这里便是<span class="red">不正义</span>的。<s>至于公权力的边界是什么，不是我这次想说的重点所以就先不说了喵。</s> 以不正义换取的正义，也就是说<ins>当这个不正义被允许的话，</ins> 那么迎来的是不可控的恶。</p>
+<p>为了避免更大的恶，我宁愿忍受目前的小小不正义。<span class="red">因为我知道未来的恶，一定是我完全没有办法承受的。会摧毁我。</span></p>
+<h2 id="所有的恶终将会到来"><a class="anchor" href="#所有的恶终将会到来">#</a> 所有的恶，终将会到来</h2>
+<p>终于，我喜欢的艺人因在乃木神社参加朋友婚礼，后又因参观靖国神社，被全网封禁，追杀。</p>
+<p>我眼睁睁看着赛博狂欢，那是名为<span class="red">爱国</span>的因子在作祟，一夜间仿佛所有人都变成了爱国狂热者，爱国成为了道德，不爱国则成为了罪。它看起来那么的正确，毋庸置疑。是的，公权力就是这样的强大，它操纵舆论，翻覆云雨，既能让你的仇人成为失格艺人，也能抹杀掉你喜欢的人的所有痕迹。</p>
+<p><strong>是的，所有痕迹。</strong></p>
+<p>我亲眼看着 TA 的作品一部部被下架，TA 的 tag 被失效，甚至 TA 的存在都不被允许。简中网络再也搜不到 TA 的任何东西。好像 TA 从来没有来过。</p>
+<p>这太可怕了。</p>
+<p>我记得那一年陆续封禁了许多失德艺人。我现在依旧秉持着我那时的观点：</p>
+<blockquote>
+<p>一个人的失德可以由公众去抵制，但是公权力的强行插手，就是不正义的。因为公权力可以随心所欲地去定义什么是道德，什么是正确，并加诸于<strong>所有人头上，</strong> 而这一切，我们除了眼睁睁看着它发生，却无力反抗。</p>
+</blockquote>
+<h3 id="最终我逃离了赛博坟场"><a class="anchor" href="#最终我逃离了赛博坟场">#</a> 最终，我逃离了赛博坟场</h3>
+<p>再后来，<ins>女权被污名，性少数被抵制，跨性别更是被打压。</ins> 一个个词条成为黑色，一篇篇文章被屏蔽，一个个好友被封号。</p>
+<p>很早之前我有个天真的想法，尽管我很讨厌简中的社媒，但那是舆论的主要战场，我不能将其拱手给敌人，我要坚守在那里，抢夺一丁点儿的话语权。</p>
+<p>但是现实是，我完全不适合干这事儿。</p>
+<p>我从来不敢与人争吵，我会心悸到手都在颤抖。别说争吵了，就仅仅是看着词条被黑掉，我都能感到巨大无边的难过。</p>
+<p>2021 年 8 月 23 日，我写下过这样一段话：</p>
+<blockquote>
+<p>最近一直很难过，满脑子尽想着逃离吧逃离吧连曾经最享受的表达欲也不断被自我阉割。那些我曾信仰的、向往的、羡慕的蓬勃生命力，以及反复在脑海里所构建的最理想世界，不断枯死在这片大地上，空留一座座墓碑。</p>
+</blockquote>
+<p>终于巨大的无力感和绝望感将我摧毁淹没。而我的预感一向很准，当我第一次见到公权力下场时，我就知道，<ins>那只是个开始。</ins></p>
+<p>那只是个开始，等待我的，是无尽的恶。</p>
+<p>向恶魔讨要来的正义，我不敢要。</p>
+<h1 id="脆弱-我太害怕去暴露它了"><a class="anchor" href="#脆弱-我太害怕去暴露它了">#</a> 脆弱 | 我太害怕去暴露它了</h1>
+<p>我好像一直都是一个人活着。</p>
+<p>这样讲，会显得我太狼心狗肺了。我有爱我的家人，有真心待我的朋友，还有向我给予善意的陌生人。我周围那么多人，我被那么多人簇拥着。</p>
+<p>但是我仍旧是一个人。</p>
+<p>因为我的难过委屈总是在眼泪中吞进了我的肚子里，我没办法诉之于口。我必须要一个人活着。因为我 ——</p>
+<h2 id="我谁都不信只相信自己"><a class="anchor" href="#我谁都不信只相信自己">#</a> 我谁都不信，只相信自己</h2>
+<p>我一直觉得我算不得悲观，只不过看清了<span class="red">现实</span>。</p>
+<p>现实就是，所有爱都会死亡，所有人都是过客。没有什么恒久，只有暂时的快乐。言语会被谎言装饰，真实会被虚假扭曲。</p>
+<p>我躺进棺材的那一刻一定是孤身一人。</p>
+<p>我没办法将自己交付出去，这意味着我的真心会赤裸地被放在别人的案板上，刀悬在空中，随时有落下的可能，我不允许这样的事情发生。</p>
+<p><ins>只要真心完完全全的掌控在自己手中，我就不会受伤。</ins></p>
+<p>终于，我麻木了，我不会受伤，也感受不到爱了。</p>
+<h2 id="或许人生旅途中会有一个人出现ta能接住你的真心"><a class="anchor" href="#或许人生旅途中会有一个人出现ta能接住你的真心">#</a> 或许人生旅途中，会有一个人出现，TA 能接住你的真心</h2>
+<p>后来有个人跟我说，「我不会离开你。」</p>
+<p>我相信了一半，一半是因为 TA 说这句话的那一刻一定是真实的，但是另一半，我没有办法保证 TA 不会改变心意。</p>
+<p>被快乐冲昏的头脑终有一天会清醒，然后被逼着面对现实。</p>
+<p>期间发生了很多事，然后从某一瞬间开始，我暗自偷偷做了一个决定：<span class="spoiler" title="你知道得太多了">我要在 TA 离开我的时候，最小化我受到的伤害。做法便是，逐渐减少我对 TA 的依赖，慢慢收回我的真心。</span></p>
+<p>于是， <span class="spoiler" title="你知道得太多了">「被离开计划」</span> ，便悄悄启动了。</p>
+<h3 id="事不如愿终究还是将那句话发送了出去"><a class="anchor" href="#事不如愿终究还是将那句话发送了出去">#</a> 事不如愿，终究还是将那句话发送了出去</h3>
+<p>一个再也感受不到爱的人，忽然有一天神把爱送到了她身边，她拥有了爱之后，然后又要亲手把爱毁掉，且并非她本意。会怎么样呢？</p>
+<p><span class="spoiler" title="你知道得太多了">会疯掉。</span></p>
+<p>我还记得那种，强迫自己去<span class="red">切割爱</span>的感觉，得到短暂释怀的情绪高涨，又在噩梦里惊醒。反反复复。</p>
+<p>反反复复，都快怀疑自己是不是得了双相。</p>
+<p>终于，在一天难受得要死的下午，在被窝里，大脑一定是疯到没有了知觉，才会在聊天框里打下两句话：</p>
+<p>「好想你啊」<br />
+「我很难过」</p>
+<p>点击发送。</p>
+<p>那一刻我的心是空的，我的真心再也不握在我的手里，我感到自己踩空了，坠入了万丈深渊，急速下降。</p>
+<p>—— 有人接住了我。</p>
+<p>我没有坠入深渊，而是落在了一片软软的地上，睁眼是万里繁花盛开，TA 就趴在我的旁边，看着我笑，仿佛在说，「你看，我就在这里。」</p>
+<p>什么嘛。我委屈地腹诽道：袒露脆弱，好像也没有那么可怕嘛。</p>
+<h1 id="有的没的-或许可以写进悬疑小说里"><a class="anchor" href="#有的没的-或许可以写进悬疑小说里">#</a> 有的没的 | 或许可以写进悬疑小说里！</h1>
+<p>一天晚上，我望向窗外的时候，发现了诡异的一幕，玻璃窗上映出了本不该有的东西：</p>
+<p><img data-src="https://s2.loli.net/2023/08/31/83EdS2D94bRYieB.jpg" alt="Weixin Image_20230831175702.jpg" /></p>
+<p>首先，玻璃窗上应该映出的就是房间里的东西，没错，我很确信这一点，因为里面的每一样东西我都一清二楚，台灯，显示器，键盘等等 <s>（打码了）</s> 。</p>
+<p>但是台灯上却悬挂着我不知道是什么的物件。我看了半天，又向房间里确认，确信没有该物件的，因为房内的情况是这样的：</p>
+<p><img data-src="https://s2.loli.net/2023/08/31/aHcNGit2xJ6DpEF.jpg" alt="Weixin Image_20230831175628.jpg" /></p>
+<p>怎么看也只是台灯啊！所以玻璃上映出的是什么啊啊啊我该不会撞鬼了吧 ——</p>
+<p>咳咳，作为一个无神论者，怎么能相信鬼怪之说呢！侦探大脑启动！——</p>
+<p>呃，终于知道是怎么回事了，台灯挂着的，是<ins>窗外</ins>的衣架。</p>
+<p>发现这个事实的那一刻，我的心在沸腾！多么完美的迷惑手法！凶手可以利用「玻璃上的东西一定是映出来的」的先入为主的想法然后借此来迷惑受害人的视线，紧接着 ——</p>
+<p>停，我现在手里似乎没有侦探本来着（哭哭）没关系，以后总用得上！</p>
+<h1 id="结语"><a class="anchor" href="#结语">#</a> 结语</h1>
+<p>写了这么多，那就用最后两句话作结吧：</p>
+<p>陌生人，祝福你<ins>不迷茫</ins>，祝福你<ins>不失坚守</ins>，祝福你<ins>拥有爱</ins>。</p>
+<p><span class="red">也祝福我。</span></p>
+]]></content>
+      <categories>
+        <category>杂想 | 杂谈</category>
+      </categories>
+      <tags>
+        <tag>杂想</tag>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Firefish | 菜鸟级别利用docker-compose搭建Fedi实例</title>
+    <url>/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/</url>
+    <content><![CDATA[<p>2023 年，随着 X 社媒（原 Twitter）的全面塌陷，越来越多的网友逃向了 Fediverse 开源社交平台，其中著名的有 Mastodon、Misskey 和 Pleroma。前阵子，随着<span class="exturl" data-url="aHR0cHM6Ly9qb2luZmlyZWZpc2gub3Jn"> Firefish</span> 的 <s>横空问世</s> （Misskey 的一个 fork），博主便也想着搭一个玩玩。博主是计算机零基础的小白 <s>（超级白的那种）</s> ，靠着广大热心网友先后搭起了一个 Misskey 实例和一个 Pleroma 实例，这一次，也多亏了大家的帮忙，磕磕绊绊地终于搭好了 Firefish 实例。趁着记忆还鲜明，赶紧记录一下搭建过程。</p>
+<p><span id="more"></span></p>
+<h1 id="搭建过程"><a class="anchor" href="#搭建过程">#</a> 搭建过程</h1>
+<p>因为是用<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NzL2RvY2tlci5tZA=="> Docker-compose 搭建实例</span>，所以默认机器上是有 Docker 容器的。在此基础上，先在任意目录下新建 <code>docker-compose.yml</code>  文件。比如:</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">mkdir</span> /firefish <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> /firefish</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">nano</span> docker-compose.yml</pre></td></tr></table></figure><p>然后<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NrZXItY29tcG9zZS55bWw=">写入以下</span>：</p>
+<figure class="highlight yml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">services</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token key atrule">web</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> registry.joinfirefish.org/firefish/firefish</pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> firefish_web</pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped</pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token punctuation">-</span> db</pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token punctuation">-</span> redis</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">### Uncomment one of the following to use a search engine</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">#     - meilisearch</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">#     - sonic</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token key atrule">ports</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token punctuation">-</span> <span class="token string">"3000:3000"</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token punctuation">-</span> calcnet</pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">#     - web</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token key atrule">environment</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token key atrule">NODE_ENV</span><span class="token punctuation">:</span> production</pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token punctuation">-</span> ./files<span class="token punctuation">:</span>/firefish/files</pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token punctuation">-</span> ./.config<span class="token punctuation">:</span>/firefish/.config<span class="token punctuation">:</span>ro</pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token key atrule">redis</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped</pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> docker.io/redis<span class="token punctuation">:</span>7.0<span class="token punctuation">-</span>alpine</pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> firefish_redis</pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="29"></td><td><pre>      <span class="token punctuation">-</span> calcnet</pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token punctuation">-</span> ./redis<span class="token punctuation">:</span>/data</pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token key atrule">db</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped</pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> docker.io/postgres<span class="token punctuation">:</span>12.2<span class="token punctuation">-</span>alpine</pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> firefish_db</pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="38"></td><td><pre>      <span class="token punctuation">-</span> calcnet</pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token key atrule">env_file</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="40"></td><td><pre>      <span class="token punctuation">-</span> .config/docker.env</pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="42"></td><td><pre>      <span class="token punctuation">-</span> ./db<span class="token punctuation">:</span>/var/lib/postgresql/data</pre></td></tr><tr><td data-num="43"></td><td><pre></pre></td></tr><tr><td data-num="44"></td><td><pre><span class="token comment">### Only one of the below should be used.</span></pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token comment">### Meilisearch is better overall, but resource-intensive. Sonic is a very light full text search engine.</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token comment">#  meilisearch:</span></pre></td></tr><tr><td data-num="48"></td><td><pre><span class="token comment">#    container_name: meilisearch</span></pre></td></tr><tr><td data-num="49"></td><td><pre><span class="token comment">#    image: getmeili/meilisearch:v1.1.1</span></pre></td></tr><tr><td data-num="50"></td><td><pre><span class="token comment">#    environment:</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token comment">#      - MEILI_ENV=$&#123;MEILI_ENV:-development&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token comment">#    ports:</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token comment">#      - "7700:7700"</span></pre></td></tr><tr><td data-num="54"></td><td><pre><span class="token comment">#    networks:</span></pre></td></tr><tr><td data-num="55"></td><td><pre><span class="token comment">#      - calcnet</span></pre></td></tr><tr><td data-num="56"></td><td><pre><span class="token comment">#    volumes:</span></pre></td></tr><tr><td data-num="57"></td><td><pre><span class="token comment">#      - ./meili_data:/meili_data</span></pre></td></tr><tr><td data-num="58"></td><td><pre><span class="token comment">#    restart: unless-stopped</span></pre></td></tr><tr><td data-num="59"></td><td><pre></pre></td></tr><tr><td data-num="60"></td><td><pre><span class="token comment">#  sonic:</span></pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token comment">#    restart: unless-stopped</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token comment">#    image: docker.io/valeriansaliou/sonic:v1.4.0</span></pre></td></tr><tr><td data-num="63"></td><td><pre><span class="token comment">#    networks:</span></pre></td></tr><tr><td data-num="64"></td><td><pre><span class="token comment">#      - calcnet</span></pre></td></tr><tr><td data-num="65"></td><td><pre><span class="token comment">#    volumes:</span></pre></td></tr><tr><td data-num="66"></td><td><pre><span class="token comment">#      - ./sonic:/var/lib/sonic/store</span></pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token comment">#      - ./sonic/config.cfg:/etc/sonic.cfg</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="70"></td><td><pre>  <span class="token key atrule">calcnet</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="71"></td><td><pre>  <span class="token comment">#  web:</span></pre></td></tr><tr><td data-num="72"></td><td><pre>  <span class="token comment">#    external:</span></pre></td></tr><tr><td data-num="73"></td><td><pre>  <span class="token comment">#      name: web</span></pre></td></tr></table></figure><blockquote>
+<p>注意：<br />
+如果此前搭建过 Misskey 的话，那么端口号 3000 应当是冲突的，这时候需要把 <code>web</code>  下面的 <code>ports</code>  改成其他端口，比如 <code>4000:4000</code> 。</p>
+</blockquote>
+<p>写完 <code>docker-compose.yml</code>  文件之后，需要在 firefish 的根目录下新建 <code>.config</code>  文件夹，在里头装入<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC8uY29uZmlnL2V4YW1wbGUueW1s"> default.yml</span> 和<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC8uY29uZmlnL2RvY2tlcl9leGFtcGxlLmVudg=="> docker.env</span> 这两个文件。</p>
+<p><strong>注意：</strong></p>
+<ol>
+<li>需要重命名：example.yml -&gt; default.yml &amp;&amp; docker_example.env -&gt; docker.env</li>
+<li>修改 default.yml 的内容：url -&gt; 自己的域名 &amp;&amp; db localhost -&gt; firefish_db &amp;&amp; redis localhost -&gt; redis <s>（备注：localhost 一定要修改，博主就是在这里卡了好久 QAQ）</s></li>
+<li>（可选）修改 default.yml 中的 port，如果端口有冲突的话。修改 db 的 user 和 pass，且两个文件一定要 match。</li>
+</ol>
+<p>待文件写入完毕之后，便可使容器上线： <code>docker-compose up -d</code></p>
+<h1 id="反向代理nginx"><a class="anchor" href="#反向代理nginx">#</a> 反向代理：Nginx</h1>
+<p>这一部分的话，大概有很多种操作方法，我只写了我使用的一种：利用 Certbot 获取证书然后用 Nginx 反向代理。</p>
+<p><ins class="wavy">首先去 DNS 服务商添加一条指向服务器 IP 的 A 记录。</ins> 然后回到服务器，先切换 root 用户： <code>sudo -i</code> 。因为要使用 Certbot 和 Nginx，所以默认服务器上有这两个东西。</p>
+<p>先<strong>获取证书</strong>，使用指令 <code>sudo certbot --nginx</code>  ，然后配置 Nginx。博主刚开始使用的是<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9maXJlZmlzaC5uZ2lueC5jb25m"> firefish 的 Nginx 配置文件</span>，但是没有成功，后来经热心网友建议，使用<span class="exturl" data-url="aHR0cHM6Ly9taXNza2V5LWh1Yi5uZXQvZW4vZG9jcy9hZG1pbi9uZ2lueC5odG1s"> Misskey 的配置文件</span>试试，结果就成功了。</p>
+<p>我的配置文件如下：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># For WebSocket</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>map <span class="token variable">$http_upgrade</span> <span class="token variable">$connection_upgrade</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    default upgrade<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token string">''</span>      close<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  </pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>proxy_cache_path /tmp/nginx_cache_firefish <span class="token assign-left variable">levels</span><span class="token operator">=</span><span class="token number">1</span>:2 <span class="token assign-left variable">keys_zone</span><span class="token operator">=</span>cache2:16m <span class="token assign-left variable">max_size</span><span class="token operator">=</span>1g <span class="token assign-left variable">inactive</span><span class="token operator">=</span>720m <span class="token assign-left variable">use_temp_path</span><span class="token operator">=</span>off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>  </pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>server <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    listen <span class="token number">80</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    listen <span class="token punctuation">[</span>::<span class="token punctuation">]</span>:80<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    server_name 你的域名<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>  </pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token comment"># For SSL domain validation</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    root /var/www/html<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>    location /.well-known/acme-challenge/ <span class="token punctuation">&#123;</span> allow all<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>    location /.well-known/pki-validation/ <span class="token punctuation">&#123;</span> allow all<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre></pre></td></tr><tr><td data-num="35"></td><td><pre>    location / <span class="token punctuation">&#123;</span> <span class="token builtin class-name">return</span> <span class="token number">301</span> https://<span class="token variable">$server_name</span><span class="token variable">$request_uri</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre>  </pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre>server <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre></pre></td></tr><tr><td data-num="43"></td><td><pre>    listen <span class="token number">443</span> ssl http2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>    listen <span class="token punctuation">[</span>::<span class="token punctuation">]</span>:443 ssl http2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre>    server_name 你的域名<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>  </pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre>    ssl_session_timeout 1d<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre></pre></td></tr><tr><td data-num="53"></td><td><pre>    ssl_session_cache shared:ssl_session_cache:10m<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="54"></td><td><pre></pre></td></tr><tr><td data-num="55"></td><td><pre>    ssl_session_tickets off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre></pre></td></tr><tr><td data-num="57"></td><td><pre>  </pre></td></tr><tr><td data-num="58"></td><td><pre></pre></td></tr><tr><td data-num="59"></td><td><pre>    <span class="token comment"># To use Let's Encrypt certificate</span></pre></td></tr><tr><td data-num="60"></td><td><pre></pre></td></tr><tr><td data-num="61"></td><td><pre>    ssl_certificate /etc/letsencrypt/live/你的域名/fullchain.pem<span class="token punctuation">;</span> <span class="token comment"># managed by Certbot</span></pre></td></tr><tr><td data-num="62"></td><td><pre></pre></td></tr><tr><td data-num="63"></td><td><pre>    ssl_certificate_key /etc/letsencrypt/live/你的域名/privkey.pem<span class="token punctuation">;</span> <span class="token comment"># managed by Certbot</span></pre></td></tr><tr><td data-num="64"></td><td><pre></pre></td></tr><tr><td data-num="65"></td><td><pre>  </pre></td></tr><tr><td data-num="66"></td><td><pre></pre></td></tr><tr><td data-num="67"></td><td><pre>    <span class="token comment"># To use Debian/Ubuntu's self-signed certificate (For testing or before issuing a certificate)</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token comment">#ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;</span></pre></td></tr><tr><td data-num="70"></td><td><pre></pre></td></tr><tr><td data-num="71"></td><td><pre>    <span class="token comment">#ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;</span></pre></td></tr><tr><td data-num="72"></td><td><pre></pre></td></tr><tr><td data-num="73"></td><td><pre>  </pre></td></tr><tr><td data-num="74"></td><td><pre></pre></td></tr><tr><td data-num="75"></td><td><pre>    <span class="token comment"># SSL protocol settings</span></pre></td></tr><tr><td data-num="76"></td><td><pre></pre></td></tr><tr><td data-num="77"></td><td><pre>    ssl_protocols TLSv1.2 TLSv1.3<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="78"></td><td><pre></pre></td></tr><tr><td data-num="79"></td><td><pre>    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="80"></td><td><pre></pre></td></tr><tr><td data-num="81"></td><td><pre>    ssl_prefer_server_ciphers off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="82"></td><td><pre></pre></td></tr><tr><td data-num="83"></td><td><pre>    ssl_stapling on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre></pre></td></tr><tr><td data-num="85"></td><td><pre>    ssl_stapling_verify on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="86"></td><td><pre></pre></td></tr><tr><td data-num="87"></td><td><pre>  </pre></td></tr><tr><td data-num="88"></td><td><pre></pre></td></tr><tr><td data-num="89"></td><td><pre>    <span class="token comment"># Change to your upload limit</span></pre></td></tr><tr><td data-num="90"></td><td><pre></pre></td></tr><tr><td data-num="91"></td><td><pre>    client_max_body_size 80m<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="92"></td><td><pre></pre></td></tr><tr><td data-num="93"></td><td><pre>  </pre></td></tr><tr><td data-num="94"></td><td><pre></pre></td></tr><tr><td data-num="95"></td><td><pre>    <span class="token comment"># Proxy to Node</span></pre></td></tr><tr><td data-num="96"></td><td><pre></pre></td></tr><tr><td data-num="97"></td><td><pre>    location / <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="98"></td><td><pre></pre></td></tr><tr><td data-num="99"></td><td><pre>        proxy_pass http://127.0.0.1:6110<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="100"></td><td><pre></pre></td></tr><tr><td data-num="101"></td><td><pre>        proxy_set_header Host <span class="token variable">$host</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="102"></td><td><pre></pre></td></tr><tr><td data-num="103"></td><td><pre>        proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="104"></td><td><pre></pre></td></tr><tr><td data-num="105"></td><td><pre>        proxy_redirect off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="106"></td><td><pre></pre></td></tr><tr><td data-num="107"></td><td><pre>  </pre></td></tr><tr><td data-num="108"></td><td><pre>  </pre></td></tr><tr><td data-num="109"></td><td><pre></pre></td></tr><tr><td data-num="110"></td><td><pre>        <span class="token comment"># For WebSocket</span></pre></td></tr><tr><td data-num="111"></td><td><pre></pre></td></tr><tr><td data-num="112"></td><td><pre>        proxy_set_header Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="113"></td><td><pre></pre></td></tr><tr><td data-num="114"></td><td><pre>        proxy_set_header Connection <span class="token variable">$connection_upgrade</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="115"></td><td><pre></pre></td></tr><tr><td data-num="116"></td><td><pre>  </pre></td></tr><tr><td data-num="117"></td><td><pre></pre></td></tr><tr><td data-num="118"></td><td><pre>        <span class="token comment"># Cache settings</span></pre></td></tr><tr><td data-num="119"></td><td><pre></pre></td></tr><tr><td data-num="120"></td><td><pre>        proxy_cache cache2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="121"></td><td><pre></pre></td></tr><tr><td data-num="122"></td><td><pre>        proxy_cache_lock on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="123"></td><td><pre></pre></td></tr><tr><td data-num="124"></td><td><pre>        proxy_cache_use_stale updating<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="125"></td><td><pre></pre></td></tr><tr><td data-num="126"></td><td><pre>        proxy_force_ranges on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="127"></td><td><pre></pre></td></tr><tr><td data-num="128"></td><td><pre>        add_header X-Cache <span class="token variable">$upstream_cache_status</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="129"></td><td><pre></pre></td></tr><tr><td data-num="130"></td><td><pre>  </pre></td></tr><tr><td data-num="131"></td><td><pre></pre></td></tr><tr><td data-num="132"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="133"></td><td><pre></pre></td></tr><tr><td data-num="134"></td><td><pre><span class="token comment">#1location =/robots.txt &#123;</span></pre></td></tr><tr><td data-num="135"></td><td><pre></pre></td></tr><tr><td data-num="136"></td><td><pre><span class="token comment">#2    default_type text/html;</span></pre></td></tr><tr><td data-num="137"></td><td><pre></pre></td></tr><tr><td data-num="138"></td><td><pre><span class="token comment">#3    add_header Content-Type "text/plain; charset=UTF-8";</span></pre></td></tr><tr><td data-num="139"></td><td><pre></pre></td></tr><tr><td data-num="140"></td><td><pre><span class="token comment">#4    return 200 "User-agent: *\nDisallow: /\n";</span></pre></td></tr><tr><td data-num="141"></td><td><pre></pre></td></tr><tr><td data-num="142"></td><td><pre><span class="token comment">#5&#125;</span></pre></td></tr><tr><td data-num="143"></td><td><pre></pre></td></tr><tr><td data-num="144"></td><td><pre>  </pre></td></tr><tr><td data-num="145"></td><td><pre></pre></td></tr><tr><td data-num="146"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><strong>注意：</strong></p>
+<ol>
+<li>我修改了缓存地址，否则会和原来 Misskey 的缓存地址冲突：proxy_cache_path /tmp/nginx_cache_firefish</li>
+<li>将 cache1 改为了 cache2，共 2 处。</li>
+<li>端口号要和 docker-compose.yml 和 default.yml 的一致。</li>
+<li>需要修改 <code>你的域名</code> ，共 4 处。</li>
+</ol>
+<p>获取完证书和配置好 Nginx 文件之后，试着测试一下： <code>nginx -t</code> , 没有问题的话便是重载和重启 Nginx：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>nginx <span class="token parameter variable">-s</span> reload</pre></td></tr><tr><td data-num="2"></td><td><pre>systemctl restart nginx</pre></td></tr></table></figure><p>（如果是第一次使用 Nginx 的话，不是 restart 而是 start）</p>
+<h1 id="痛苦的排错之路"><a class="anchor" href="#痛苦的排错之路">#</a> 痛苦的排错之路</h1>
+<p>作为一个小白搭建实例免不了一路红灯 <s>（说的就是 error 呜呜）</s> ，总结了一下，出错原因要么是容器里的服务没有跑起来要么就是 Nginx 搞错了。</p>
+<ol>
+<li>Docker 容器</li>
+</ol>
+<ul>
+<li>首先 restart 一下容器： <code>docker-compose restart</code> ，这是解决 <code>502 error</code>  最好的办法 <s>（大佬说的）</s> 。</li>
+<li>然后看看 <code>docker ps</code>  里面的服务是不是都 up 了。没有的话可能就是配置错了，回去改改配置，最后 <code>docker-compose up -d</code>  来更新容器。</li>
+<li>实在不行，就通过 <code>docker compose logs web -f --tail 100</code>  来查看日志。</li>
+</ul>
+<ol start="2">
+<li>Nginx 反代</li>
+</ol>
+<ul>
+<li>如果是 <code>502 error</code>  的话，如上所说先试试 <code>docker-compose restart</code> 。</li>
+<li>如果不行或是其他错误，先用 <code>nginx -t</code>  看看是否成功，没有成功的话可能就是配置文件写错了，注意<strong>端口号</strong>等等。</li>
+<li>test 没有问题的话，再看看 nginx 的 status： <code>sudo systemctl status nginx</code> 。</li>
+<li>清理缓存，再用 <code>service nginx reload</code>  重载，然后 <code>systemctl restart nginx</code>  重启。</li>
+</ul>
+<ol start="3">
+<li>其他<br />
+可以用 <code>curl -v http://localhost:端口号</code> 看能不能拉取到信息。</li>
+</ol>
+<h1 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h1>
+<p><div class="links"><div class="item" title="Tom Funken"><span class="exturl image" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NzL2RvY2tlci5tZD9yZWZfdHlwZT1oZWFkcw==" data-background-image="/assets/firefish.svg"></span>
+          <div class="info">
+          <span class="exturl title" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NzL2RvY2tlci5tZD9yZWZfdHlwZT1oZWFkcw==">docker.md</span>
+          <p class="desc">官方文档</p>
+          </div></div></div></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Fediverse</tag>
+        <tag>Firefish</tag>
+        <tag>Dokcer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>語るなら未来を･･･｜欅坂46</title>
     <url>/2023/08/26/%E8%AA%9E%E3%82%8B%E3%81%AA%E3%82%89%E6%9C%AA%E6%9D%A5%E3%82%92%EF%BD%A5%EF%BD%A5%EF%BD%A5/</url>
     <content><![CDATA[<p>这是博主时隔一年多第一次翻译日语，稍稍有点手生，但是因为以前翻译过漫画，所以一下子又能找到感觉 <s>(大概)</s> 然后因为这是自己翻译着玩的，所以不保证质量 orz 再加上博主是意译派，还时不时加入自己的感情，所以 ——</p>
@@ -527,382 +906,30 @@ Y_i^0 —— Z_i = 0
       </tags>
   </entry>
   <entry>
-    <title>Firefish | 菜鸟级别利用docker-compose搭建Fedi实例</title>
-    <url>/2023/08/24/%E8%8F%9C%E9%B8%9F%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8docker-compose%E6%90%AD%E5%BB%BAFirefish%E5%AE%9E%E4%BE%8B/</url>
-    <content><![CDATA[<p>2023 年，随着 X 社媒（原 Twitter）的全面塌陷，越来越多的网友逃向了 Fediverse 开源社交平台，其中著名的有 Mastodon、Misskey 和 Pleroma。前阵子，随着<span class="exturl" data-url="aHR0cHM6Ly9qb2luZmlyZWZpc2gub3Jn"> Firefish</span> 的 <s>横空问世</s> （Misskey 的一个 fork），博主便也想着搭一个玩玩。博主是计算机零基础的小白 <s>（超级白的那种）</s> ，靠着广大热心网友先后搭起了一个 Misskey 实例和一个 Pleroma 实例，这一次，也多亏了大家的帮忙，磕磕绊绊地终于搭好了 Firefish 实例。趁着记忆还鲜明，赶紧记录一下搭建过程。</p>
-<p><span id="more"></span></p>
-<h1 id="搭建过程"><a class="anchor" href="#搭建过程">#</a> 搭建过程</h1>
-<p>因为是用<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NzL2RvY2tlci5tZA=="> Docker-compose 搭建实例</span>，所以默认机器上是有 Docker 容器的。在此基础上，先在任意目录下新建 <code>docker-compose.yml</code>  文件。比如:</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">mkdir</span> /firefish <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> /firefish</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">nano</span> docker-compose.yml</pre></td></tr></table></figure><p>然后<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NrZXItY29tcG9zZS55bWw=">写入以下</span>：</p>
-<figure class="highlight yml"><figcaption data-lang="YAML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key atrule">services</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token key atrule">web</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> registry.joinfirefish.org/firefish/firefish</pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> firefish_web</pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped</pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      <span class="token punctuation">-</span> db</pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token punctuation">-</span> redis</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">### Uncomment one of the following to use a search engine</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">#     - meilisearch</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment">#     - sonic</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token key atrule">ports</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token punctuation">-</span> <span class="token string">"3000:3000"</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token punctuation">-</span> calcnet</pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token comment">#     - web</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token key atrule">environment</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token key atrule">NODE_ENV</span><span class="token punctuation">:</span> production</pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="21"></td><td><pre>      <span class="token punctuation">-</span> ./files<span class="token punctuation">:</span>/firefish/files</pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token punctuation">-</span> ./.config<span class="token punctuation">:</span>/firefish/.config<span class="token punctuation">:</span>ro</pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token key atrule">redis</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped</pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> docker.io/redis<span class="token punctuation">:</span>7.0<span class="token punctuation">-</span>alpine</pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> firefish_redis</pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="29"></td><td><pre>      <span class="token punctuation">-</span> calcnet</pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="31"></td><td><pre>      <span class="token punctuation">-</span> ./redis<span class="token punctuation">:</span>/data</pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>  <span class="token key atrule">db</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token key atrule">restart</span><span class="token punctuation">:</span> unless<span class="token punctuation">-</span>stopped</pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token key atrule">image</span><span class="token punctuation">:</span> docker.io/postgres<span class="token punctuation">:</span>12.2<span class="token punctuation">-</span>alpine</pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> firefish_db</pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="38"></td><td><pre>      <span class="token punctuation">-</span> calcnet</pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token key atrule">env_file</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="40"></td><td><pre>      <span class="token punctuation">-</span> .config/docker.env</pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token key atrule">volumes</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="42"></td><td><pre>      <span class="token punctuation">-</span> ./db<span class="token punctuation">:</span>/var/lib/postgresql/data</pre></td></tr><tr><td data-num="43"></td><td><pre></pre></td></tr><tr><td data-num="44"></td><td><pre><span class="token comment">### Only one of the below should be used.</span></pre></td></tr><tr><td data-num="45"></td><td><pre><span class="token comment">### Meilisearch is better overall, but resource-intensive. Sonic is a very light full text search engine.</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre><span class="token comment">#  meilisearch:</span></pre></td></tr><tr><td data-num="48"></td><td><pre><span class="token comment">#    container_name: meilisearch</span></pre></td></tr><tr><td data-num="49"></td><td><pre><span class="token comment">#    image: getmeili/meilisearch:v1.1.1</span></pre></td></tr><tr><td data-num="50"></td><td><pre><span class="token comment">#    environment:</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token comment">#      - MEILI_ENV=$&#123;MEILI_ENV:-development&#125;</span></pre></td></tr><tr><td data-num="52"></td><td><pre><span class="token comment">#    ports:</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token comment">#      - "7700:7700"</span></pre></td></tr><tr><td data-num="54"></td><td><pre><span class="token comment">#    networks:</span></pre></td></tr><tr><td data-num="55"></td><td><pre><span class="token comment">#      - calcnet</span></pre></td></tr><tr><td data-num="56"></td><td><pre><span class="token comment">#    volumes:</span></pre></td></tr><tr><td data-num="57"></td><td><pre><span class="token comment">#      - ./meili_data:/meili_data</span></pre></td></tr><tr><td data-num="58"></td><td><pre><span class="token comment">#    restart: unless-stopped</span></pre></td></tr><tr><td data-num="59"></td><td><pre></pre></td></tr><tr><td data-num="60"></td><td><pre><span class="token comment">#  sonic:</span></pre></td></tr><tr><td data-num="61"></td><td><pre><span class="token comment">#    restart: unless-stopped</span></pre></td></tr><tr><td data-num="62"></td><td><pre><span class="token comment">#    image: docker.io/valeriansaliou/sonic:v1.4.0</span></pre></td></tr><tr><td data-num="63"></td><td><pre><span class="token comment">#    networks:</span></pre></td></tr><tr><td data-num="64"></td><td><pre><span class="token comment">#      - calcnet</span></pre></td></tr><tr><td data-num="65"></td><td><pre><span class="token comment">#    volumes:</span></pre></td></tr><tr><td data-num="66"></td><td><pre><span class="token comment">#      - ./sonic:/var/lib/sonic/store</span></pre></td></tr><tr><td data-num="67"></td><td><pre><span class="token comment">#      - ./sonic/config.cfg:/etc/sonic.cfg</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre><span class="token key atrule">networks</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="70"></td><td><pre>  <span class="token key atrule">calcnet</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="71"></td><td><pre>  <span class="token comment">#  web:</span></pre></td></tr><tr><td data-num="72"></td><td><pre>  <span class="token comment">#    external:</span></pre></td></tr><tr><td data-num="73"></td><td><pre>  <span class="token comment">#      name: web</span></pre></td></tr></table></figure><blockquote>
-<p>注意：<br />
-如果此前搭建过 Misskey 的话，那么端口号 3000 应当是冲突的，这时候需要把 <code>web</code>  下面的 <code>ports</code>  改成其他端口，比如 <code>4000:4000</code> 。</p>
-</blockquote>
-<p>写完 <code>docker-compose.yml</code>  文件之后，需要在 firefish 的根目录下新建 <code>.config</code>  文件夹，在里头装入<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC8uY29uZmlnL2V4YW1wbGUueW1s"> default.yml</span> 和<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC8uY29uZmlnL2RvY2tlcl9leGFtcGxlLmVudg=="> docker.env</span> 这两个文件。</p>
-<p><strong>注意：</strong></p>
-<ol>
-<li>需要重命名：example.yml -&gt; default.yml &amp;&amp; docker_example.env -&gt; docker.env</li>
-<li>修改 default.yml 的内容：url -&gt; 自己的域名 &amp;&amp; db localhost -&gt; firefish_db &amp;&amp; redis localhost -&gt; redis <s>（备注：localhost 一定要修改，博主就是在这里卡了好久 QAQ）</s></li>
-<li>（可选）修改 default.yml 中的 port，如果端口有冲突的话。修改 db 的 user 和 pass，且两个文件一定要 match。</li>
-</ol>
-<p>待文件写入完毕之后，便可使容器上线： <code>docker-compose up -d</code></p>
-<h1 id="反向代理nginx"><a class="anchor" href="#反向代理nginx">#</a> 反向代理：Nginx</h1>
-<p>这一部分的话，大概有很多种操作方法，我只写了我使用的一种：利用 Certbot 获取证书然后用 Nginx 反向代理。</p>
-<p><ins class="wavy">首先去 DNS 服务商添加一条指向服务器 IP 的 A 记录。</ins> 然后回到服务器，先切换 root 用户： <code>sudo -i</code> 。因为要使用 Certbot 和 Nginx，所以默认服务器上有这两个东西。</p>
-<p>先<strong>获取证书</strong>，使用指令 <code>sudo certbot --nginx</code>  ，然后配置 Nginx。博主刚开始使用的是<span class="exturl" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9maXJlZmlzaC5uZ2lueC5jb25m"> firefish 的 Nginx 配置文件</span>，但是没有成功，后来经热心网友建议，使用<span class="exturl" data-url="aHR0cHM6Ly9taXNza2V5LWh1Yi5uZXQvZW4vZG9jcy9hZG1pbi9uZ2lueC5odG1s"> Misskey 的配置文件</span>试试，结果就成功了。</p>
-<p>我的配置文件如下：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># For WebSocket</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>map <span class="token variable">$http_upgrade</span> <span class="token variable">$connection_upgrade</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    default upgrade<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token string">''</span>      close<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  </pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>proxy_cache_path /tmp/nginx_cache_firefish <span class="token assign-left variable">levels</span><span class="token operator">=</span><span class="token number">1</span>:2 <span class="token assign-left variable">keys_zone</span><span class="token operator">=</span>cache2:16m <span class="token assign-left variable">max_size</span><span class="token operator">=</span>1g <span class="token assign-left variable">inactive</span><span class="token operator">=</span>720m <span class="token assign-left variable">use_temp_path</span><span class="token operator">=</span>off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>  </pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre>server <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    listen <span class="token number">80</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    listen <span class="token punctuation">[</span>::<span class="token punctuation">]</span>:80<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    server_name 你的域名<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>  </pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token comment"># For SSL domain validation</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    root /var/www/html<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>    location /.well-known/acme-challenge/ <span class="token punctuation">&#123;</span> allow all<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>    location /.well-known/pki-validation/ <span class="token punctuation">&#123;</span> allow all<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre></pre></td></tr><tr><td data-num="35"></td><td><pre>    location / <span class="token punctuation">&#123;</span> <span class="token builtin class-name">return</span> <span class="token number">301</span> https://<span class="token variable">$server_name</span><span class="token variable">$request_uri</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre></pre></td></tr><tr><td data-num="37"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre>  </pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre>server <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre></pre></td></tr><tr><td data-num="43"></td><td><pre>    listen <span class="token number">443</span> ssl http2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>    listen <span class="token punctuation">[</span>::<span class="token punctuation">]</span>:443 ssl http2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre></pre></td></tr><tr><td data-num="47"></td><td><pre>    server_name 你的域名<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>  </pre></td></tr><tr><td data-num="50"></td><td><pre></pre></td></tr><tr><td data-num="51"></td><td><pre>    ssl_session_timeout 1d<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre></pre></td></tr><tr><td data-num="53"></td><td><pre>    ssl_session_cache shared:ssl_session_cache:10m<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="54"></td><td><pre></pre></td></tr><tr><td data-num="55"></td><td><pre>    ssl_session_tickets off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre></pre></td></tr><tr><td data-num="57"></td><td><pre>  </pre></td></tr><tr><td data-num="58"></td><td><pre></pre></td></tr><tr><td data-num="59"></td><td><pre>    <span class="token comment"># To use Let's Encrypt certificate</span></pre></td></tr><tr><td data-num="60"></td><td><pre></pre></td></tr><tr><td data-num="61"></td><td><pre>    ssl_certificate /etc/letsencrypt/live/你的域名/fullchain.pem<span class="token punctuation">;</span> <span class="token comment"># managed by Certbot</span></pre></td></tr><tr><td data-num="62"></td><td><pre></pre></td></tr><tr><td data-num="63"></td><td><pre>    ssl_certificate_key /etc/letsencrypt/live/你的域名/privkey.pem<span class="token punctuation">;</span> <span class="token comment"># managed by Certbot</span></pre></td></tr><tr><td data-num="64"></td><td><pre></pre></td></tr><tr><td data-num="65"></td><td><pre>  </pre></td></tr><tr><td data-num="66"></td><td><pre></pre></td></tr><tr><td data-num="67"></td><td><pre>    <span class="token comment"># To use Debian/Ubuntu's self-signed certificate (For testing or before issuing a certificate)</span></pre></td></tr><tr><td data-num="68"></td><td><pre></pre></td></tr><tr><td data-num="69"></td><td><pre>    <span class="token comment">#ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;</span></pre></td></tr><tr><td data-num="70"></td><td><pre></pre></td></tr><tr><td data-num="71"></td><td><pre>    <span class="token comment">#ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;</span></pre></td></tr><tr><td data-num="72"></td><td><pre></pre></td></tr><tr><td data-num="73"></td><td><pre>  </pre></td></tr><tr><td data-num="74"></td><td><pre></pre></td></tr><tr><td data-num="75"></td><td><pre>    <span class="token comment"># SSL protocol settings</span></pre></td></tr><tr><td data-num="76"></td><td><pre></pre></td></tr><tr><td data-num="77"></td><td><pre>    ssl_protocols TLSv1.2 TLSv1.3<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="78"></td><td><pre></pre></td></tr><tr><td data-num="79"></td><td><pre>    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="80"></td><td><pre></pre></td></tr><tr><td data-num="81"></td><td><pre>    ssl_prefer_server_ciphers off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="82"></td><td><pre></pre></td></tr><tr><td data-num="83"></td><td><pre>    ssl_stapling on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="84"></td><td><pre></pre></td></tr><tr><td data-num="85"></td><td><pre>    ssl_stapling_verify on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="86"></td><td><pre></pre></td></tr><tr><td data-num="87"></td><td><pre>  </pre></td></tr><tr><td data-num="88"></td><td><pre></pre></td></tr><tr><td data-num="89"></td><td><pre>    <span class="token comment"># Change to your upload limit</span></pre></td></tr><tr><td data-num="90"></td><td><pre></pre></td></tr><tr><td data-num="91"></td><td><pre>    client_max_body_size 80m<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="92"></td><td><pre></pre></td></tr><tr><td data-num="93"></td><td><pre>  </pre></td></tr><tr><td data-num="94"></td><td><pre></pre></td></tr><tr><td data-num="95"></td><td><pre>    <span class="token comment"># Proxy to Node</span></pre></td></tr><tr><td data-num="96"></td><td><pre></pre></td></tr><tr><td data-num="97"></td><td><pre>    location / <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="98"></td><td><pre></pre></td></tr><tr><td data-num="99"></td><td><pre>        proxy_pass http://127.0.0.1:6110<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="100"></td><td><pre></pre></td></tr><tr><td data-num="101"></td><td><pre>        proxy_set_header Host <span class="token variable">$host</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="102"></td><td><pre></pre></td></tr><tr><td data-num="103"></td><td><pre>        proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="104"></td><td><pre></pre></td></tr><tr><td data-num="105"></td><td><pre>        proxy_redirect off<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="106"></td><td><pre></pre></td></tr><tr><td data-num="107"></td><td><pre>  </pre></td></tr><tr><td data-num="108"></td><td><pre>  </pre></td></tr><tr><td data-num="109"></td><td><pre></pre></td></tr><tr><td data-num="110"></td><td><pre>        <span class="token comment"># For WebSocket</span></pre></td></tr><tr><td data-num="111"></td><td><pre></pre></td></tr><tr><td data-num="112"></td><td><pre>        proxy_set_header Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="113"></td><td><pre></pre></td></tr><tr><td data-num="114"></td><td><pre>        proxy_set_header Connection <span class="token variable">$connection_upgrade</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="115"></td><td><pre></pre></td></tr><tr><td data-num="116"></td><td><pre>  </pre></td></tr><tr><td data-num="117"></td><td><pre></pre></td></tr><tr><td data-num="118"></td><td><pre>        <span class="token comment"># Cache settings</span></pre></td></tr><tr><td data-num="119"></td><td><pre></pre></td></tr><tr><td data-num="120"></td><td><pre>        proxy_cache cache2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="121"></td><td><pre></pre></td></tr><tr><td data-num="122"></td><td><pre>        proxy_cache_lock on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="123"></td><td><pre></pre></td></tr><tr><td data-num="124"></td><td><pre>        proxy_cache_use_stale updating<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="125"></td><td><pre></pre></td></tr><tr><td data-num="126"></td><td><pre>        proxy_force_ranges on<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="127"></td><td><pre></pre></td></tr><tr><td data-num="128"></td><td><pre>        add_header X-Cache <span class="token variable">$upstream_cache_status</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="129"></td><td><pre></pre></td></tr><tr><td data-num="130"></td><td><pre>  </pre></td></tr><tr><td data-num="131"></td><td><pre></pre></td></tr><tr><td data-num="132"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="133"></td><td><pre></pre></td></tr><tr><td data-num="134"></td><td><pre><span class="token comment">#1location =/robots.txt &#123;</span></pre></td></tr><tr><td data-num="135"></td><td><pre></pre></td></tr><tr><td data-num="136"></td><td><pre><span class="token comment">#2    default_type text/html;</span></pre></td></tr><tr><td data-num="137"></td><td><pre></pre></td></tr><tr><td data-num="138"></td><td><pre><span class="token comment">#3    add_header Content-Type "text/plain; charset=UTF-8";</span></pre></td></tr><tr><td data-num="139"></td><td><pre></pre></td></tr><tr><td data-num="140"></td><td><pre><span class="token comment">#4    return 200 "User-agent: *\nDisallow: /\n";</span></pre></td></tr><tr><td data-num="141"></td><td><pre></pre></td></tr><tr><td data-num="142"></td><td><pre><span class="token comment">#5&#125;</span></pre></td></tr><tr><td data-num="143"></td><td><pre></pre></td></tr><tr><td data-num="144"></td><td><pre>  </pre></td></tr><tr><td data-num="145"></td><td><pre></pre></td></tr><tr><td data-num="146"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p><strong>注意：</strong></p>
-<ol>
-<li>我修改了缓存地址，否则会和原来 Misskey 的缓存地址冲突：proxy_cache_path /tmp/nginx_cache_firefish</li>
-<li>将 cache1 改为了 cache2，共 2 处。</li>
-<li>端口号要和 docker-compose.yml 和 default.yml 的一致。</li>
-<li>需要修改 <code>你的域名</code> ，共 4 处。</li>
-</ol>
-<p>获取完证书和配置好 Nginx 文件之后，试着测试一下： <code>nginx -t</code> , 没有问题的话便是重载和重启 Nginx：</p>
-<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>nginx <span class="token parameter variable">-s</span> reload</pre></td></tr><tr><td data-num="2"></td><td><pre>systemctl restart nginx</pre></td></tr></table></figure><p>（如果是第一次使用 Nginx 的话，不是 restart 而是 start）</p>
-<h1 id="痛苦的排错之路"><a class="anchor" href="#痛苦的排错之路">#</a> 痛苦的排错之路</h1>
-<p>作为一个小白搭建实例免不了一路红灯 <s>（说的就是 error 呜呜）</s> ，总结了一下，出错原因要么是容器里的服务没有跑起来要么就是 Nginx 搞错了。</p>
-<ol>
-<li>Docker 容器</li>
-</ol>
-<ul>
-<li>首先 restart 一下容器： <code>docker-compose restart</code> ，这是解决 <code>502 error</code>  最好的办法 <s>（大佬说的）</s> 。</li>
-<li>然后看看 <code>docker ps</code>  里面的服务是不是都 up 了。没有的话可能就是配置错了，回去改改配置，最后 <code>docker-compose up -d</code>  来更新容器。</li>
-<li>实在不行，就通过 <code>docker compose logs web -f --tail 100</code>  来查看日志。</li>
-</ul>
-<ol start="2">
-<li>Nginx 反代</li>
-</ol>
-<ul>
-<li>如果是 <code>502 error</code>  的话，如上所说先试试 <code>docker-compose restart</code> 。</li>
-<li>如果不行或是其他错误，先用 <code>nginx -t</code>  看看是否成功，没有成功的话可能就是配置文件写错了，注意<strong>端口号</strong>等等。</li>
-<li>test 没有问题的话，再看看 nginx 的 status： <code>sudo systemctl status nginx</code> 。</li>
-<li>清理缓存，再用 <code>service nginx reload</code>  重载，然后 <code>systemctl restart nginx</code>  重启。</li>
-</ul>
-<ol start="3">
-<li>其他<br />
-可以用 <code>curl -v http://localhost:端口号</code> 看能不能拉取到信息。</li>
-</ol>
-<h1 id="参考资料"><a class="anchor" href="#参考资料">#</a> 参考资料</h1>
-<p><div class="links"><div class="item" title="Tom Funken"><span class="exturl image" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NzL2RvY2tlci5tZD9yZWZfdHlwZT1oZWFkcw==" data-background-image="/assets/firefish.svg"></span>
-          <div class="info">
-          <span class="exturl title" data-url="aHR0cHM6Ly9naXQuam9pbmZpcmVmaXNoLm9yZy9maXJlZmlzaC9maXJlZmlzaC8tL2Jsb2IvZGV2ZWxvcC9kb2NzL2RvY2tlci5tZD9yZWZfdHlwZT1oZWFkcw==">docker.md</span>
-          <p class="desc">官方文档</p>
-          </div></div></div></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Fediverse</tag>
-        <tag>Firefish</tag>
-        <tag>Dokcer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>晴ときどき曇｜スキマスイッチ</title>
-    <url>/2023/08/27/%E6%99%B4%E3%81%A8%E3%81%8D%E3%81%A9%E3%81%8D%E6%9B%87/</url>
-    <content><![CDATA[<p>歌词翻译 2 回目喵！依旧是带着自我感情的意译喵喵喵！</p>
-<h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
-<p>这是我两年前 loop 过的一首歌，曾经无数次治愈了迷茫又疲惫的我。 <ins>「做不到而逃走也能被获救的话，那样的未来我才不需要」，</ins> 这句歌词直击了我的心扉久久不止。 <ins>「哭泣着笑着后悔着，恋爱着失落着生活着」，</ins> 听着这样的歌词，就会想，是啊，生活就是这样的啊，有眼泪也有欢笑，这么想着，就会觉得所有困难的时候都能跨越过去了。大概每一首歌里，都会有一段无法忘怀的记忆吧，偶尔会想起 loop 这首歌的日子：有朋友，有爱好，有汗水，有生活。这是我人生旅途中再宝贵不过的时光了。 <span class="spoiler bulr" title="你知道得太多了">那样美好的时光，还能复刻吗？</span></p>
-<h1 id="视频"><a class="anchor" href="#视频">#</a> 视频</h1>
-<p><s>以前翻译过的歌也放在了列表里喵</s></p>
-<p><div class="media-container"><div class="player" data-type="video" data-src='[{"name":"晴ときどき曇","url":"https://yewtu.be/latest_version?id=IuAODcEqYSM&itag=22&hmac_key=1ed9417c31249913716447bded9366af91870790&local=true"},{"name":"語るなら未来を･･･","url":"https://yewtu.be/latest_version?id=E2lpSx9hBmc&itag=22&hmac_key=ac5a3f2152d849bb02aa266eed7cdd47c76ca085&local=true"}]'></div></div></p>
-<h1 id="歌词翻译"><a class="anchor" href="#歌词翻译">#</a> 歌词翻译</h1>
-<p>『晴ときどき曇』<br />
-晴朗，时而多云</p>
-<hr />
-<p>「いい天気だね」<br />
-<span class="red">你说，今天天气真好呢</span><br />
-君が言うから「本当だね」と答える<br />
-<span class="red">我笑道，确实是这样呢</span><br />
-今日の空のこと話題にしたなら心がふっと近くなる<br />
-<span class="red">一边谈论着这样的话题 心也一下子靠在了一起</span></p>
-<hr />
-<p>歩道を歩く　所々で水たまりが邪魔する<br />
-<span class="red">走在人行道上 到处都有碍事的水洼</span><br />
-君と手を繋いで飛び越えてみる　太陽の光が舞う<br />
-<span class="red">我牵着你的手跳了过去 阳光在起舞</span><br />
-次の季節が香り始める<br />
-<span class="red">下个季节即将开始绽放</span><br />
-その変化に抗うように<br />
-<span class="red">（太阳）为了违逆那样的变化</span><br />
- “暑かった日々を忘れないで” と最後の力　振り絞って照らす<br />
-<span class="red">竭尽全力大声呼喊着 “不要忘记炎炎夏日噢”，然后照耀着</span></p>
-<hr />
-<p>空は見上げるたびそっと　色や模様うつり変わって<br />
-<span class="red">每当仰望天空 颜色和模样都在风云变幻</span><br />
-それはもう僕らの毎日のようだね<br />
-<span class="red">那简直就像是我们的每一天呢</span><br />
-繰り返さないからもっと　この日この時この瞬間<br />
-<span class="red">因为那样的时刻没有办法复制 所以当下的此时此刻</span><br />
-思い上がらずに刻みつけていたいよ<br />
-<span class="red">都想小心翼翼地刻在心底呢</span></p>
-<hr />
-<p>宇宙まですぐ届く高さで泳いでいる魚たち<br />
-<span class="red">鱼儿们在能够得着宇宙的高度遨游着</span><br />
-そういえば昨日は鈍色の空　どこに潜っていたんだろう？<br />
-<span class="red"> 说起来 昨日的它们又潜藏在哪里的钝色天空之下呢？</span></p>
-<hr />
-<p>激しい雨にも耐えぬいた木の葉<br />
-<span class="red">无法忍受大雨的树叶们</span><br />
-へっちゃらな顔で伝えている<br />
-<span class="red">不屈地想表达些什么</span><br />
-やりきれないと逃げ出すことで救われるくらいなら<br />
-<span class="red">做不到而逃走也能被获救的话</span><br />
-そんな未来は必要 (いら) ない<br />
-<span class="red">那样的未来我才不需要</span></p>
-<hr />
-<p>今日も誰かが空の下　泣いて笑って悔しがって<br />
-<span class="red">今天也有人在天空之下 哭泣着笑着后悔着</span><br />
-恋したり落ち込んだりして暮らしている<br />
-<span class="red">恋爱着失落着生活着</span><br />
-満たされない何かがあって得られる喜びがあると思う<br />
-<span class="red">无法得到满足 但是一定有什么能得到的喜悦</span><br />
-少なくとも、今の僕はそうだよ<br />
-<span class="red">至少 如今的我是那样坚信的噢</span></p>
-<hr />
-<p>君が僕の方を振り返って　その思草 (しぐさ) がたまらなくて<br />
-<span class="red">你回头看向了我 那样的动作印在了我的脑海里</span><br />
-幸せはいつもそうやって傍にいる<br />
-<span class="red">幸福就像这样一直在我的身边</span><br />
-移り変わっていく空の下　僕らいつまでもこの瞬間<br />
-<span class="red">在风云变幻的天空之下 我们要永远像此刻这般</span><br />
-抱きしめながら　ふたり歩いていこう<br />
-<span class="red">两个人拥抱着 一起迈向未来吧</span></p>
-]]></content>
-      <categories>
-        <category>歌词翻译</category>
-      </categories>
-      <tags>
-        <tag>日语</tag>
-        <tag>歌词</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WASTED LOVE｜登坂広臣</title>
-    <url>/2023/08/28/WASTED%20LOVE/</url>
-    <content><![CDATA[<p>喵喵喵！歌词翻译 3 回目！这次挑战一下小黄歌喵～<br />
- 依旧随心所欲的意译预警喵喵喵！</p>
-<p><span id="more"></span></p>
-<h1 id="前言"><a class="anchor" href="#前言">#</a> 前言</h1>
-<p>是饭<span class="red">民工系</span>时听过的歌。<s>别说了，我现在网盘里都还有登坂広臣的高清果照喵喵喵！</s></p>
-<h1 id="视频"><a class="anchor" href="#视频">#</a> 视频</h1>
-<p><s>以前翻译过的歌也放在了列表里</s></p>
-<p><div class="media-container"><div class="player" data-type="video" data-src='[{"name":"WASTED LOVE","url":"https://yewtu.be/latest_version?id=k6D5vOUKNkE&itag=22&hmac_key=bde4976e597dad77a45eca0bff7766485342943a"},{"name":"晴ときどき曇","url":"https://yewtu.be/latest_version?id=IuAODcEqYSM&itag=22&hmac_key=1ed9417c31249913716447bded9366af91870790&local=true"},{"name":"語るなら未来を･･･","url":"https://yewtu.be/latest_version?id=E2lpSx9hBmc&itag=22&hmac_key=ac5a3f2152d849bb02aa266eed7cdd47c76ca085&local=true"}]'></div></div></p>
-<h1 id="歌词翻译"><a class="anchor" href="#歌词翻译">#</a> 歌词翻译</h1>
-<p>『WASTED LOVE』登坂広臣<br />
-废弃之爱</p>
-<hr />
-<p>Talking like that… We're gonna fall<br />
-<span class="red"> 我们耳鬓厮磨… 我们会一起坠落</span><br />
- Talking like that, talking like that…<br />
-<span class="red"> 我们耳鬓厮磨 我们诉说爱意…</span></p>
-<hr />
-<p>I don't know when it all started<br />
-<span class="red"> 我不知道我们时候开始的</span><br />
-いつの間にかこうして<br />
-<span class="red">不知不觉就变成了这样</span><br />
- Guided by my own beating heart<br />
-<span class="red"> 由我自己的心跳引导的</span><br />
-鼓動の赴くまま<br />
-<span class="red">跟随着心脏跳动</span></p>
-<hr />
-<p>何度も you said you loved me<br />
-<span class="red"> 无数次 你说你爱我</span><br />
-このまま have the time of my life<br />
-<span class="red"> 像这样 度过了我人生中最好的时光</span><br />
-二人でいる時間は<br />
-<span class="red">两个人在一起的时间</span><br />
- I've never felt this way in my life oh<br />
-<span class="red"> 是独一无二的日子</span></p>
-<hr />
-<p>ふと目が合ったあの時から<br />
-<span class="red">从我们视线交汇的那一刻起</span><br />
-物語は始まっていた<br />
-<span class="red">我们的故事就拉开了序幕</span><br />
- I could be free (yeah) I want to stay<br />
-<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
-<hr />
-<p>Talking like that<br />
-<span class="red"> 我们耳鬓厮磨</span><br />
- We got it fallin', talking like that<br />
-<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
- We got it fallin', talking like that<br />
-<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
- 'Cuz we are like that uuh uh uh<br />
-<span class="red"> 因为我们就是像那样</span><br />
- Talking like that<br />
-<span class="red"> 耳鬓厮磨的</span></p>
-<hr />
-<p>I would do it over again<br />
-<span class="red"> 我会再来一次</span><br />
-もし君さえ良かったら<br />
-<span class="red">如果你愿意的话</span><br />
- No matter what happens to us<br />
-<span class="red"> 不管发生什么</span><br />
-心に感じるまま<br />
-<span class="red">都跟随心的感受</span></p>
-<hr />
-<p>何度も Made love together<br />
-<span class="red"> 无次数 我们在床上缠绵</span><br />
-解ってる staring into your eyes<br />
-<span class="red"> 我明白 当我望向了你的眼睛</span><br />
-この気持ちを知ったら<br />
-<span class="red">当我知道了这样的感觉之后</span><br />
- There is no way I am turning back oh<br />
-<span class="red"> 就再无退路</span></p>
-<hr />
-<p>その手に触れたあの時から<br />
-<span class="red">从触碰你手的那一刻起</span><br />
-言葉もなく夢中になった<br />
-<span class="red">语言变得苍白 我爱上了你</span><br />
- I could be free (yeah), I want to stay<br />
-<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
-<hr />
-<p>Talking like that<br />
-<span class="red"> 我们耳鬓厮磨</span><br />
- We got it fallin', talking like that<br />
-<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
- We got it fallin', talking like that<br />
-<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
- 'Cuz we are like that uuh uh uh<br />
-<span class="red"> 因为我们就是像那样</span><br />
- Talking like that<br />
-<span class="red"> 耳鬓厮磨的</span></p>
-<hr />
-<p>Ah　ゆっくり激しく抱きしめ全て忘れ<br />
-<span class="red">啊 慢慢地激烈相拥 然后忘掉一切</span><br />
-夜に溶けていく I can't get enough<br />
-<span class="red"> 融入夜色 但我不能满足</span><br />
- yea yea yea このままずっと fallen<br />
-<span class="red"> 耶 耶 耶 像这样一直堕落</span></p>
-<hr />
-<p>ふと目が合ったあの時から<br />
-<span class="red">从我们视线交汇的那一刻起</span><br />
-物語は始まっていた<br />
-<span class="red">我们的故事就拉开了序幕</span><br />
- I could be free (yeah) I want to stay<br />
-<span class="red"> 我会是自由的（是的）我想留在你身边</span></p>
-<hr />
-<p>Talking like that<br />
-<span class="red"> 我们耳鬓厮磨</span><br />
- We got it fallin', talking like that<br />
-<span class="red"> 我们急速堕落 我们耳鬓厮磨</span><br />
- We got it fallin', talking like that<br />
-<span class="red"> 我们堕入深渊 我们诉说爱意</span><br />
- 'Cuz we are like that uuh uh uh<br />
-<span class="red"> 因为我们就是像那样</span><br />
- Talking like that<br />
-<span class="red"> 耳鬓厮磨的</span></p>
-]]></content>
-      <categories>
-        <category>歌词翻译</category>
-      </categories>
-      <tags>
-        <tag>日语</tag>
-        <tag>歌词，民工系</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>杂想 | 一些有的没的</title>
-    <url>/2023/08/30/%E6%9D%82%E6%83%B31/</url>
-    <content><![CDATA[<p>有一些想法，若是不及时记录下来的话，很快就会忘记。</p>
-<p><span id="more"></span></p>
-<h1 id="正义-程序正义的背后我在坚持着什么"><a class="anchor" href="#正义-程序正义的背后我在坚持着什么">#</a> 正义 | 程序正义的背后，我在坚持着什么</h1>
-<div class="note info">
-<p>因为是杂想，随笔，那么自然也就不会有严密无缝的逻辑推导和理论支撑喵</p>
-</div>
-<p>2021 年之前，我还是一个会在网络上（主新浪微博）高度冲浪的女大学生。那时候我的朋友在网上，我的爱好也在网上，最快乐的事情，就是和朋友一起追星搞 CP。可以说，<strong>这些成为了我赖以活下去的能量来源。</strong> 因此，当之后的一系列事情摧毁了我亲手为自己铸就的安全堡垒的时候，如潮水般汹涌而来的无力感和绝望感几近将我压垮淹没。</p>
-<h2 id="当我所对抗的恶讨伐了我的敌人时我并不会因此而有多欣喜"><a class="anchor" href="#当我所对抗的恶讨伐了我的敌人时我并不会因此而有多欣喜">#</a> 当我所对抗的 “恶” 讨伐了我的敌人时，我并不会因此而有多欣喜</h2>
-<p>因为那样的 “恶”，一定会挥刀向我所爱的人。</p>
-<h3 id="227事件是一切变故的开端"><a class="anchor" href="#227事件是一切变故的开端">#</a> 「227 事件」，是一切变故的开端。</h3>
-<p>著名的「227 事件」，简而言之便是某男星的粉丝凭己之力让中国政府墙掉了同人女的精神粮仓<span class="red"> AO3</span>。一时间，<ins>创作自由</ins>成为了口诛笔伐的对象，我所坚持的东西被公众踩得一文不值。</p>
-<p>而我是一个格外容易<span class="red">唇亡齿寒</span>的人，我做不到若无其事，即便我仍旧可以阅览 AO3。因为我能看得见未来，那样的未来里于我而言重要的东西会一点一点被剥夺，我说不上来被剥夺的是什么，<ins>或许是自由。</ins></p>
-<p>总之后来，由于种种事情的发生，我和朋友们心有灵犀地去抵制<strong>某男星背后的资本</strong>，因为我们认定那是一切祸的源头。或许对抗都将是徒劳，但是做了总比不做好，我们这么想着。</p>
-<p>直到事情持续发酵，就连<span class="red">官媒</span>也出面了。</p>
-<h3 id="公权力帮我手刃仇人我真的会开心吗"><a class="anchor" href="#公权力帮我手刃仇人我真的会开心吗">#</a> 公权力帮我手刃仇人，我真的会开心吗</h3>
-<p>官媒，是政府的喉舌，这一点似乎毋庸置疑。那样的官媒，竟然在某一天发表了文章评判<span class="red"> 227 事件</span>，并将某男星点评为<ins>失格艺人</ins>。一时间，网络沸腾。</p>
-<p><ins class="wavy">227 大团结</ins>取得了暂时的胜利，尽管男星背后的资本没有被打倒，但是官媒的出面，让大家都为之一振。我第一时间也很高兴，那种高兴类似于一种爽感，就像劣质的酒精给予了大脑临时的高潮和兴奋。但是，一时的爽感终究会褪去，因为那本身就是假象的快乐，当假象破碎，尽头便是赤裸的现实。</p>
-<p>我终于意识到了哪里不对。</p>
-<p>公权力帮我手刃仇人，难道它就不会挥刀向我所爱的人吗？还有那些我的信仰，我所坚信的东西，甚至，我所崇尚的自由。</p>
-<p>正义千千万，它在每个人心中都是不同模样。但是<ins>公权力的滥用</ins>，在我这里便是<span class="red">不正义</span>的。<s>至于公权力的边界是什么，不是我这次想说的重点所以就先不说了喵。</s> 以不正义换取的正义，也就是说<ins>当这个不正义被允许的话，</ins> 那么迎来的是不可控的恶。</p>
-<p>为了避免更大的恶，我宁愿忍受目前的小小不正义。<span class="red">因为我知道未来的恶，一定是我完全没有办法承受的。会摧毁我。</span></p>
-<h2 id="所有的恶终将会到来"><a class="anchor" href="#所有的恶终将会到来">#</a> 所有的恶，终将会到来</h2>
-<p>终于，我喜欢的艺人因在乃木神社参加朋友婚礼，后又因参观靖国神社，被全网封禁，追杀。</p>
-<p>我眼睁睁看着赛博狂欢，那是名为<span class="red">爱国</span>的因子在作祟，一夜间仿佛所有人都变成了爱国狂热者，爱国成为了道德，不爱国则成为了罪。它看起来那么的正确，毋庸置疑。是的，公权力就是这样的强大，它操纵舆论，翻覆云雨，既能让你的仇人成为失格艺人，也能抹杀掉你喜欢的人的所有痕迹。</p>
-<p><strong>是的，所有痕迹。</strong></p>
-<p>我亲眼看着 TA 的作品一部部被下架，TA 的 tag 被失效，甚至 TA 的存在都不被允许。简中网络再也搜不到 TA 的任何东西。好像 TA 从来没有来过。</p>
-<p>这太可怕了。</p>
-<p>我记得那一年陆续封禁了许多失德艺人。我现在依旧秉持着我那时的观点：</p>
-<blockquote>
-<p>一个人的失德可以由公众去抵制，但是公权力的强行插手，就是不正义的。因为公权力可以随心所欲地去定义什么是道德，什么是正确，并加诸于<strong>所有人头上，</strong> 而这一切，我们除了眼睁睁看着它发生，却无力反抗。</p>
-</blockquote>
-<h3 id="最终我逃离了赛博坟场"><a class="anchor" href="#最终我逃离了赛博坟场">#</a> 最终，我逃离了赛博坟场</h3>
-<p>再后来，<ins>女权被污名，性少数被抵制，跨性别更是被打压。</ins> 一个个词条成为黑色，一篇篇文章被屏蔽，一个个好友被封号。</p>
-<p>很早之前我有个天真的想法，尽管我很讨厌简中的社媒，但那是舆论的主要战场，我不能将其拱手给敌人，我要坚守在那里，抢夺一丁点儿的话语权。</p>
-<p>但是现实是，我完全不适合干这事儿。</p>
-<p>我从来不敢与人争吵，我会心悸到手都在颤抖。别说争吵了，就仅仅是看着词条被黑掉，我都能感到巨大无边的难过。</p>
-<p>2021 年 8 月 23 日，我写下过这样一段话：</p>
-<blockquote>
-<p>最近一直很难过，满脑子尽想着逃离吧逃离吧连曾经最享受的表达欲也不断被自我阉割。那些我曾信仰的、向往的、羡慕的蓬勃生命力，以及反复在脑海里所构建的最理想世界，不断枯死在这片大地上，空留一座座墓碑。</p>
-</blockquote>
-<p>终于巨大的无力感和绝望感将我摧毁淹没。而我的预感一向很准，当我第一次见到公权力下场时，我就知道，<ins>那只是个开始。</ins></p>
-<p>那只是个开始，等待我的，是无尽的恶。</p>
-<p>向恶魔讨要来的正义，我不敢要。</p>
-<h1 id="脆弱-我太害怕去暴露它了"><a class="anchor" href="#脆弱-我太害怕去暴露它了">#</a> 脆弱 | 我太害怕去暴露它了</h1>
-<p>我好像一直都是一个人活着。</p>
-<p>这样讲，会显得我太狼心狗肺了。我有爱我的家人，有真心待我的朋友，还有向我给予善意的陌生人。我周围那么多人，我被那么多人簇拥着。</p>
-<p>但是我仍旧是一个人。</p>
-<p>因为我的难过委屈总是在眼泪中吞进了我的肚子里，我没办法诉之于口。我必须要一个人活着。因为我 ——</p>
-<h2 id="我谁都不信只相信自己"><a class="anchor" href="#我谁都不信只相信自己">#</a> 我谁都不信，只相信自己</h2>
-<p>我一直觉得我算不得悲观，只不过看清了<span class="red">现实</span>。</p>
-<p>现实就是，所有爱都会死亡，所有人都是过客。没有什么恒久，只有暂时的快乐。言语会被谎言装饰，真实会被虚假扭曲。</p>
-<p>我躺进棺材的那一刻一定是孤身一人。</p>
-<p>我没办法将自己交付出去，这意味着我的真心会赤裸地被放在别人的案板上，刀悬在空中，随时有落下的可能，我不允许这样的事情发生。</p>
-<p><ins>只要真心完完全全的掌控在自己手中，我就不会受伤。</ins></p>
-<p>终于，我麻木了，我不会受伤，也感受不到爱了。</p>
-<h2 id="或许人生旅途中会有一个人出现ta能接住你的真心"><a class="anchor" href="#或许人生旅途中会有一个人出现ta能接住你的真心">#</a> 或许人生旅途中，会有一个人出现，TA 能接住你的真心</h2>
-<p>后来有个人跟我说，「我不会离开你。」</p>
-<p>我相信了一半，一半是因为 TA 说这句话的那一刻一定是真实的，但是另一半，我没有办法保证 TA 不会改变心意。</p>
-<p>被快乐冲昏的头脑终有一天会清醒，然后被逼着面对现实。</p>
-<p>期间发生了很多事，然后从某一瞬间开始，我暗自偷偷做了一个决定：<span class="spoiler" title="你知道得太多了">我要在 TA 离开我的时候，最小化我受到的伤害。做法便是，逐渐减少我对 TA 的依赖，慢慢收回我的真心。</span></p>
-<p>于是， <span class="spoiler" title="你知道得太多了">「被离开计划」</span> ，便悄悄启动了。</p>
-<h3 id="事不如愿终究还是将那句话发送了出去"><a class="anchor" href="#事不如愿终究还是将那句话发送了出去">#</a> 事不如愿，终究还是将那句话发送了出去</h3>
-<p>一个再也感受不到爱的人，忽然有一天神把爱送到了她身边，她拥有了爱之后，然后又要亲手把爱毁掉，且并非她本意。会怎么样呢？</p>
-<p><span class="spoiler" title="你知道得太多了">会疯掉。</span></p>
-<p>我还记得那种，强迫自己去<span class="red">切割爱</span>的感觉，得到短暂释怀的情绪高涨，又在噩梦里惊醒。反反复复。</p>
-<p>反反复复，都快怀疑自己是不是得了双相。</p>
-<p>终于，在一天难受得要死的下午，在被窝里，大脑一定是疯到没有了知觉，才会在聊天框里打下两句话：</p>
-<p>「好想你啊」<br />
-「我很难过」</p>
-<p>点击发送。</p>
-<p>那一刻我的心是空的，我的真心再也不握在我的手里，我感到自己踩空了，坠入了万丈深渊，急速下降。</p>
-<p>—— 有人接住了我。</p>
-<p>我没有坠入深渊，而是落在了一片软软的地上，睁眼是万里繁花盛开，TA 就趴在我的旁边，看着我笑，仿佛在说，「你看，我就在这里。」</p>
-<p>什么嘛。我委屈地腹诽道：袒露脆弱，好像也没有那么可怕嘛。</p>
-<h1 id="有的没的-或许可以写进悬疑小说里"><a class="anchor" href="#有的没的-或许可以写进悬疑小说里">#</a> 有的没的 | 或许可以写进悬疑小说里！</h1>
-<p>一天晚上，我望向窗外的时候，发现了诡异的一幕，玻璃窗上映出了本不该有的东西：</p>
-<p><img data-src="https://s2.loli.net/2023/08/31/83EdS2D94bRYieB.jpg" alt="Weixin Image_20230831175702.jpg" /></p>
-<p>首先，玻璃窗上应该映出的就是房间里的东西，没错，我很确信这一点，因为里面的每一样东西我都一清二楚，台灯，显示器，键盘等等 <s>（打码了）</s> 。</p>
-<p>但是台灯上却悬挂着我不知道是什么的物件。我看了半天，又向房间里确认，确信没有该物件的，因为房内的情况是这样的：</p>
-<p><img data-src="https://s2.loli.net/2023/08/31/aHcNGit2xJ6DpEF.jpg" alt="Weixin Image_20230831175628.jpg" /></p>
-<p>怎么看也只是台灯啊！所以玻璃上映出的是什么啊啊啊我该不会撞鬼了吧 ——</p>
-<p>咳咳，作为一个无神论者，怎么能相信鬼怪之说呢！侦探大脑启动！——</p>
-<p>呃，终于知道是怎么回事了，台灯挂着的，是<ins>窗外</ins>的衣架。</p>
-<p>发现这个事实的那一刻，我的心在沸腾！多么完美的迷惑手法！凶手可以利用「玻璃上的东西一定是映出来的」的先入为主的想法然后借此来迷惑受害人的视线，紧接着 ——</p>
-<p>停，我现在手里似乎没有侦探本来着（哭哭）没关系，以后总用得上！</p>
+    <title>杂谈 | 关于尊严</title>
+    <url>/2023/09/10/%E6%9D%82%E6%83%B3_%E5%85%B3%E4%BA%8E%E5%B0%8A%E4%B8%A5/</url>
+    <content><![CDATA[<p>今天看了一个视频，比较水，但是从中稍微知道了一些新的观点，所以记录一下。</p>
+<h1 id="关于尊严"><a class="anchor" href="#关于尊严">#</a> 关于尊严</h1>
+<p>其实视频主要是讲了一个<span class="red">都市人的困境和悲哀</span>，那就是 <ins>「我们身处于这个漩涡之中，不得不装腔作势」</ins> 。关于<span class="red">装腔作势</span>的部分我没有产生共鸣，因为我本身不是一个太会装的人（喂！w）倒是关于尊严的部分，也不是说产生了多少共鸣，但总之是知道了一些新的东西。</p>
+<p>首先博主引入了一个概念，叫<ins>习得性无尊严感</ins>。</p>
+<h2 id="习得性无尊严感"><a class="anchor" href="#习得性无尊严感">#</a> 习得性无尊严感</h2>
+<p><ins>一个人的无尊严感不是天然就有的，而是从后天里习得而来的，</ins> 因为什么都不懂的小孩不可能看不起自己，成年人才会不自重。那么这种后天的习得性无尊严感究竟是怎么回事呢？它从社会教育里产生的。比如我们从小的教育，很多母亲会指着路边的拾荒者对自己的小孩说：「你看，你要是不好好读书你就会像 TA 一样。」在这种情况下，拾荒者，甚至是体力劳动者，TA 们就会在人格上低人一等。人一开始的尊严值是 0，而为了达到社会上所定义的尊严，大多数人就只能努力向上爬，或装腔作势，甚至出卖自己的灵魂。<ins class="wavy">但是我们这种所获得的尊严，是他者赋予的，而不是自身所拥有的。</ins>一旦没有达到，就会陷入巨大的无尊严感之中。而即使获得了一定的社会成就，也依旧没有切实的尊严感。<ins class="dot">这便是习得性无尊严感。</ins></p>
+<p>于是从这个问题里又引出了另个问题，那就是 <ins>「都市人的工牌尊严」。</ins></p>
+<h2 id="工牌尊严"><a class="anchor" href="#工牌尊严">#</a> 工牌尊严</h2>
+<p>第一次听到<span class="red">工牌尊严</span>这个词，对尚未踏进社会的我来说十分新鲜，但仔细一想又觉得随处可见。一些在大厂里上班的白领可能总爱把自己的工牌随身带着，因为对于 TA 们来说，尊严这件事是与工牌绑定在一起的，在某某大厂里上班就是高人一等。这样一来，尊严就不再是关乎人本身，而是关乎工作、职业，甚至关乎国籍、种族和肤色等等。</p>
+<p>又回到刚刚那个例子：很多母亲会指着路边的拾荒者对自己的小孩说：「你看，你要是不好好读书你就会像 TA 一样。」然而事实上，TA 们真的就低人一等吗？我想不是的，因为同栋大楼里，<ins class="wavy">坐在高楼的白领，和站在大厅里的保安，应当拥有着同一份尊严。</ins></p>
+<p>想起我从几年前起就秉持着一个观点到如今：<ins>人生而平等不应当只是一句空话。</ins></p>
 <h1 id="结语"><a class="anchor" href="#结语">#</a> 结语</h1>
-<p>写了这么多，那就用最后两句话作结吧：</p>
-<p>陌生人，祝福你<ins>不迷茫</ins>，祝福你<ins>不失坚守</ins>，祝福你<ins>拥有爱</ins>。</p>
-<p><span class="red">也祝福我。</span></p>
+<p>很奇怪，我受到的教育和社会上的大多数无差，我耳边从小也充斥着「你要是不好好努力就会成为捡垃圾的」这样的话语。我的家庭，我也知道 TA 们是为了我有个更好的未来，所以用社会性尊严来教育我，告诉我「是人就分三六九等」。但是，我总觉得哪里不对，不对就是不对，自然也听不进去。</p>
+<p>也因为这个问题和母亲吵过，最终谁也没有说服谁。</p>
+<p>但是自己变得越来越 “柔和”，面对不赞同的观点，甚至那些观点与自己的坚守背道而驰，也能做到<ins>尊重，但不接受</ins>。很难讲，这究竟是一种成长，还是一种麻木？</p>
 ]]></content>
       <categories>
-        <category>杂想</category>
+        <category>杂想 | 杂谈</category>
       </categories>
       <tags>
-        <tag>杂想</tag>
         <tag>思考</tag>
+        <tag>杂谈</tag>
       </tags>
   </entry>
 </search>
